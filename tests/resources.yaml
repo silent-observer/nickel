@@ -1,0 +1,50 @@
+resourceDir: tests/resources
+fonts: 
+  font: font.ttf
+spriteSheets: 
+  slime: 
+    imagePath: "slime-Sheet.png"
+    tileX: 32
+    tileY: 25
+    count: 21
+    scaleUp: 3
+slice9s: 
+  blue: 
+    imagePath: blue.png
+    left: 8
+    right: 8
+    bottom: 8
+    top: 8
+    scaleUp: 2
+  green_pressed: 
+    imagePath: green_pressed.png
+    left: 8
+    right: 8
+    bottom: 8
+    top: 8
+    scaleUp: 2
+  list: 
+    imagePath: list.png
+    left: 8
+    right: 8
+    bottom: 8
+    top: 8
+    scaleUp: 2
+  blue_pressed: 
+    imagePath: blue_pressed.png
+    left: 8
+    right: 8
+    bottom: 8
+    top: 8
+    scaleUp: 2
+  green: 
+    imagePath: green.png
+    left: 8
+    right: 8
+    bottom: 8
+    top: 8
+    scaleUp: 2
+audioSamples: 
+  beep: sound.wav
+audioStreams: 
+  bgm: bgm.mp3

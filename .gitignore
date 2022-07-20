@@ -1,0 +1,6 @@
+.vscode/*
+profile_results.txt
+*.exe
+*.dll
+*.code-workspace
+*.idx
