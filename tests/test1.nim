@@ -124,6 +124,9 @@ proc handleButton(button: Button) =
       "panelWidth".requestTweenWithSpeed width.float, 200, Quad
     of KeyP:
       n.audio.playSample("beep")
+    of KeyT:
+      delay initDuration(seconds=1):
+        n.audio.playSample("beep")
     else:
       discard
 

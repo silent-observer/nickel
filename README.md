@@ -26,6 +26,7 @@ architecture is _MVVM_ - `Model`-`View`-`ViewModel` architecture.
     - click handling for sprites
     - animators - ability to model sprite animations as Finite State Machines.
     - tweens - ability to smoothly move objects and interpolate values.
+    - timers - run code after some delay
     - resource manager - centralized store for all your resources
     - event queue - a simple event queue that can be used for communication between `Model` and `ViewModel`
     - audio manager - playing audio using [Soloud](https://sol.gfxile.net/soloud/index.html) library

@@ -8,11 +8,11 @@
 ## `GuiElement`s, on the other hand, are high level: it's a collection of entities, contained in the ECS, which after Flutter-like layout procedure are transformed into `GuiPrimitive`s.
 ## *ViewModel* part is again up to the game code, but there are some helpful behaviours that are already defined in the library and can be easily used.
 
-import nickel/[resources, sprite, animator, utils, tween, audio, gui]
+import nickel/[resources, sprite, animator, utils, tween, audio, gui, timer]
 import nickel/gui/[ecs, primitives]
 import boxy, windy, opengl
 import std/monotimes, times, critbits
-export resources, sprite, animator, utils, windy, tween, primitives, gui, chroma, audio
+export resources, sprite, animator, utils, windy, tween, primitives, gui, chroma, audio, timer
 
 type View* = seq[GuiPrimitive] ## \
   ## This is the result of the rendering that the game has to output at each frame.
@@ -117,6 +117,7 @@ proc registerProcs*(n: Nickel, generateView: proc(size: IVec2): View,
 
     updateAnimations()
     updateTweens(delta)
+    updateTimers(delta)
     lastFrame = newTime
     if printFps:
       fps.inc
