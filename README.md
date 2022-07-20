@@ -1,5 +1,7 @@
 # Nickel
 
+[Documentation](https://silent-observer.github.io/nickel/nickel)
+
 **Nickel** is a miniature 2D game "engine" which is currently still WIP, and mostly for my own
 personal use.
 
