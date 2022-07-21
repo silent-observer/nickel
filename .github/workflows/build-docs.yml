@@ -17,7 +17,9 @@ jobs:
         uses: jiro4989/setup-nim-action@v1.1.4
         with:
           nim-version: '1.6.2'
-      - name: Check dependencies
+      - name: Check packages
+        run: nimble refresh
+      - name: Download dependencies
         run: nimble install -d
       - name: Build docs
         run: nimble docs
