@@ -26,8 +26,6 @@ jobs:
           nim-version: '1.6.2'
       - name: Check packages
         run: nimble refresh
-      - name: Download dependencies
-        run: nimble install -d
       - name: Build docs
         run: nimble docs
       - name: Deploy

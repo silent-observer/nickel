@@ -9,8 +9,8 @@
 ## the slider will have 10 possible values: from 0 to 9.
 ## Continuous sliders always have values from 0 to 1.
 
-import nickel/gui/[ecs, helpers, primitives]
-import nickel/[utils, resources]
+import ".."/[ecs, helpers, primitives]
+import ".."/".."/[utils, resources]
 
 proc newGuiDiscreteSlider*(track: Slice9Id, head: ImageId, count: int, padding: DirValues = ZeroDirValues,
     width: int = LengthUndefined): GuiElement =

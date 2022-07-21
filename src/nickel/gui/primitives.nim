@@ -1,6 +1,6 @@
 ## Module for low-level GUI API (`GuiPrimitive`s)
 
-import nickel/[resources, utils, sprite, collider]
+import ".."/[resources, utils, sprite, collider]
 import tables, hashes, options
 import boxy, lrucache
 from windy import Button

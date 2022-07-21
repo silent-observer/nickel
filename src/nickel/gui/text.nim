@@ -1,5 +1,5 @@
 import ecs, helpers
-import nickel/[utils, resources]
+import ".."/[utils, resources]
 import lrucache, pixie
 import hashes
 

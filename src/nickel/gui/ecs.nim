@@ -6,7 +6,7 @@
 
 import yaecs, pixie, windy
 import primitives
-import nickel/[resources, utils, sprite, collider]
+import ".."/[resources, utils, sprite, collider]
 
 type
   HAlign* {.pure.} = enum

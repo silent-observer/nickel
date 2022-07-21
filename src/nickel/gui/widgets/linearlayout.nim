@@ -3,9 +3,9 @@
 ## You can also define alignments for the elements, and also specify padding and
 ## the gap size between consecutive elements.
 
-import nickel/gui/[ecs, helpers, primitives]
-import nickel/gui
-import nickel/utils
+import ".."/[ecs, helpers, primitives]
+import ".."/".."/gui
+import ".."/".."/utils
 
 proc newGuiLinearLayout*(orientation: Orientation = Vertical, gap: int = LengthUndefined,
     padding: DirValues = ZeroDirValues, vAlign: VAlign = VTop, hAlign: HAlign = HLeft,

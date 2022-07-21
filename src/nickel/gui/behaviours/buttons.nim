@@ -13,7 +13,7 @@
 ##    add a behaviour to it, and draw its [disowned](../helpers.html#disowned,GuiElement) copy
 ##    each frame.
 
-import nickel/gui/[ecs, helpers]
+import ".."/[ecs, helpers]
 from windy import Button
 
 proc addSimpleOnClick*(gui: sink GuiElement, onClick: proc()): GuiElement =

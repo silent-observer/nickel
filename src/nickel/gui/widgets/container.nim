@@ -3,9 +3,9 @@
 ## position it according to their padding and alignment.
 ## Panel also has a visible slice-9 undernearth the child.
 
-import nickel/gui/[ecs, helpers, primitives]
-import nickel/gui
-import nickel/[utils, resources]
+import ".."/[ecs, helpers, primitives]
+import ".."/".."/gui
+import ".."/".."/[utils, resources]
 
 proc newGuiContainer*(child: sink GuiElement, padding: DirValues = ZeroDirValues, 
     vAlign: VAlign = VTop, hAlign: HAlign = HLeft, width: int = LengthUndefined, 

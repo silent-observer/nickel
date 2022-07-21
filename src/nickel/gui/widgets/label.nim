@@ -1,8 +1,8 @@
 ## Defines a simple text GUI element.
 ## Text inside can be aligned.
 
-import nickel/gui/[ecs, helpers, primitives, text]
-import nickel/utils
+import ".."/[ecs, helpers, primitives, text]
+import ".."/".."/utils
 import vmath
 
 proc newGuiLabel*(text: TextSpec, vAlign: VAlign = VTop, hAlign: HAlign = HLeft, 

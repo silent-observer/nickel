@@ -5,8 +5,8 @@
 ## Note that this element doesn't react to clicks in any way by default, to add
 ## such behaviour you should use [behaviours module](../behaviours/buttons.html).
 
-import nickel/gui/[ecs, helpers, primitives, text]
-import nickel/[utils, resources]
+import ".."/[ecs, helpers, primitives, text]
+import ".."/".."/[utils, resources]
 import vmath
 
 proc newGuiTextButton*(text: TextSpec, slice9: Slice9Id, slice9Pressed: Slice9Id,

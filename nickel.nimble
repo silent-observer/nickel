@@ -21,4 +21,4 @@ requires "https://github.com/zacharycarter/soloud-nim.git"
 requires "https://github.com/silent-observer/yaecs"
 
 task docs, "Generates the documentation":
-  exec "nim doc --mm:orc --gc:orc --project --out:docs --git.url:https://github.com/silent-observer/nickel --git.commit:master src/nickel.nim"
+  exec "nimble doc --mm:orc --gc:orc --project --out:docs --git.url:https://github.com/silent-observer/nickel --git.commit:master src/nickel.nim"

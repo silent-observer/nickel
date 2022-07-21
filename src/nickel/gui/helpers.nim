@@ -1,5 +1,5 @@
-import nickel/gui/ecs
-import nickel/utils
+import ".."/gui/ecs
+import ".."/utils
 import yaecs
 from pixie import HorizontalAlignment
 

@@ -1,7 +1,7 @@
 ## Slider behaviour. To be applied specifically to [sliders](..\widgets\slider.html)
 
-import nickel/gui/[ecs, helpers]
-import nickel/utils
+import ".."/[ecs, helpers]
+import ".."/".."/utils
 from windy import Button
 import vmath
 

@@ -1,8 +1,8 @@
 ## Defines a progress bar.
 ## This progress bar can also be used as a health bar, or anything of that sort.
 
-import nickel/gui/[ecs, helpers, primitives]
-import nickel/[utils, resources]
+import ".."/[ecs, helpers, primitives]
+import ".."/".."/[utils, resources]
 
 proc newGuiProgressBar*(track: Slice9Id, filling: Slice9Id, direction: Direction, value: float; 
     height, width: int = LengthUndefined): GuiElement =

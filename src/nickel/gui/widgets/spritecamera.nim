@@ -9,8 +9,8 @@
 ## It also contains colliders as children, which can detect mouse clicks or mouse entering
 ## or leaving their area.
 
-import nickel/gui/[ecs, helpers, primitives]
-import nickel/[utils, sprite, collider]
+import ".."/[ecs, helpers, primitives]
+import ".."/".."/[utils, sprite, collider]
 import vmath
 from bumpy import `xy=`
 
