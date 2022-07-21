@@ -31,7 +31,7 @@ proc addBasicButton*(gui: sink GuiElement, onClick: proc()): GuiElement =
   ## If the users moves their mouse outside the button while pressing it, the button press will be
   ## canceled.
   ## 
-  ## **See also:*
+  ## **See also:**
   ## * [addBasicButton proc](#addBasicButton,GuiElement,proc(T),T)
   ## * [addToggleButton proc](#addToggleButton,GuiElement,proc(bool))
   result = gui
@@ -53,7 +53,7 @@ proc addBasicButton*[T](gui: sink GuiElement, onClick: proc(x: T), data: T): Gui
   ## pass some arbitrary data to the `onClick` callback.
   ## Is useful when you register the same callback for many slightly different buttons.
   ## 
-  ## **See also:*
+  ## **See also:**
   ## * [addBasicButton proc](#addBasicButton,GuiElement,proc())
   ## * [addToggleButton proc](#addToggleButton,GuiElement,proc(bool))
   result = gui
@@ -76,7 +76,7 @@ proc addToggleButton*(gui: sink GuiElement, onSwitch: proc(b: bool)): GuiElement
   ## You can also check its state at any time with
   ## [isPressed proc](../helpers.html#isPressed,GuiElement).
   ## 
-  ## **See also:*
+  ## **See also:**
   ## * [addBasicButton proc](#addBasicButton,GuiElement,proc())
   ## * [addBasicButton proc](#addBasicButton,GuiElement,proc(T),T)
   result = gui

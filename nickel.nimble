@@ -20,4 +20,4 @@ requires "https://github.com/zacharycarter/soloud-nim.git"
 requires "yaecs"
 
 task docs, "Generates the documentation":
-  exec "nim doc --mm:orc --gc:orc --project --out:docs src/nickel.nim"
+  exec "nim doc --mm:orc --gc:orc --project --out:docs --git.url:https://github.com/silent-observer/nickel --git.commit:master src/nickel.nim"

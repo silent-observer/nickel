@@ -18,7 +18,7 @@ jobs:
         with:
           nim-version: '1.6.2'
       - name: Check dependencies
-        run: nimble check
+        run: nimble install -d
       - name: Build docs
         run: nimble docs
       - name: Deploy
