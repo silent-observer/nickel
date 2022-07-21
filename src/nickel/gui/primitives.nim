@@ -158,21 +158,23 @@ proc drawGui*(boxy: Boxy, e: GuiPrimitive) =
     
     
     boxy.pushLayer()
-    var x = e.s9l
-    while x < e.rect.w - e.s9r:
-      if e.s9t > 0:
-        boxy.drawImage(e.slice9 & "_t", x, 0)
-      if e.s9b > 0:
-        boxy.drawImage(e.slice9 & "_b", x, e.rect.h - e.s9b)
-      x += e.s9wc
+    if e.s9wc > 0:
+      var x = e.s9l
+      while x < e.rect.w - e.s9r:
+        if e.s9t > 0:
+          boxy.drawImage(e.slice9 & "_t", x, 0)
+        if e.s9b > 0:
+          boxy.drawImage(e.slice9 & "_b", x, e.rect.h - e.s9b)
+        x += e.s9wc
 
-    var y = e.s9t
-    while y < e.rect.h - e.s9b:
-      if e.s9l > 0:
-        boxy.drawImage(e.slice9 & "_l", 0, y)
-      if e.s9r > 0:
-        boxy.drawImage(e.slice9 & "_r", e.rect.w - e.s9r, y)
-      y += e.s9hc
+    if e.s9hc > 0:
+      var y = e.s9t
+      while y < e.rect.h - e.s9b:
+        if e.s9l > 0:
+          boxy.drawImage(e.slice9 & "_l", 0, y)
+        if e.s9r > 0:
+          boxy.drawImage(e.slice9 & "_r", e.rect.w - e.s9r, y)
+        y += e.s9hc
     boxy.pushLayer()
     boxy.drawRect(rect(e.s9l, 0, e.rect.w - e.s9l - e.s9r, e.s9t), color(1, 1, 1))
     boxy.drawRect(rect(e.s9l, e.rect.h - e.s9b, e.rect.w - e.s9l - e.s9r, e.s9b), color(1, 1, 1))
@@ -185,22 +187,23 @@ proc drawGui*(boxy: Boxy, e: GuiPrimitive) =
     boxy.popLayer()
     boxy.restoreTransform()
 
-    boxy.pushLayer()
-    y = e.s9t
-    while y < e.rect.h - e.s9b:
-      x = e.s9l
-      while x < e.rect.w - e.s9r:
-        boxy.drawImage(e.slice9 & "_c", x, y)
-        x += e.s9wc
-      y += e.s9hc
-    
-    boxy.pushLayer()
-    boxy.drawRect(rect(e.s9l, e.s9t, e.rect.w - e.s9l - e.s9r, e.rect.h - e.s9t - e.s9b), color(1, 1, 1))
-    boxy.saveTransform()
-    boxy.setTransform(mat3())
-    boxy.popLayer(blendMode=MaskBlend)
-    boxy.popLayer()
-    boxy.restoreTransform()
+    if e.s9wc > 0 and e.s9hc > 0:
+      boxy.pushLayer()
+      var y = e.s9t
+      while y < e.rect.h - e.s9b:
+        var x = e.s9l
+        while x < e.rect.w - e.s9r:
+          boxy.drawImage(e.slice9 & "_c", x, y)
+          x += e.s9wc
+        y += e.s9hc
+      
+      boxy.pushLayer()
+      boxy.drawRect(rect(e.s9l, e.s9t, e.rect.w - e.s9l - e.s9r, e.rect.h - e.s9t - e.s9b), color(1, 1, 1))
+      boxy.saveTransform()
+      boxy.setTransform(mat3())
+      boxy.popLayer(blendMode=MaskBlend)
+      boxy.popLayer()
+      boxy.restoreTransform()
 
   of FlatColorRectangle:
     discard

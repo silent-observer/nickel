@@ -3,4 +3,5 @@ profile_results.txt
 *.exe
 *.dll
 *.code-workspace
+docs
 *.idx
