@@ -1,0 +1,23 @@
+getSize	nickel/gui/helpers.html#getSize.t,IRect	helpers: getSize(r: IRect): Size	
+clamp0	nickel/gui/helpers.html#clamp0.t,int	helpers: clamp0(x: int): int	
+swap	nickel/gui/helpers.html#swap.t,Size	helpers: swap(s: Size): Size	
+swap	nickel/gui/helpers.html#swap.t,IRect	helpers: swap(r: IRect): IRect	
+swap	nickel/gui/helpers.html#swap.t,DirValues	helpers: swap(d: DirValues): DirValues	
+swap	nickel/gui/helpers.html#swap.t,Constraint	helpers: swap(c: Constraint): Constraint	
+swap	nickel/gui/helpers.html#swap.t,VAlign	helpers: swap(a: VAlign): HAlign	
+swap	nickel/gui/helpers.html#swap.t,HAlign	helpers: swap(a: HAlign): VAlign	
+convert	nickel/gui/helpers.html#convert.t,HAlign	helpers: convert(a: HAlign): HorizontalAlignment	
+subtractPadding	nickel/gui/helpers.html#subtractPadding,Constraint,DirValues	helpers: subtractPadding(c: Constraint; padding: DirValues): Constraint	
+subtractPadding	nickel/gui/helpers.html#subtractPadding,Size,DirValues	helpers: subtractPadding(s: Size; padding: DirValues): Size	
+addPadding	nickel/gui/helpers.html#addPadding,Size,DirValues	helpers: addPadding(s: Size; padding: DirValues): Size	
+noMin	nickel/gui/helpers.html#noMin,Constraint	helpers: noMin(c: Constraint): Constraint	
+fitConstraint	nickel/gui/helpers.html#fitConstraint,Size,Constraint	helpers: fitConstraint(size: Size; c: Constraint): Size	
+fitPreferred	nickel/gui/helpers.html#fitPreferred,Size,Size	helpers: fitPreferred(size: Size; preferred: Size): Size	
+fitPreferred	nickel/gui/helpers.html#fitPreferred,Constraint,Size	helpers: fitPreferred(c: Constraint; preferred: Size): Constraint	
+alignHorizontal	nickel/gui/helpers.html#alignHorizontal,IRect,Size,HAlign	helpers: alignHorizontal(child: var IRect; parentSize: Size; hAlign: HAlign)	
+alignVertical	nickel/gui/helpers.html#alignVertical,IRect,Size,VAlign	helpers: alignVertical(child: var IRect; parentSize: Size; vAlign: VAlign)	
+e	nickel/gui/helpers.html#e.t,GuiElement	helpers: e(gui: GuiElement): Entity[GuiWorld]	
+load	nickel/gui/helpers.html#load.t,untyped	helpers: load(field: untyped)	
+load	nickel/gui/helpers.html#load.t,untyped,untyped	helpers: load(name: untyped; field: untyped)	
+disowned	nickel/gui/helpers.html#disowned,GuiElement	helpers: disowned(gui: GuiElement): GuiElement	
+isPressed	nickel/gui/helpers.html#isPressed,GuiElement	helpers: isPressed(gui: GuiElement): bool	

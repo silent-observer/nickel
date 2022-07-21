@@ -1,0 +1,7 @@
+newGuiDiscreteSlider	nickel/gui/widgets/slider.html#newGuiDiscreteSlider,Slice9Id,ImageId,int,DirValues,int	slider: newGuiDiscreteSlider(track: Slice9Id; head: ImageId; count: int;\n                     padding: DirValues = ZeroDirValues;\n                     width: int = LengthUndefined): GuiElement	
+newGuiContinuousSlider	nickel/gui/widgets/slider.html#newGuiContinuousSlider,Slice9Id,ImageId,DirValues,int	slider: newGuiContinuousSlider(track: Slice9Id; head: ImageId;\n                       padding: DirValues = ZeroDirValues;\n                       width: int = LengthUndefined): GuiElement	
+discreteSliderVal	nickel/gui/widgets/slider.html#discreteSliderVal,GuiElement	slider: discreteSliderVal(gui: GuiElement): int	
+continuousSliderVal	nickel/gui/widgets/slider.html#continuousSliderVal,GuiElement	slider: continuousSliderVal(gui: GuiElement): float	
+discreteSliderVal=	nickel/gui/widgets/slider.html#discreteSliderVal=,GuiElement,int	slider: discreteSliderVal=(gui: GuiElement; val: int)	
+continuousSliderVal=	nickel/gui/widgets/slider.html#continuousSliderVal=,GuiElement,float	slider: continuousSliderVal=(gui: GuiElement; val: float)	
+layoutSlider	nickel/gui/widgets/slider.html#layoutSlider,GuiElement,Constraint	slider: layoutSlider(gui: GuiElement; c: Constraint): GuiPrimitive	

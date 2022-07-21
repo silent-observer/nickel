@@ -1,0 +1,38 @@
+TweenId	nickel/tween.html#TweenId	tween: TweenId	
+Number	nickel/tween.html#Number	TweenableValueKind.Number	
+Vector2D	nickel/tween.html#Vector2D	TweenableValueKind.Vector2D	
+Vector3D	nickel/tween.html#Vector3D	TweenableValueKind.Vector3D	
+TweenableValueKind	nickel/tween.html#TweenableValueKind	tween: TweenableValueKind	
+TweenableValue	nickel/tween.html#TweenableValue	tween: TweenableValue	
+None	nickel/tween.html#None	TweenEasing.None	
+Sine	nickel/tween.html#Sine	TweenEasing.Sine	
+Quad	nickel/tween.html#Quad	TweenEasing.Quad	
+Cubic	nickel/tween.html#Cubic	TweenEasing.Cubic	
+Quart	nickel/tween.html#Quart	TweenEasing.Quart	
+Quint	nickel/tween.html#Quint	TweenEasing.Quint	
+Expo	nickel/tween.html#Expo	TweenEasing.Expo	
+Circ	nickel/tween.html#Circ	TweenEasing.Circ	
+Back	nickel/tween.html#Back	TweenEasing.Back	
+Elastic	nickel/tween.html#Elastic	TweenEasing.Elastic	
+Bounce	nickel/tween.html#Bounce	TweenEasing.Bounce	
+TweenEasing	nickel/tween.html#TweenEasing	tween: TweenEasing	
+In	nickel/tween.html#In	TweenEnds.In	
+Out	nickel/tween.html#Out	TweenEnds.Out	
+InOut	nickel/tween.html#InOut	TweenEnds.InOut	
+TweenEnds	nickel/tween.html#TweenEnds	tween: TweenEnds	
+TweenCallback	nickel/tween.html#TweenCallback	tween: TweenCallback	
+TweenRequest	nickel/tween.html#TweenRequest	tween: TweenRequest	
+addTweenableNumber	nickel/tween.html#addTweenableNumber,TweenId,float	tween: addTweenableNumber(key: TweenId; number: float)	
+addTweenableVector2D	nickel/tween.html#addTweenableVector2D,TweenId,Vec2	tween: addTweenableVector2D(key: TweenId; vector2: Vec2)	
+addTweenableVector3D	nickel/tween.html#addTweenableVector3D,TweenId,Vec3	tween: addTweenableVector3D(key: TweenId; vector3: Vec3)	
+tween	nickel/tween.html#tween,T,T,float,TweenEasing,TweenEnds	tween: tween[T: float | Vec2 | Vec3](start, finish: T; t: float; easing: TweenEasing;\n                              easingEnds: TweenEnds): T	
+getTweenNumber	nickel/tween.html#getTweenNumber,TweenId	tween: getTweenNumber(key: TweenId): float	
+getTweenVector2	nickel/tween.html#getTweenVector2,TweenId	tween: getTweenVector2(key: TweenId): Vec2	
+getTweenVector3	nickel/tween.html#getTweenVector3,TweenId	tween: getTweenVector3(key: TweenId): Vec3	
+getTweenValue	nickel/tween.html#getTweenValue,TweenId	tween: getTweenValue(key: TweenId): TweenableValue	
+isComplete	nickel/tween.html#isComplete,TweenId	tween: isComplete(key: TweenId): bool	
+updateTweens	nickel/tween.html#updateTweens,Duration	tween: updateTweens(delta: Duration)	
+requestTween	nickel/tween.html#requestTween,TweenId,TweenRequest	tween: requestTween(key: TweenId; r: TweenRequest)	
+requestTween	nickel/tween.html#requestTween,TweenId,TweenableValue,Duration,TweenEasing,TweenEnds,TweenCallback	tween: requestTween(key: TweenId; to: TweenableValue; duration: Duration;\n             easing: TweenEasing = None; easingEnds: TweenEnds = InOut;\n             callback: TweenCallback = nil)	
+requestTween	nickel/tween.html#requestTween,TweenId,T,Duration,TweenEasing,TweenEnds,TweenCallback	tween: requestTween[T: float | Vec2 | Vec3](key: TweenId; to: T; duration: Duration;\n                                     easing: TweenEasing = None;\n                                     easingEnds: TweenEnds = InOut;\n                                     callback: TweenCallback = nil)	
+requestTweenWithSpeed	nickel/tween.html#requestTweenWithSpeed,TweenId,T,float,TweenEasing,TweenEnds,TweenCallback	tween: requestTweenWithSpeed[T: float | Vec2 | Vec3](key: TweenId; to: T; speed: float;\n    easing: TweenEasing = None; easingEnds: TweenEnds = InOut;\n    callback: TweenCallback = nil)	

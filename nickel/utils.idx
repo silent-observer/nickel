@@ -1,0 +1,10 @@
+integerScaleUp	nickel/utils.html#integerScaleUp,Image,int	utils: integerScaleUp(img: Image; scale: int): Image	
+NickelError	nickel/utils.html#NickelError	utils: NickelError	
+NickelDefect	nickel/utils.html#NickelDefect	utils: NickelDefect	
+Size	nickel/utils.html#Size	utils: Size	
+IRect	nickel/utils.html#IRect	utils: IRect	
+irect	nickel/utils.html#irect,int,int,int,int	utils: irect(x, y, w, h: int): IRect	
+rect	nickel/utils.html#rect,IRect	utils: rect(r: IRect): Rect	
+pixelPerfect	nickel/utils.html#pixelPerfect,float,int	utils: pixelPerfect(f: float; pixelSize: int): int	
+pixelPerfect	nickel/utils.html#pixelPerfect,Vec2,int	utils: pixelPerfect(f: Vec2; pixelSize: int): IVec2	
+pixelPerfect	nickel/utils.html#pixelPerfect,Vec3,int	utils: pixelPerfect(f: Vec3; pixelSize: int): IVec3	

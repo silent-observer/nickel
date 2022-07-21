@@ -1,0 +1,24 @@
+ImageId	nickel/resources.html#ImageId	resources: ImageId	
+FontId	nickel/resources.html#FontId	resources: FontId	
+SpriteSheetId	nickel/resources.html#SpriteSheetId	resources: SpriteSheetId	
+Slice9Id	nickel/resources.html#Slice9Id	resources: Slice9Id	
+AudioSampleId	nickel/resources.html#AudioSampleId	resources: AudioSampleId	
+AudioStreamId	nickel/resources.html#AudioStreamId	resources: AudioStreamId	
+SpriteSheet	nickel/resources.html#SpriteSheet	resources: SpriteSheet	
+SpriteSheetSpec	nickel/resources.html#SpriteSheetSpec	resources: SpriteSheetSpec	
+Slice9	nickel/resources.html#Slice9	resources: Slice9	
+Slice9Spec	nickel/resources.html#Slice9Spec	resources: Slice9Spec	
+ResourceConfig	nickel/resources.html#ResourceConfig	resources: ResourceConfig	
+loadAudioStream	nickel/resources.html#loadAudioStream,AudioStreamId,string	resources: loadAudioStream(key: AudioStreamId; path: string)	
+loadResources	nickel/resources.html#loadResources,ResourceConfig	resources: loadResources(cfg: ResourceConfig)	
+loadResources	nickel/resources.html#loadResources,string	resources: loadResources(cfgPath: string)	
+getImageResource	nickel/resources.html#getImageResource,ImageId	resources: getImageResource(key: ImageId): Image	
+getFontResource	nickel/resources.html#getFontResource,FontId	resources: getFontResource(key: FontId): Typeface	
+getSpriteSheetResource	nickel/resources.html#getSpriteSheetResource,SpriteSheetId	resources: getSpriteSheetResource(key: SpriteSheetId): SpriteSheet	
+getSlice9Resource	nickel/resources.html#getSlice9Resource,Slice9Id	resources: getSlice9Resource(key: Slice9Id): Slice9	
+getAllSpriteSheetResources	nickel/resources.html#getAllSpriteSheetResources	resources: getAllSpriteSheetResources(): CritBitTree[SpriteSheet]	
+getAllSlice9Resources	nickel/resources.html#getAllSlice9Resources	resources: getAllSlice9Resources(): CritBitTree[Slice9]	
+getAllImageResources	nickel/resources.html#getAllImageResources	resources: getAllImageResources(): CritBitTree[Image]	
+getAudioSampleResource	nickel/resources.html#getAudioSampleResource,AudioSampleId	resources: getAudioSampleResource(key: AudioSampleId): ptr Wav	
+getAudioStreamResource	nickel/resources.html#getAudioStreamResource,AudioStreamId	resources: getAudioStreamResource(key: AudioStreamId): ptr WavStream	
+Resource file	nickel/resources.html#resource-file	 Resource file	

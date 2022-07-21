@@ -1,0 +1,10 @@
+TimerCallback	nickel/timer.html#TimerCallback	timer: TimerCallback	
+TimerId	nickel/timer.html#TimerId	timer: TimerId	
+Timer	nickel/timer.html#Timer	timer: Timer	
+newTimer	nickel/timer.html#newTimer,TimerId,Duration,TimerCallback,bool	timer: newTimer(id: TimerId; waitFor: Duration; callback: TimerCallback;\n         isLooping: bool = false)	
+callDelayed	nickel/timer.html#callDelayed,TimerCallback,Duration	timer: callDelayed(callback: TimerCallback; waitFor: Duration)	
+delay	nickel/timer.html#delay.t,Duration,untyped	timer: delay(waitFor: Duration; code: untyped): untyped	
+callLooping	nickel/timer.html#callLooping,TimerId,TimerCallback,Duration	timer: callLooping(id: TimerId; callback: TimerCallback; period: Duration)	
+startLoop	nickel/timer.html#startLoop.t,TimerId,Duration,untyped	timer: startLoop(id: TimerId; period: Duration; code: untyped): untyped	
+stopTimer	nickel/timer.html#stopTimer,TimerId	timer: stopTimer(id: TimerId)	
+updateTimers	nickel/timer.html#updateTimers,Duration	timer: updateTimers(delta: Duration)	

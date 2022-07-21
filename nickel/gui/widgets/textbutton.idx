@@ -1,0 +1,2 @@
+newGuiTextButton	nickel/gui/widgets/textbutton.html#newGuiTextButton,TextSpec,Slice9Id,Slice9Id,DirValues,DirValues,int,int	textbutton: newGuiTextButton(text: TextSpec; slice9: Slice9Id; slice9Pressed: Slice9Id;\n                 padding: DirValues = ZeroDirValues;\n                 paddingPressed: DirValues = padding;\n                 width: int = LengthUndefined; height: int = LengthUndefined): GuiElement	
+layoutTextButton	nickel/gui/widgets/textbutton.html#layoutTextButton,GuiElement,Constraint	textbutton: layoutTextButton(gui: GuiElement; c: Constraint): GuiPrimitive	

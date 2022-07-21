@@ -1,0 +1,7 @@
+View	nickel.html#View	nickel: View	
+Nickel	nickel.html#Nickel	nickel: Nickel	
+NickelConfig	nickel.html#NickelConfig	nickel: NickelConfig	
+newNickel	nickel.html#newNickel,NickelConfig	nickel: newNickel(c: NickelConfig): Nickel	
+registerProcs	nickel.html#registerProcs,Nickel,proc(IVec2),proc(Button),bool	nickel: registerProcs(n: Nickel; generateView: proc (size: IVec2): View;\n              handleButton: proc (b: Button) = nil; printFps: bool = false)	
+mainLoop	nickel.html#mainLoop,Nickel	nickel: mainLoop(n: Nickel)	
+audio	nickel.html#audio.t,Nickel	nickel: audio(n: Nickel): AudioManager	

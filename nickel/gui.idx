@@ -1,0 +1,1 @@
+layout	nickel/gui.html#layout,GuiElement,Constraint	gui: layout(gui: GuiElement; c: Constraint): GuiPrimitive	

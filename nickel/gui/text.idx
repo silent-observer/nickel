@@ -1,0 +1,3 @@
+layoutText	nickel/gui/text.html#layoutText,Size,TextSpec,Alignable	text: layoutText(size: Size; text: TextSpec; align: Alignable): Hash	
+getText	nickel/gui/text.html#getText,Hash	text: getText(h: Hash): (Arrangement, Vec2)	
+initText	nickel/gui/text.html#initText,string,FontId,float32,Color	text: initText(text: string; font: FontId; size: float32 = 14;\n         color: Color = color(0, 0, 0, 1)): TextSpec	

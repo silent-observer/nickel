@@ -1,0 +1,7 @@
+ColliderKind	nickel/collider.html#ColliderKind	collider: ColliderKind	
+Collider	nickel/collider.html#Collider	collider: Collider	
+inside	nickel/collider.html#inside,Vec2,Collider	collider: inside(p: Vec2; c: Collider): bool	
+initCollider	nickel/collider.html#initCollider,Vec2,float	collider: initCollider(center: Vec2; radius: float): Collider	
+initCollider	nickel/collider.html#initCollider,float,float,float,float	collider: initCollider(x, y, w, h: float): Collider	
+initCollider	nickel/collider.html#initCollider,Vec2,Vec2	collider: initCollider(pos, size: Vec2): Collider	
+initCollider	nickel/collider.html#initCollider,seq[Vec2]	collider: initCollider(poly: seq[Vec2]): Collider	

@@ -1,0 +1,29 @@
+AnimationEnd	nickel/animator.html#AnimationEnd	animator: AnimationEnd	
+AnimationId	nickel/animator.html#AnimationId	animator: AnimationId	
+ActionId	nickel/animator.html#ActionId	animator: ActionId	
+AnimatedEntityId	nickel/animator.html#AnimatedEntityId	animator: AnimatedEntityId	
+AnimatorId	nickel/animator.html#AnimatorId	animator: AnimatorId	
+Immediate	nickel/animator.html#Immediate	TransitionFlag.Immediate	
+Interrupting	nickel/animator.html#Interrupting	TransitionFlag.Interrupting	
+TransitionFlag	nickel/animator.html#TransitionFlag	animator: TransitionFlag	
+Transition	nickel/animator.html#Transition	animator: Transition	
+Animation	nickel/animator.html#Animation	animator: Animation	
+Animator	nickel/animator.html#Animator	animator: Animator	
+AnimatedEntity	nickel/animator.html#AnimatedEntity	animator: AnimatedEntity	
+getIndex	nickel/animator.html#getIndex,AnimatedEntityId	animator: getIndex(id: AnimatedEntityId): int	
+notifyAction	nickel/animator.html#notifyAction,AnimatedEntityId,ActionId	animator: notifyAction(id: AnimatedEntityId; action: ActionId)	
+updateAnimations	nickel/animator.html#updateAnimations	animator: updateAnimations()	
+addAnimator	nickel/animator.html#addAnimator,AnimatorId	animator: addAnimator(id: AnimatorId)	
+addAnimation	nickel/animator.html#addAnimation,AnimatorId,AnimationId,openArray[int],int,AnimationEnd	animator: addAnimation(id: AnimatorId; anim: AnimationId; indexes: openArray[int];\n             framesPerStep: int; animEnd: AnimationEnd)	
+addAnimation	nickel/animator.html#addAnimation,AnimatorId,AnimationId,HSlice[H: Ordinal,U: Ordinal],int,AnimationEnd	animator: addAnimation[H, U: Ordinal](id: AnimatorId; anim: AnimationId;\n                            indexes: HSlice[H, U]; framesPerStep: int;\n                            animEnd: AnimationEnd)	
+setGoTo	nickel/animator.html#setGoTo,AnimatorId,AnimationId,AnimationId	animator: setGoTo(id: AnimatorId; fromAnim, toAnim: AnimationId)	
+addTransition	nickel/animator.html#addTransition,AnimatorId,AnimationId,AnimationId,ActionId,set[TransitionFlag]	animator: addTransition(id: AnimatorId; fromAnim, toAnim: AnimationId; action: ActionId;\n              flags: set[TransitionFlag] = {})	
+addTransition	nickel/animator.html#addTransition,AnimatorId,AnimationId,AnimationId,ActionId,TransitionFlag	animator: addTransition(id: AnimatorId; fromAnim, toAnim: AnimationId; action: ActionId;\n              flag: TransitionFlag)	
+addAnimatedEntity	nickel/animator.html#addAnimatedEntity,AnimatedEntityId,AnimatorId,AnimationId	animator: addAnimatedEntity(id: AnimatedEntityId; animator: AnimatorId;\n                  startAnim: AnimationId)	
+delete	nickel/animator.html#delete,AnimatedEntityId	animator: delete(id: AnimatedEntityId)	
+setAnimationStep	nickel/animator.html#setAnimationStep,AnimatedEntityId,int	animator: setAnimationStep(id: AnimatedEntityId; step: int)	
+newArrayId	nickel/animator.html#newArrayId,AnimatedEntityId	animator: newArrayId(base: AnimatedEntityId): AnimatedEntityId	
+restartArrayId	nickel/animator.html#restartArrayId,AnimatedEntityId	animator: restartArrayId(base: AnimatedEntityId)	
+combineIds	nickel/animator.html#combineIds,varargs[string]	animator: combineIds(ids: varargs[string]): string	
+addAnimatedEntities	nickel/animator.html#addAnimatedEntities,AnimatedEntityId,int,AnimatorId,AnimationId	animator: addAnimatedEntities(base: AnimatedEntityId; count: int; animator: AnimatorId;\n                    startAnim: AnimationId): seq[AnimatedEntityId]	
+deleteAll	nickel/animator.html#deleteAll,AnimatedEntityId	animator: deleteAll(base: AnimatedEntityId)	

@@ -1,0 +1,2 @@
+newGuiProgressBar	nickel/gui/widgets/progressbar.html#newGuiProgressBar,Slice9Id,Slice9Id,Direction,float,int,int	progressbar: newGuiProgressBar(track: Slice9Id; filling: Slice9Id; direction: Direction;\n                  value: float; height, width: int = LengthUndefined): GuiElement	
+layoutProgressBar	nickel/gui/widgets/progressbar.html#layoutProgressBar,GuiElement,Constraint	progressbar: layoutProgressBar(gui: GuiElement; c: Constraint): GuiPrimitive	

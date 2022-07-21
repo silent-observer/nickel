@@ -1,0 +1,9 @@
+Sprite	nickel/sprite.html#Sprite	sprite: Sprite	
+SpriteId	nickel/sprite.html#SpriteId	sprite: SpriteId	
+drawSprite	nickel/sprite.html#drawSprite,Boxy,Sprite	sprite: drawSprite(boxy: Boxy; sprite: Sprite)	
+newSprite	nickel/sprite.html#newSprite,ImageId,int,int	sprite: newSprite(key: ImageId; x: int; y: int): SpriteId	
+newSprite	nickel/sprite.html#newSprite,ImageId,IVec2	sprite: newSprite(key: ImageId; pos: IVec2): SpriteId	
+newSprite	nickel/sprite.html#newSprite,SpriteSheetId,int,int,int	sprite: newSprite(ssKey: SpriteSheetId; index: int; x: int; y: int): SpriteId	
+newSprite	nickel/sprite.html#newSprite,SpriteSheetId,int,IVec2	sprite: newSprite(ssKey: SpriteSheetId; index: int; pos: IVec2): SpriteId	
+clearSprites	nickel/sprite.html#clearSprites	sprite: clearSprites()	
+get	nickel/sprite.html#get,SpriteId	sprite: get(id: SpriteId): Sprite	

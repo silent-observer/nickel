@@ -1,0 +1,2 @@
+newGuiLabel	nickel/gui/widgets/label.html#newGuiLabel,TextSpec,VAlign,HAlign,int,int	label: newGuiLabel(text: TextSpec; vAlign: VAlign = VTop; hAlign: HAlign = HLeft;\n            width: int = LengthUndefined; height: int = LengthUndefined): GuiElement	
+layoutLabel	nickel/gui/widgets/label.html#layoutLabel,GuiElement,Constraint	label: layoutLabel(gui: GuiElement; c: Constraint): GuiPrimitive	

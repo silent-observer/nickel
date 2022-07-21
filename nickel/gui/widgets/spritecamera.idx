@@ -1,0 +1,8 @@
+newSpriteCamera	nickel/gui/widgets/spritecamera.html#newSpriteCamera,seq[SpriteId],IRect,VAlign,HAlign,int,int	spritecamera: newSpriteCamera(sprites: seq[SpriteId]; rect: IRect; vAlign: VAlign = VCenter;\n                hAlign: HAlign = HCenter; width: int = LengthUndefined;\n                height: int = LengthUndefined): GuiElement	
+newCollider	nickel/gui/widgets/spritecamera.html#newCollider,Vec2,float	spritecamera: newCollider(center: Vec2; radius: float): GuiElement	
+newCollider	nickel/gui/widgets/spritecamera.html#newCollider,float,float,float,float	spritecamera: newCollider(x, y, w, h: float): GuiElement	
+newCollider	nickel/gui/widgets/spritecamera.html#newCollider,Vec2,Vec2	spritecamera: newCollider(pos, size: Vec2): GuiElement	
+newCollider	nickel/gui/widgets/spritecamera.html#newCollider,seq[Vec2]	spritecamera: newCollider(poly: seq[Vec2]): GuiElement	
+updateCollider	nickel/gui/widgets/spritecamera.html#updateCollider,GuiElement,Collider	spritecamera: updateCollider(gui: GuiElement; c: Collider)	
+updateColliderPosition	nickel/gui/widgets/spritecamera.html#updateColliderPosition,GuiElement,Vec2	spritecamera: updateColliderPosition(gui: GuiElement; pos: Vec2)	
+layoutSpriteCamera	nickel/gui/widgets/spritecamera.html#layoutSpriteCamera,GuiElement,Constraint	spritecamera: layoutSpriteCamera(gui: GuiElement; c: Constraint): GuiPrimitive	

@@ -1,0 +1,6 @@
+AudioManager	nickel/audio.html#AudioManager	audio: AudioManager	
+initAudioManager	nickel/audio.html#initAudioManager	audio: initAudioManager(): AudioManager	
+fadeBackground	nickel/audio.html#fadeBackground,AudioManager,AudioStreamId	audio: fadeBackground(m: var AudioManager; audio: AudioStreamId)	
+playSample	nickel/audio.html#playSample,AudioManager,AudioSampleId,float,float	audio: playSample(m: var AudioManager; audio: AudioSampleId; volume: float = 1;\n           pan: float = 0)	
+playSampleLoop	nickel/audio.html#playSampleLoop,AudioManager,AudioSampleId,float,float	audio: playSampleLoop(m: var AudioManager; audio: AudioSampleId; volume: float = 1;\n               pan: float = 0)	
+stopSample	nickel/audio.html#stopSample,AudioManager,AudioSampleId	audio: stopSample(m: var AudioManager; audio: AudioSampleId)	
