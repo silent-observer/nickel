@@ -1,4 +1,5 @@
 resourceDir: tests/resources
+defaultScaleUp: 2
 fonts: 
   font: font.ttf
 spriteSheets: 
@@ -44,6 +45,15 @@ slice9s:
     bottom: 8
     top: 8
     scaleUp: 2
+  track:
+    imagePath: track.png
+    left: 8
+    right: 8
+    top: 4
+    bottom: 4
+    scaleUp: 2
+images:
+  head: head.png
 audioSamples: 
   beep: sound.wav
 audioStreams: 

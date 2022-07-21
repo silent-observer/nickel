@@ -24,7 +24,8 @@ type
     Horizontal
 
   ClickCallback* = proc (button: Button) ## Callback for mouse clicking
-  MouseMoveCallback* = proc() ## Callback for mouse entering or leaving an area
+  MouseAreaCallback* = proc() ## Callback for mouse entering or leaving an area
+  MouseMoveCallback* = proc(v: IVec2) ## Callback for mouse moving (called every frame)
 
   DirValues* = object
     ## Something that is defined for each side (like a padding)
@@ -38,13 +39,22 @@ type
     font*: FontId
     size*: float32
     color*: Color
+  SliderComp* = object
+    case isDiscrete*: bool:
+    of true:
+      discreteVal*: int
+      count*: int
+    of false:
+      continuousVal*: float
+    headWidth*: int
 
 type
   PreferredSize* = distinct Size
   OnMousePress* = distinct ClickCallback
   OnMouseRelease* = distinct ClickCallback
-  OnMouseEnter* = distinct MouseMoveCallback
-  OnMouseLeave* = distinct MouseMoveCallback
+  OnMouseEnter* = distinct MouseAreaCallback
+  OnMouseLeave* = distinct MouseAreaCallback
+  OnMouseMove* = distinct MouseMoveCallback
   Alignable* = object
     hAlign*: HAlign
     vAlign*: VAlign
@@ -57,15 +67,18 @@ type
   SpriteCanvas* = object
     sprites*: seq[SpriteId]
     rect*: IRect
+  SavesRect* = distinct IRect
 
-genTagTypesGlobal ButtonPressed, ButtonPressedTemporary, ContainerTag, Layout, Hovered
+genTagTypesGlobal ButtonPressed, ButtonPressedTemporary, ContainerTag, Layout, 
+  Hovered, TracksMouseReleaseEverywhere
 
 genWorldGlobal GuiWorld:
   components:
     OnMousePress(ClickCallback) as onPress
     OnMouseRelease(ClickCallback) as onRelease
-    OnMouseEnter(MouseMoveCallback) as onEnter
-    OnMouseLeave(MouseMoveCallback) as onLeave
+    OnMouseEnter(MouseAreaCallback) as onEnter
+    OnMouseLeave(MouseAreaCallback) as onLeave
+    OnMouseMove(MouseMoveCallback) as onMouseMove
 
     PreferredSize(Size) as preferredSize
     Alignable as align
@@ -80,12 +93,16 @@ genWorldGlobal GuiWorld:
 
     SpriteCanvas as canvas
     Collider as collider
+
+    SliderComp as slider
+    SavesRect(IRect) as savedRect
   tags:
     Layout
     ContainerTag
     ButtonPressed (rare)
     ButtonPressedTemporary (rare)
     Hovered (rare)
+    TracksMouseReleaseEverywhere
   filters:
     (PreferredSize, Alignable, Padding, LinearLayoutGap, Layout, Orientation) as LinearLayout
     (PreferredSize, Alignable, Padding, ContainerTag, PanelComp) as Panel
@@ -93,11 +110,13 @@ genWorldGlobal GuiWorld:
     (PreferredSize, Alignable, TextSpec) as Label
     Hovered as Hovered
     (Hovered, OnMousePress) as HoveredAndPress
-    (Hovered, OnMouseRelease) as HoveredAndRelease
+    (Hovered, OnMouseRelease, not TracksMouseReleaseEverywhere) as HoveredAndRelease
+    (OnMouseRelease, TracksMouseReleaseEverywhere) as ReleaseEverywhere
+    OnMouseMove as OnMouseMove
     (PreferredSize, Padding, TextSpec, PanelComp, PressedPanelComp) as TextButton
     (PreferredSize, ImageComp, PressedImageComp) as ImageButton
     (PreferredSize, SpriteCanvas, Layout, Alignable) as SpriteCamera
-  
+    (PreferredSize, Padding, ImageComp, PanelComp, SliderComp, SavesRect) as Slider
 
 const
   LengthInfinite* = int.high
@@ -192,11 +211,27 @@ proc setHovered*(resolution: MouseResolution) =
     eAdd.addHovered()
 
 proc handleMousePress*(b: Button) =
-  ## Handles the mouse press (calls `onPress` if the hovered `GuiElement` has it)
+  ## Handles mouse press (calls `onPress` if the hovered `GuiElement` has it)
   for e in gw.queryHoveredAndPress():
     (e.onPress)(b)
 
 proc handleMouseRelease*(b: Button) =
-  ## Handles the mouse release (calls `onRelease` if the hovered `GuiElement` has it)
+  ## Handles mouse release (calls `onRelease` if the hovered `GuiElement` has it)
   for e in gw.queryHoveredAndRelease():
     (e.onRelease)(b)
+  for e in gw.queryReleaseEverywhere():
+    (e.onRelease)(b)
+
+proc handleMouseMove*(pos: IVec2) =
+  ## Handles mouse movement
+  for e in gw.queryOnMouseMove():
+    (e.onMouseMove)(pos)
+
+proc saveAllRects*(e: GuiPrimitive, offset: IVec2 = ivec2(0, 0)) = 
+  if e.kind == Group:
+    for child in e.children:
+      child.saveAllRects(offset + ivec2(e.rect.x.int32, e.rect.y.int32))
+  if e.savesRect and e.guiId != -1:
+    let gui = Entity[GuiWorld](world: gw, id: e.guiId.EntityId)
+    if gui.has SavesRect:
+      gui.savedRect = irect(e.rect.x + offset.x, e.rect.y + offset.y, e.rect.w, e.rect.h)

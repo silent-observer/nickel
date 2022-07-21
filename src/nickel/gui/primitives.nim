@@ -38,6 +38,7 @@ type
     guiId*: int
     
     clickTransparent*: bool
+    savesRect*: bool
 
 var idCounter: int = 0
 proc prepareGuiPrimitives*() =
@@ -134,23 +135,31 @@ proc drawGui*(boxy: Boxy, e: GuiPrimitive) =
   of GuiPrimitiveKind.Image:
     boxy.drawImage(e.image, vec2(0, 0))
   of Panel:
-    boxy.drawImage(e.slice9 & "_tl", 0, 0)
-    boxy.drawImage(e.slice9 & "_tr", e.rect.w - e.s9r, 0)
-    boxy.drawImage(e.slice9 & "_bl", 0, e.rect.h - e.s9b)
-    boxy.drawImage(e.slice9 & "_br", e.rect.w - e.s9r, e.rect.h - e.s9b)
+    if e.s9t > 0 and e.s9l > 0:
+      boxy.drawImage(e.slice9 & "_tl", 0, 0)
+    if e.s9t > 0 and e.s9r > 0:
+      boxy.drawImage(e.slice9 & "_tr", e.rect.w - e.s9r, 0)
+    if e.s9b > 0 and e.s9l > 0:
+      boxy.drawImage(e.slice9 & "_bl", 0, e.rect.h - e.s9b)
+    if e.s9b > 0 and e.s9r > 0:
+      boxy.drawImage(e.slice9 & "_br", e.rect.w - e.s9r, e.rect.h - e.s9b)
     
     
     boxy.pushLayer()
     var x = e.s9l
     while x < e.rect.w - e.s9r:
-      boxy.drawImage(e.slice9 & "_t", x, 0)
-      boxy.drawImage(e.slice9 & "_b", x, e.rect.h - e.s9b)
+      if e.s9t > 0:
+        boxy.drawImage(e.slice9 & "_t", x, 0)
+      if e.s9b > 0:
+        boxy.drawImage(e.slice9 & "_b", x, e.rect.h - e.s9b)
       x += e.s9wc
 
     var y = e.s9t
     while y < e.rect.h - e.s9b:
-      boxy.drawImage(e.slice9 & "_l", 0, y)
-      boxy.drawImage(e.slice9 & "_r", e.rect.w - e.s9r, y)
+      if e.s9l > 0:
+        boxy.drawImage(e.slice9 & "_l", 0, y)
+      if e.s9r > 0:
+        boxy.drawImage(e.slice9 & "_r", e.rect.w - e.s9r, y)
       y += e.s9hc
     boxy.pushLayer()
     boxy.drawRect(rect(e.s9l, 0, e.rect.w - e.s9l - e.s9r, e.s9t), color(1, 1, 1))

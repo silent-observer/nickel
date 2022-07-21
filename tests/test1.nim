@@ -60,18 +60,28 @@ for i in 0..3:
       slimeAnims[i].notifyAction "hurt"
     )
 
+let slider1 = newGuiDiscreteSlider("track", "head", 5, initDirValues(8), width=200)
+  .addDiscreteSliderBehaviour(proc(x: int) = echo x)
+let slider2 = newGuiContinuousSlider("track", "head", initDirValues(8), width=200)
+  .addContinuousSliderBehaviour(proc(x: float) = echo x)
+
 proc generateView(size: IVec2): View =
   let panelW = "panelWidth".getTweenNumber().pixelPerfect(2)
-  var linear = newGuiLinearLayout(gap=10, vAlign=VCenter, orientation=Horizontal)
+  var linearHor = newGuiLinearLayout(gap=10, vAlign=VCenter, orientation=Horizontal)
   # let linear = newGuiLinearLayout(gap=10, hAlign=HCenter)
-  linear.add newGuiPanel(slice9 = "blue", padding=panelPadding, child=newGuiLabel(
+  linearHor.add newGuiPanel(slice9 = "blue", padding=panelPadding, child=newGuiLabel(
     initText("Hello world!", "font")
   ))
-  linear.add newGuiPanel(slice9 = "blue", padding=panelPadding, child=newGuiLabel(
+  linearHor.add newGuiPanel(slice9 = "blue", padding=panelPadding, child=newGuiLabel(
     initText(lorem, "font", color=color(1, 0, 0, 1))
   ), width=panelW)
-  linear.add btn.disowned
-  let gui = newGuiPanel(slice9= "green", padding=panelPadding, child=linear)
+  linearHor.add btn.disowned
+
+  var linearVer = newGuiLinearLayout(gap=10, hAlign=HCenter, orientation=Vertical)
+  linearVer.add linearHor
+  linearVer.add slider1.disowned
+  linearVer.add slider2.disowned
+  let gui = newGuiPanel(slice9= "green", padding=panelPadding, child=linearVer)
   
   clearSprites()
   var camera = newSpriteCamera(@[

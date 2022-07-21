@@ -246,25 +246,3 @@ proc requestTweenWithSpeed*[T: float|Vec2|Vec3](key: TweenId, to: T, speed: floa
     let d = dist(current, to)
   let dur = initDuration(nanoseconds=int(d/speed * 1e9))
   requestTween(key, to, dur, easing, easingEnds, callback)
-
-proc pixelPerfect*(f: float, pixelSize: int): int =
-  ## Helper function for rounding to pixel grid.
-  ## 
-  ## **See also:**
-  ## * [pixelPerfect proc](#pixelPerfect,Vec2,int)
-  ## * [pixelPerfect proc](#pixelPerfect,Vec3,int)
-  round(f / pixelSize.float).int * pixelSize
-proc pixelPerfect*(f: Vec2, pixelSize: int): IVec2 =
-  ## Helper function for rounding to pixel grid.
-  ## 
-  ## **See also:**
-  ## * [pixelPerfect proc](#pixelPerfect,float,int)
-  ## * [pixelPerfect proc](#pixelPerfect,Vec3,int)
-  ivec2(f.x.pixelPerfect(pixelSize).int32, f.y.pixelPerfect(pixelSize).int32)
-proc pixelPerfect*(f: Vec3, pixelSize: int): IVec3 =
-  ## Helper function for rounding to pixel grid.
-  ## 
-  ## **See also:**
-  ## * [pixelPerfect proc](#pixelPerfect,float,int)
-  ## * [pixelPerfect proc](#pixelPerfect,Vec3,int)
-  ivec3(f.x.pixelPerfect(pixelSize).int32, f.y.pixelPerfect(pixelSize).int32, f.z.pixelPerfect(pixelSize).int32)

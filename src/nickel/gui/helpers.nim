@@ -98,6 +98,9 @@ template e*(gui: GuiElement): Entity[GuiWorld] =
 template load*(field: untyped) =
   ## Load component from `GuiElement`
   let field = gui.e.field
+template load*(name: untyped, field: untyped) =
+  ## Load component from `GuiElement` into a variable with a given name
+  let name = gui.e.field
 proc disowned*(gui: GuiElement): GuiElement =
   ## Get an unowned copy of a `GuiElement`
   result = GuiElement(isOwned: false, eUnowned: gui.e, kind: gui.kind)
