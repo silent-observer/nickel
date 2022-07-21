@@ -9,12 +9,12 @@ srcDir        = "src"
 # Dependencies
 
 requires "nim >= 1.6.2"
+# requires "vmath"
+requires "https://github.com/silent-observer/vmath#patch-2" # until pull request is accepted
 requires "boxy >= 0.4.0"
 requires "pixie >= 4.3.0"
 requires "opengl >= 1.2.6"
 requires "windy"
-# requires "vmath"
-requires "https://github.com/silent-observer/vmath#patch-2" # until pull request is accepted
 requires "lrucache >= 1.1.4"
 requires "yaml >= 1.0.0"
 requires "https://github.com/zacharycarter/soloud-nim.git"
