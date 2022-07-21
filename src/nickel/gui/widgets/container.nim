@@ -8,7 +8,7 @@ import nickel/gui
 import nickel/[utils, resources]
 
 proc newGuiContainer*(child: sink GuiElement, padding: DirValues = ZeroDirValues, 
-    vAlign: VAlign = Top, hAlign: HAlign = Left, width: int = LengthUndefined, 
+    vAlign: VAlign = VTop, hAlign: HAlign = HLeft, width: int = LengthUndefined, 
     height: int = LengthUndefined): GuiElement =
   ## Creates a new container element
   let e = gw.newOwnedEntity()
@@ -19,7 +19,7 @@ proc newGuiContainer*(child: sink GuiElement, padding: DirValues = ZeroDirValues
   GuiElement(isOwned: true, eOwned: e, kind: Container, children: @[child])
 
 proc newGuiPanel*(child: sink GuiElement, slice9: Slice9Id, padding: DirValues = ZeroDirValues, 
-    vAlign: VAlign = Top, hAlign: HAlign = Left, width: int = LengthUndefined, 
+    vAlign: VAlign = VTop, hAlign: HAlign = HLeft, width: int = LengthUndefined, 
     height: int = LengthUndefined): GuiElement =
   ## Creates a new panel element
   result = newGuiContainer(child, padding, vAlign, hAlign, width, height)

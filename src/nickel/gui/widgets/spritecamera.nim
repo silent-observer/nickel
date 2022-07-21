@@ -83,13 +83,13 @@ proc layoutSpriteCamera*(gui: GuiElement, c: Constraint): GuiPrimitive =
   result.offset.x = -canvas.rect.x.int32
   result.offset.y = -canvas.rect.y.int32
   case align.hAlign:
-  of Left: discard
+  of HLeft: discard
   of HCenter: result.offset.x += int32(size.w - canvas.rect.w) div 2
-  of Right: result.offset.x += int32(size.w - canvas.rect.w)
+  of HRight: result.offset.x += int32(size.w - canvas.rect.w)
 
   case align.vAlign:
-  of Top: discard
+  of VTop: discard
   of VCenter: result.offset.y += int32(size.h - canvas.rect.h) div 2
-  of Bottom: result.offset.y += int32(size.h - canvas.rect.h)
+  of VBottom: result.offset.y += int32(size.h - canvas.rect.h)
 
   result.clickTransparent = true

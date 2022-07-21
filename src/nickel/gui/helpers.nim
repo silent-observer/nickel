@@ -16,21 +16,21 @@ template swap*(c: Constraint): Constraint =
 template swap*(a: VAlign): HAlign = 
   ## Swap x and y axes
   case a:
-  of Top: Left
+  of VTop: HLeft
   of VCenter: HCenter
-  of Bottom: Right
+  of VBottom: HRight
 template swap*(a: HAlign): VAlign = 
   ## Swap x and y axes
   case a:
-  of Left: Top
+  of HLeft: VTop
   of HCenter: VCenter
-  of Right: Bottom
+  of HRight: VBottom
 template convert*(a: HAlign): HorizontalAlignment = 
   ## Convert Nickel's `HAlign` to Pixie's `HorizontalAlignment`
   case a:
-  of Left: LeftAlign
+  of HLeft: LeftAlign
   of HCenter: CenterAlign
-  of Right: RightAlign
+  of HRight: RightAlign
 
 
 proc subtractPadding*(c: Constraint, padding: DirValues): Constraint {.inline.} =
@@ -81,15 +81,15 @@ proc fitPreferred*(c: Constraint, preferred: Size): Constraint {.inline.} =
 proc alignHorizontal*(child: var IRect, parentSize: Size, hAlign: HAlign) =
   ## Adjust rectangle according to parent element size and horizontal alignment
   case hAlign:
-  of Left: discard
+  of HLeft: discard
   of HCenter: child.x = (parentSize.w - child.w) div 2
-  of Right: child.x = parentSize.w - child.w
+  of HRight: child.x = parentSize.w - child.w
 proc alignVertical*(child: var IRect, parentSize: Size, vAlign: VAlign) =
   ## Adjust rectangle according to parent element size and vertical alignment
   case vAlign:
-  of Top: discard
+  of VTop: discard
   of VCenter: child.y = (parentSize.h - child.h) div 2
-  of Bottom: child.y = parentSize.h - child.h
+  of VBottom: child.y = parentSize.h - child.h
 
 template e*(gui: GuiElement): Entity[GuiWorld] =
   ## Access internal unowned entity

@@ -8,7 +8,7 @@ import nickel/gui
 import nickel/utils
 
 proc newGuiLinearLayout*(orientation: Orientation = Vertical, gap: int = LengthUndefined,
-    padding: DirValues = ZeroDirValues, vAlign: VAlign = Top, hAlign: HAlign = Left,
+    padding: DirValues = ZeroDirValues, vAlign: VAlign = VTop, hAlign: HAlign = HLeft,
     width: int = LengthUndefined, height: int = LengthUndefined): GuiElement =
   ## Creates a new linear layout element
   let e = gw.newOwnedEntity()

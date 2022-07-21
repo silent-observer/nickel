@@ -5,7 +5,7 @@ import nickel/gui/[ecs, helpers, primitives, text]
 import nickel/utils
 import vmath
 
-proc newGuiLabel*(text: TextSpec, vAlign: VAlign = Top, hAlign: HAlign = Left, 
+proc newGuiLabel*(text: TextSpec, vAlign: VAlign = VTop, hAlign: HAlign = HLeft, 
     width: int = LengthUndefined, height: int = LengthUndefined): GuiElement =
   ## Creates a new label element
   let e = gw.newOwnedEntity()

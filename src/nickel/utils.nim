@@ -33,6 +33,8 @@ type
 proc irect*(x, y, w, h: int): IRect {.inline.} =
   ## Convenience constructor for `IRect`.
   IRect(x: x, y: y, w: w, h: h)
+proc rect*(r: IRect): Rect {.inline.} =
+  rect(r.x.float, r.y.float, r.w.float, r.h.float)
 
 proc pixelPerfect*(f: float, pixelSize: int): int =
   ## Helper function for rounding to pixel grid.

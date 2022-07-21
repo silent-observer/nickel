@@ -30,6 +30,7 @@ addTweenableVector2D "slimePos_1", vec2(500, 300)
 addTweenableVector2D "slimePos_2", vec2(600, 300)
 addTweenableNumber "panelHeight", height.float
 addTweenableNumber "panelWidth", width.float
+addTweenableNumber "progressBar", 0
 
 proc randomSlimeMove() =
   let 
@@ -37,6 +38,11 @@ proc randomSlimeMove() =
     y = rand(0..<700)
     newPos = vec2(x.float, y.float)
   "slimePos_2".requestTweenWithSpeed newPos, 200, callback=randomSlimeMove
+
+proc progressBarMove() =
+  const tweenDuration = initDuration(seconds=2)
+  "progressBar".requestTween 1.0, tweenDuration, Quad, callback=proc() =
+    "progressBar".requestTween 0.0, tweenDuration, Quad, callback=progressBarMove
 
 const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce viverra porttitor arcu eget auctor. Cras aliquet dictum dolor mollis pulvinar. Pellentesque rhoncus id sem ac vulputate. Nunc nisl nibh, cursus id blandit nec, rutrum in nisl. Nunc mattis tempus dolor, nec porta libero ullamcorper sed. Donec convallis non turpis eu gravida. Aenean interdum justo faucibus, laoreet augue ut, fringilla orci. Vivamus quis nisi dui."
 
@@ -81,6 +87,8 @@ proc generateView(size: IVec2): View =
   linearVer.add linearHor
   linearVer.add slider1.disowned
   linearVer.add slider2.disowned
+  linearVer.add newGuiProgressBar("track", "progress", Right, "progressBar".getTweenNumber(), width=200)
+  linearVer.add newGuiProgressBar("track", "progress", Left, "progressBar".getTweenNumber(), width=200)
   let gui = newGuiPanel(slice9= "green", padding=panelPadding, child=linearVer)
   
   clearSprites()
@@ -144,4 +152,5 @@ proc handleButton(button: Button) =
 
 n.registerProcs(generateView, handleButton)
 randomSlimeMove()
+progressBarMove()
 n.mainLoop()

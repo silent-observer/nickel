@@ -12,12 +12,14 @@ type
     Panel, ## Slice-9
     FlatColorRectangle, ## A colored rectangle (TODO)
     Text, ## Text string
-    Sprites ## Multiple sprites and their colliders
+    Sprites, ## Multiple sprites and their colliders
+    Masked ## A GUI primitive on which a rectangular mask is applied
   GuiPrimitiveId* = string
   GuiPrimitive* = ref object
     ## Main object, constitutes a tree structure that is later rendered.
     case kind*: GuiPrimitiveKind:
     of Group: children*: seq[GuiPrimitive]
+    of Masked: masked*: GuiPrimitive
     of GuiPrimitiveKind.Image: image*: ImageId
     of Panel:
       slice9*: Slice9Id
@@ -51,6 +53,15 @@ proc initGuiGroup*(rect: IRect, children: seq[GuiPrimitive], guiId: int = -1): G
     children: children,
     rect: rect,
     guiId: guiId
+  )
+proc initGuiMasked*(masked: GuiPrimitive, rect: IRect): GuiPrimitive =
+  ## Creates a `GuiPrimitive` that is a group.
+  GuiPrimitive(
+    kind: Masked,
+    masked: masked,
+    rect: rect,
+    guiId: -1,
+    clickTransparent: true
   )
 proc initGuiImage*(rect: IRect, image: ImageId, guiId: int = -1): GuiPrimitive =
   ## Creates a `GuiPrimitive` that is an image.
@@ -127,7 +138,8 @@ proc drawGui*(boxy: Boxy, e: GuiPrimitive) =
     rect(x.float32, y.float32, w.float32, h.float32)
   
   boxy.saveTransform()
-  boxy.translate(vec2(e.rect.x.float, e.rect.y.float))
+  if e.kind != Masked:
+    boxy.translate(vec2(e.rect.x.float, e.rect.y.float))
   case e.kind:
   of Group:
     for child in e.children:
@@ -211,6 +223,17 @@ proc drawGui*(boxy: Boxy, e: GuiPrimitive) =
     boxy.translate(vec2(e.offset))
     for sprite in e.sprites:
       boxy.drawSprite(sprite.get)
+  of Masked:
+    boxy.pushLayer()
+    boxy.drawGui(e.masked)
+    boxy.pushLayer()
+    boxy.drawRect(e.rect.rect, color(1, 1, 1))
+    boxy.saveTransform()
+    boxy.setTransform(mat3())
+    boxy.popLayer(blendMode=MaskBlend)
+    boxy.popLayer()
+    boxy.restoreTransform()
+
   boxy.restoreTransform()
 
 type
@@ -245,6 +268,8 @@ proc resolveMouse*(e: GuiPrimitive, p: IVec2): MouseResolution =
     for (c, t) in e.colliders:
       if vec2(p).inside(c):
         return MouseResolution(kind: MouseResolutionKind.Collider, collider: t)
+  elif e.kind == Masked:
+    return resolveMouse(e.masked, p)
 
   if e.clickTransparent: MouseResolution(kind: None)
   else: MouseResolution(kind: Primitive, primitive: e)

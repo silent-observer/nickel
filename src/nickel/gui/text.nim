@@ -13,7 +13,7 @@ proc layoutText*(size: Size, text: TextSpec, align: Alignable): Hash =
 
   let uniqueHash = hash((text.text, size.w, text.size, text.color, align.hAlign))
   if uniqueHash notin typeSetTable:
-    if align.hAlign == Left:
+    if align.hAlign == HLeft:
       let arr = typeset(font, text.text,
         vec2(size.w.float, size.h.float), align.hAlign.convert(), TopAlign)
       let bounds = arr.layoutBounds()

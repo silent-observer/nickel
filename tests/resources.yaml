@@ -52,6 +52,13 @@ slice9s:
     top: 4
     bottom: 4
     scaleUp: 2
+  progress:
+    imagePath: progress.png
+    left: 8
+    right: 8
+    top: 4
+    bottom: 4
+    scaleUp: 2
 images:
   head: head.png
 audioSamples: 

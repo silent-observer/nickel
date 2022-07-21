@@ -11,17 +11,22 @@ import nickel/[resources, utils, sprite, collider]
 type
   HAlign* {.pure.} = enum
     ## Horizontal alignment
-    Left,
+    HLeft,
     HCenter,
-    Right
+    HRight
   VAlign* {.pure.} = enum
     ## Vertical alignment
-    Top,
+    VTop,
     VCenter,
-    Bottom
+    VBottom
   Orientation* {.pure.} = enum
     Vertical,
     Horizontal
+  Direction* {.pure.} = enum
+    Up
+    Down
+    Left
+    Right
 
   ClickCallback* = proc (button: Button) ## Callback for mouse clicking
   MouseAreaCallback* = proc() ## Callback for mouse entering or leaving an area
@@ -47,6 +52,8 @@ type
     of false:
       continuousVal*: float
     headWidth*: int
+  ProgressBarComp* = object
+    progress*: float
 
 type
   PreferredSize* = distinct Size
@@ -61,7 +68,7 @@ type
   Padding* = distinct DirValues
   LinearLayoutGap* = distinct int
   PanelComp* = distinct Slice9Id
-  PressedPanelComp* = distinct Slice9Id
+  AltPanelComp* = distinct Slice9Id
   ImageComp* = distinct ImageId
   PressedImageComp* = distinct ImageId
   SpriteCanvas* = object
@@ -85,16 +92,18 @@ genWorldGlobal GuiWorld:
     Padding(DirValues) as padding
     LinearLayoutGap(int) as gap
     PanelComp(Slice9Id) as panel
-    PressedPanelComp(Slice9Id) as pressedPanel
+    AltPanelComp(Slice9Id) as altPanel
     TextSpec as text
     ImageComp(ImageId) as img
     PressedImageComp(ImageId) as pressedImg
     Orientation as orientation
+    Direction as direction
 
     SpriteCanvas as canvas
     Collider as collider
 
     SliderComp as slider
+    ProgressBarComp as progressBar
     SavesRect(IRect) as savedRect
   tags:
     Layout
@@ -113,10 +122,11 @@ genWorldGlobal GuiWorld:
     (Hovered, OnMouseRelease, not TracksMouseReleaseEverywhere) as HoveredAndRelease
     (OnMouseRelease, TracksMouseReleaseEverywhere) as ReleaseEverywhere
     OnMouseMove as OnMouseMove
-    (PreferredSize, Padding, TextSpec, PanelComp, PressedPanelComp) as TextButton
+    (PreferredSize, Padding, TextSpec, PanelComp, AltPanelComp) as TextButton
     (PreferredSize, ImageComp, PressedImageComp) as ImageButton
     (PreferredSize, SpriteCanvas, Layout, Alignable) as SpriteCamera
     (PreferredSize, Padding, ImageComp, PanelComp, SliderComp, SavesRect) as Slider
+    (PreferredSize, Direction, PanelComp, AltPanelComp, ProgressBarComp) as ProgressBar
 
 const
   LengthInfinite* = int.high

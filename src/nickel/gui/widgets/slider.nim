@@ -82,6 +82,7 @@ proc layoutSlider*(gui: GuiElement, c: Constraint): GuiPrimitive =
   let headHeight = head.getImageResource.height
   let headWidth = head.getImageResource.width
   let trackHeight = track.getSlice9Resource.bottom + track.getSlice9Resource.top
+  if c.max.h < max(headHeight, trackHeight): return initGuiEmpty()
   let h = max(c.min.h, max(headHeight, trackHeight))
 
   let slidableWidth = w - padding.left - padding.right - headWidth
