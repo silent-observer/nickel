@@ -17,7 +17,7 @@ requires "vmath"
 requires "lrucache >= 1.1.4"
 requires "yaml >= 1.0.0"
 requires "https://github.com/zacharycarter/soloud-nim.git"
-requires "yaecs"
+requires "https://github.com/silent-observer/yaecs"
 
 task docs, "Generates the documentation":
   exec "nim doc --mm:orc --gc:orc --project --out:docs --git.url:https://github.com/silent-observer/nickel --git.commit:master src/nickel.nim"
