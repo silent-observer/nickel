@@ -42,3 +42,11 @@ Nickel's GUI also uses my ECS library, [yaecs](https://github.com/silent-observe
 and its use is also recommended for the game logic itself.
 
 Note: for running the app you have to have [libsoloud.dll](https://sol.gfxile.net/soloud/downloads.html)
+
+TODO:
+- [ ] GUI contexts
+- [ ] Resource packages
+- [ ] Scrollbar
+- [ ] Drag and drop
+- [ ] Text input field
+- [ ] Tabs layout
