@@ -3,7 +3,7 @@
 ## instead simply create a context and then use it to store GUI elements inside it.
 ## It also automatically disowns the elements you take from it.
 ## 
-## ..code-block:
+## .. code-block::
 ##    let context = newContext()
 ##    
 ##    proc generateView(size: IVec2): View =

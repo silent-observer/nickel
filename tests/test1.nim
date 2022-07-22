@@ -73,10 +73,10 @@ proc generateView(size: IVec2): View =
         echo "toggled ", b
       ).stored("helloWorldBtn")
 
-    let slider1 = newGuiDiscreteSlider("track", "head", 5, initDirValues(8), width=200)
-      .addDiscreteSliderBehaviour(proc(x: int) = echo x).stored("slider1")
-    let slider2 = newGuiContinuousSlider("track", "head", initDirValues(8), width=200)
-      .addContinuousSliderBehaviour(proc(x: float) = echo x).stored("slider2")
+    let slider1 = newGuiDiscreteSlider("track", "head", 5, initDirValues(8), width=200,
+      onChange=proc(x: int) = echo x).stored("slider1")
+    let slider2 = newGuiContinuousSlider("track", "head", initDirValues(8), width=200,
+      onChange=proc(x: float) = echo x).stored("slider2")
 
     var linearVer = newGuiLinearLayout(gap=10, hAlign=HCenter, orientation=Vertical)
     linearVer.add linearHor

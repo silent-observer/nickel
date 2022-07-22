@@ -2,7 +2,6 @@
 
 import critbits
 from sequtils import toSeq
-from strutils import join
 
 type
   AnimationEnd* {.pure.} = enum ## What to do after the animation ends.

@@ -5,15 +5,15 @@ import gui/[ecs, primitives, text]
 
 proc layout*(gui: GuiElement, c: Constraint): GuiPrimitive
 
-import gui/widgets/[linearlayout, container, label, textbutton, spritecamera, slider, progressbar]
-import gui/behaviours/[buttons, sliderBehaviour]
+import gui/widgets/[linearlayout, container, label, textbutton, spritecamera, 
+  slider, progressbar, buttonBehaviours]
 import utils
 from gui/helpers import e, disowned, isPressed
 import gui/context
 
 
 export linearlayout, container, label, textbutton, spritecamera, slider, progressbar
-export buttons, sliderBehaviour
+export buttonBehaviours
 export HAlign, VAlign, Direction, Orientation, ClickCallback, MouseAreaCallback
 export DirValues, Constraint, TextSpec, LengthInfinite, LengthUndefined
 export GuiElementKind, GuiElement, ZeroDirValues, initDirValues

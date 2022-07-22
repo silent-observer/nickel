@@ -1,5 +1,4 @@
 ## Defines a slider, like the regular audio volume slider in settings.
-## Behaviour for it is defined in [behaviours/slider module](../behaviours/sliderBehaviour.html)
 ##
 ## Slice-9 for the slider track will be rendered as a slice-3, i.e. only the top and bottom parts
 ## will be used, without the middle one.
@@ -11,10 +10,13 @@
 
 import ".."/[ecs, helpers, primitives]
 import ".."/".."/[utils, resources]
+import math, windy
 
-proc newGuiDiscreteSlider*(track: Slice9Id, head: ImageId, count: int, padding: DirValues = ZeroDirValues,
+proc newGuiDiscreteSliderRaw*(track: Slice9Id, head: ImageId, count: int, padding: DirValues = ZeroDirValues,
     width: int = LengthUndefined): GuiElement =
-  ## Creates a discrete slider
+  ## Creates a discrete slider, which is raw and doesn't have any behaviour.
+  ## Normally you should use
+  ## [newGuiDiscreteSlider proc](#newGuiDiscreteSlider,Slice9Id,ImageId,int,DirValues,int,proc(int))
   let e = gw.newOwnedEntity()
   e.get.add Size(w: width, h: LengthUndefined).PreferredSize
   e.get.add Padding(padding)
@@ -24,9 +26,11 @@ proc newGuiDiscreteSlider*(track: Slice9Id, head: ImageId, count: int, padding: 
   e.get.add SavesRect(irect(0, 0, 0, 0))
   GuiElement(isOwned: true, eOwned: e, kind: Leaf)
 
-proc newGuiContinuousSlider*(track: Slice9Id, head: ImageId, padding: DirValues = ZeroDirValues,
+proc newGuiContinuousSliderRaw*(track: Slice9Id, head: ImageId, padding: DirValues = ZeroDirValues,
     width: int = LengthUndefined): GuiElement =
-  ## Creates a continous slider
+  ## Creates a continuous slider, which is raw and doesn't have any behaviour.
+  ## Normally you should use
+  ## [newGuiContinuousSlider proc](#newGuiDiscreteSlider,Slice9Id,ImageId,DirValues,int,proc(float))
   let e = gw.newOwnedEntity()
   e.get.add Size(w: width, h: LengthUndefined).PreferredSize
   e.get.add Padding(padding)
@@ -97,3 +101,75 @@ proc layoutSlider*(gui: GuiElement, c: Constraint): GuiPrimitive =
   result.children[0].rect.alignVertical(Size(w: w, h: h), VCenter)
   result.children[1].rect.alignVertical(Size(w: w, h: h), VCenter)
   result.children[0].savesRect = true
+
+
+proc calculateClosest(trackX: int, trackLength: int, headWidth: int, padding: DirValues, mouseX: int): float =
+  let offset = mouseX.float - (trackX.float + padding.left.float + headWidth.float / 2)
+  let normalized = offset / float(trackLength - padding.left - padding.right - headWidth)
+  clamp(normalized, 0, 1)
+
+proc calculateDiscrete(x: float, count: int): int =
+  round(x * float(count - 1)).int
+
+proc addContinuousSliderBehaviour*(gui: sink GuiElement, onChange: proc(x: float)): GuiElement =
+  load padding
+  result = gui
+  let entity = result.e
+  
+  if entity.slider.isDiscrete:
+    raise newException(NickelDefect, "This slider is discrete!")
+  entity.addTracksMouseReleaseEverywhere()
+  entity.add OnMousePress(proc(b: Button) =
+    entity.addButtonPressed()
+    entity.add OnMouseMove(proc(pos: IVec2) =
+      let savedRect = entity.savedRect
+      let v = calculateClosest(savedRect.x, savedRect.w, entity.slider.headWidth, padding, pos.x)
+      entity.slider.continuousVal = v
+    )
+  )
+  entity.add OnMouseRelease(proc(b: Button) =
+    if entity.has ButtonPressed:
+      entity.removeButtonPressed()
+      entity.removeOnMouseMove()
+      if onChange != nil:
+        onChange(entity.slider.continuousVal)
+  )
+
+proc addDiscreteSliderBehaviour*(gui: sink GuiElement, onChange: proc(x: int)): GuiElement =
+  load padding
+  result = gui
+  let entity = result.e
+  
+  if not entity.slider.isDiscrete:
+    raise newException(NickelDefect, "This slider is continuous!")
+  entity.addTracksMouseReleaseEverywhere()
+  entity.add OnMousePress(proc(b: Button) =
+    #echo "Slider press"
+    entity.addButtonPressed()
+    entity.add OnMouseMove(proc(pos: IVec2) =
+    #  echo "Slider move"
+      let savedRect = entity.savedRect
+      let v = calculateClosest(savedRect.x, savedRect.w, entity.slider.headWidth, padding, pos.x)
+        .calculateDiscrete(entity.slider.count)
+      entity.slider.discreteVal = v
+    )
+  )
+  entity.add OnMouseRelease(proc(b: Button) =
+    if entity.has ButtonPressed:
+      entity.removeButtonPressed()
+      entity.removeOnMouseMove()
+      if onChange != nil:
+        onChange(entity.slider.discreteVal)
+  )
+
+proc newGuiDiscreteSlider*(track: Slice9Id, head: ImageId, count: int, padding: DirValues = ZeroDirValues,
+    width: int = LengthUndefined, onChange: proc(x: int) = nil): GuiElement =
+  ## Creates a discrete slider
+  newGuiDiscreteSliderRaw(track, head, count, padding, width)
+    .addDiscreteSliderBehaviour(onChange)
+
+proc newGuiContinuousSlider*(track: Slice9Id, head: ImageId, padding: DirValues = ZeroDirValues,
+    width: int = LengthUndefined, onChange: proc(x: float) = nil): GuiElement =
+  ## Creates a continous slider
+  newGuiContinuousSliderRaw(track, head, padding, width)
+    .addContinuousSliderBehaviour(onChange)
