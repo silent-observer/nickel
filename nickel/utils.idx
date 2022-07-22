@@ -8,3 +8,4 @@ rect	nickel/utils.html#rect,IRect	utils: rect(r: IRect): Rect
 pixelPerfect	nickel/utils.html#pixelPerfect,float,int	utils: pixelPerfect(f: float; pixelSize: int): int	
 pixelPerfect	nickel/utils.html#pixelPerfect,Vec2,int	utils: pixelPerfect(f: Vec2; pixelSize: int): IVec2	
 pixelPerfect	nickel/utils.html#pixelPerfect,Vec3,int	utils: pixelPerfect(f: Vec3; pixelSize: int): IVec3	
+combineIds	nickel/utils.html#combineIds,varargs[string]	utils: combineIds(ids: varargs[string]): string	

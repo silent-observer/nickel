@@ -1,4 +1,0 @@
-addSimpleOnClick	nickel/gui/behaviours/buttons.html#addSimpleOnClick,sinkGuiElement,proc)	buttons: addSimpleOnClick(gui: sink GuiElement; onClick: proc ()): GuiElement	
-addBasicButton	nickel/gui/behaviours/buttons.html#addBasicButton,sinkGuiElement,proc)	buttons: addBasicButton(gui: sink GuiElement; onClick: proc ()): GuiElement	
-addBasicButton	nickel/gui/behaviours/buttons.html#addBasicButton,sinkGuiElement,proc(T),T	buttons: addBasicButton[T](gui: sink GuiElement; onClick: proc (x: T); data: T): GuiElement	
-addToggleButton	nickel/gui/behaviours/buttons.html#addToggleButton,sinkGuiElement,proc(bool)	buttons: addToggleButton(gui: sink GuiElement; onSwitch: proc (b: bool)): GuiElement	

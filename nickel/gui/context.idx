@@ -1,0 +1,3 @@
+GuiContext	nickel/gui/context.html#GuiContext	context: GuiContext	
+newContext	nickel/gui/context.html#newContext	context: newContext(): GuiContext	
+withContext	nickel/gui/context.html#withContext.t,GuiContext,untyped	context: withContext(context: GuiContext; body: untyped): untyped	

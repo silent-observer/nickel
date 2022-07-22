@@ -32,7 +32,7 @@ Layout	nickel/gui/ecs.html#Layout	ecs: Layout
 Hovered	nickel/gui/ecs.html#Hovered	ecs: Hovered	
 TracksMouseReleaseEverywhere	nickel/gui/ecs.html#TracksMouseReleaseEverywhere	ecs: TracksMouseReleaseEverywhere	
 GuiWorld	nickel/gui/ecs.html#GuiWorld	ecs: GuiWorld	
-newGuiWorld	nickel/gui/ecs.html#newGuiWorld,int	ecs: newGuiWorld(entityMaxCount_3087007934: int = 10000): GuiWorld	
+newGuiWorld	nickel/gui/ecs.html#newGuiWorld,int	ecs: newGuiWorld(entityMaxCount_3103785150: int = 10000): GuiWorld	
 add	nickel/gui/ecs.html#add,,SpriteCanvas	ecs: add(e`gensym8: Entity[GuiWorld]; c`gensym8: SpriteCanvas)	
 removeSpriteCanvas	nickel/gui/ecs.html#removeSpriteCanvas	ecs: removeSpriteCanvas(e`gensym9: Entity[GuiWorld])	
 add	nickel/gui/ecs.html#add,,Alignable	ecs: add(e`gensym10: Entity[GuiWorld]; c`gensym10: Alignable)	
@@ -130,41 +130,41 @@ slider=	nickel/gui/ecs.html#slider=.t,,SliderComp	ecs: slider=(e`gensym81: Entit
 orientation	nickel/gui/ecs.html#orientation.t	ecs: orientation(e`gensym82: Entity[GuiWorld]): var Orientation	
 orientation=	nickel/gui/ecs.html#orientation=.t,,Orientation	ecs: orientation=(e`gensym82: Entity[GuiWorld]; v`gensym82: Orientation)	
 has	nickel/gui/ecs.html#has.t,,untyped	ecs: has(e: Entity[GuiWorld]; c: untyped): bool	
-delete	nickel/gui/ecs.html#delete,sink	ecs: delete(e_3087008209: sink Entity[GuiWorld])	
+delete	nickel/gui/ecs.html#delete,sink	ecs: delete(e_3103785425: sink Entity[GuiWorld])	
 OwnedEntityGuiWorld	nickel/gui/ecs.html#OwnedEntityGuiWorld	ecs: OwnedEntityGuiWorld	
 `=destroy`	nickel/gui/ecs.html#=destroy,OwnedEntityGuiWorld	ecs: `=destroy`(e`gensym165: var OwnedEntityGuiWorld)	
 `=copy`	nickel/gui/ecs.html#=copy,OwnedEntityGuiWorld,OwnedEntityGuiWorld	ecs: `=copy`(dest`gensym165: var OwnedEntityGuiWorld;\n        source`gensym165: OwnedEntityGuiWorld)	
 get	nickel/gui/ecs.html#get,OwnedEntityGuiWorld	ecs: get(e`gensym165: OwnedEntityGuiWorld): Entity[GuiWorld]	
 newOwnedEntity	nickel/gui/ecs.html#newOwnedEntity,GuiWorld	ecs: newOwnedEntity(w`gensym165: GuiWorld): OwnedEntityGuiWorld	
 printEntityCount	nickel/gui/ecs.html#printEntityCount,GuiWorld	ecs: printEntityCount(w`gensym165: GuiWorld)	
-queryLinearLayout	nickel/gui/ecs.html#queryLinearLayout.i,GuiWorld	ecs: queryLinearLayout(world_3087008238: GuiWorld): Entity[GuiWorld]	
-isLinearLayout	nickel/gui/ecs.html#isLinearLayout	ecs: isLinearLayout(e_3087008249: Entity[GuiWorld]): bool	
-queryPanel	nickel/gui/ecs.html#queryPanel.i,GuiWorld	ecs: queryPanel(world_3087008251: GuiWorld): Entity[GuiWorld]	
-isPanel	nickel/gui/ecs.html#isPanel	ecs: isPanel(e_3087008254: Entity[GuiWorld]): bool	
-querySimpleContainer	nickel/gui/ecs.html#querySimpleContainer.i,GuiWorld	ecs: querySimpleContainer(world_3087008256: GuiWorld): Entity[GuiWorld]	
-isSimpleContainer	nickel/gui/ecs.html#isSimpleContainer	ecs: isSimpleContainer(e_3087008259: Entity[GuiWorld]): bool	
-queryLabel	nickel/gui/ecs.html#queryLabel.i,GuiWorld	ecs: queryLabel(world_3087008261: GuiWorld): Entity[GuiWorld]	
-isLabel	nickel/gui/ecs.html#isLabel	ecs: isLabel(e_3087008264: Entity[GuiWorld]): bool	
-queryHovered	nickel/gui/ecs.html#queryHovered.i,GuiWorld	ecs: queryHovered(world_3087008274: GuiWorld): Entity[GuiWorld]	
-isHovered	nickel/gui/ecs.html#isHovered	ecs: isHovered(e_3087008279: Entity[GuiWorld]): bool	
-queryHoveredAndPress	nickel/gui/ecs.html#queryHoveredAndPress.i,GuiWorld	ecs: queryHoveredAndPress(world_3087008281: GuiWorld): Entity[GuiWorld]	
-isHoveredAndPress	nickel/gui/ecs.html#isHoveredAndPress	ecs: isHoveredAndPress(e_3087008286: Entity[GuiWorld]): bool	
-queryHoveredAndRelease	nickel/gui/ecs.html#queryHoveredAndRelease.i,GuiWorld	ecs: queryHoveredAndRelease(world_3087008288: GuiWorld): Entity[GuiWorld]	
-isHoveredAndRelease	nickel/gui/ecs.html#isHoveredAndRelease	ecs: isHoveredAndRelease(e_3087008293: Entity[GuiWorld]): bool	
-queryReleaseEverywhere	nickel/gui/ecs.html#queryReleaseEverywhere.i,GuiWorld	ecs: queryReleaseEverywhere(world_3087008295: GuiWorld): Entity[GuiWorld]	
-isReleaseEverywhere	nickel/gui/ecs.html#isReleaseEverywhere	ecs: isReleaseEverywhere(e_3087008298: Entity[GuiWorld]): bool	
-queryOnMouseMove	nickel/gui/ecs.html#queryOnMouseMove.i,GuiWorld	ecs: queryOnMouseMove(world_3087008300: GuiWorld): Entity[GuiWorld]	
-isOnMouseMove	nickel/gui/ecs.html#isOnMouseMove	ecs: isOnMouseMove(e_3087008303: Entity[GuiWorld]): bool	
-queryTextButton	nickel/gui/ecs.html#queryTextButton.i,GuiWorld	ecs: queryTextButton(world_3087008305: GuiWorld): Entity[GuiWorld]	
-isTextButton	nickel/gui/ecs.html#isTextButton	ecs: isTextButton(e_3087008308: Entity[GuiWorld]): bool	
-queryImageButton	nickel/gui/ecs.html#queryImageButton.i,GuiWorld	ecs: queryImageButton(world_3087008310: GuiWorld): Entity[GuiWorld]	
-isImageButton	nickel/gui/ecs.html#isImageButton	ecs: isImageButton(e_3087008313: Entity[GuiWorld]): bool	
-querySpriteCamera	nickel/gui/ecs.html#querySpriteCamera.i,GuiWorld	ecs: querySpriteCamera(world_3087008315: GuiWorld): Entity[GuiWorld]	
-isSpriteCamera	nickel/gui/ecs.html#isSpriteCamera	ecs: isSpriteCamera(e_3087008318: Entity[GuiWorld]): bool	
-querySlider	nickel/gui/ecs.html#querySlider.i,GuiWorld	ecs: querySlider(world_3087008320: GuiWorld): Entity[GuiWorld]	
-isSlider	nickel/gui/ecs.html#isSlider	ecs: isSlider(e_3087008323: Entity[GuiWorld]): bool	
-queryProgressBar	nickel/gui/ecs.html#queryProgressBar.i,GuiWorld	ecs: queryProgressBar(world_3087008325: GuiWorld): Entity[GuiWorld]	
-isProgressBar	nickel/gui/ecs.html#isProgressBar	ecs: isProgressBar(e_3087008328: Entity[GuiWorld]): bool	
+queryLinearLayout	nickel/gui/ecs.html#queryLinearLayout.i,GuiWorld	ecs: queryLinearLayout(world_3103785454: GuiWorld): Entity[GuiWorld]	
+isLinearLayout	nickel/gui/ecs.html#isLinearLayout	ecs: isLinearLayout(e_3103785465: Entity[GuiWorld]): bool	
+queryPanel	nickel/gui/ecs.html#queryPanel.i,GuiWorld	ecs: queryPanel(world_3103785467: GuiWorld): Entity[GuiWorld]	
+isPanel	nickel/gui/ecs.html#isPanel	ecs: isPanel(e_3103785470: Entity[GuiWorld]): bool	
+querySimpleContainer	nickel/gui/ecs.html#querySimpleContainer.i,GuiWorld	ecs: querySimpleContainer(world_3103785472: GuiWorld): Entity[GuiWorld]	
+isSimpleContainer	nickel/gui/ecs.html#isSimpleContainer	ecs: isSimpleContainer(e_3103785475: Entity[GuiWorld]): bool	
+queryLabel	nickel/gui/ecs.html#queryLabel.i,GuiWorld	ecs: queryLabel(world_3103785477: GuiWorld): Entity[GuiWorld]	
+isLabel	nickel/gui/ecs.html#isLabel	ecs: isLabel(e_3103785480: Entity[GuiWorld]): bool	
+queryHovered	nickel/gui/ecs.html#queryHovered.i,GuiWorld	ecs: queryHovered(world_3103785490: GuiWorld): Entity[GuiWorld]	
+isHovered	nickel/gui/ecs.html#isHovered	ecs: isHovered(e_3103785495: Entity[GuiWorld]): bool	
+queryHoveredAndPress	nickel/gui/ecs.html#queryHoveredAndPress.i,GuiWorld	ecs: queryHoveredAndPress(world_3103785497: GuiWorld): Entity[GuiWorld]	
+isHoveredAndPress	nickel/gui/ecs.html#isHoveredAndPress	ecs: isHoveredAndPress(e_3103785502: Entity[GuiWorld]): bool	
+queryHoveredAndRelease	nickel/gui/ecs.html#queryHoveredAndRelease.i,GuiWorld	ecs: queryHoveredAndRelease(world_3103785504: GuiWorld): Entity[GuiWorld]	
+isHoveredAndRelease	nickel/gui/ecs.html#isHoveredAndRelease	ecs: isHoveredAndRelease(e_3103785509: Entity[GuiWorld]): bool	
+queryReleaseEverywhere	nickel/gui/ecs.html#queryReleaseEverywhere.i,GuiWorld	ecs: queryReleaseEverywhere(world_3103785511: GuiWorld): Entity[GuiWorld]	
+isReleaseEverywhere	nickel/gui/ecs.html#isReleaseEverywhere	ecs: isReleaseEverywhere(e_3103785514: Entity[GuiWorld]): bool	
+queryOnMouseMove	nickel/gui/ecs.html#queryOnMouseMove.i,GuiWorld	ecs: queryOnMouseMove(world_3103785516: GuiWorld): Entity[GuiWorld]	
+isOnMouseMove	nickel/gui/ecs.html#isOnMouseMove	ecs: isOnMouseMove(e_3103785519: Entity[GuiWorld]): bool	
+queryTextButton	nickel/gui/ecs.html#queryTextButton.i,GuiWorld	ecs: queryTextButton(world_3103785521: GuiWorld): Entity[GuiWorld]	
+isTextButton	nickel/gui/ecs.html#isTextButton	ecs: isTextButton(e_3103785524: Entity[GuiWorld]): bool	
+queryImageButton	nickel/gui/ecs.html#queryImageButton.i,GuiWorld	ecs: queryImageButton(world_3103785526: GuiWorld): Entity[GuiWorld]	
+isImageButton	nickel/gui/ecs.html#isImageButton	ecs: isImageButton(e_3103785529: Entity[GuiWorld]): bool	
+querySpriteCamera	nickel/gui/ecs.html#querySpriteCamera.i,GuiWorld	ecs: querySpriteCamera(world_3103785531: GuiWorld): Entity[GuiWorld]	
+isSpriteCamera	nickel/gui/ecs.html#isSpriteCamera	ecs: isSpriteCamera(e_3103785534: Entity[GuiWorld]): bool	
+querySlider	nickel/gui/ecs.html#querySlider.i,GuiWorld	ecs: querySlider(world_3103785536: GuiWorld): Entity[GuiWorld]	
+isSlider	nickel/gui/ecs.html#isSlider	ecs: isSlider(e_3103785539: Entity[GuiWorld]): bool	
+queryProgressBar	nickel/gui/ecs.html#queryProgressBar.i,GuiWorld	ecs: queryProgressBar(world_3103785541: GuiWorld): Entity[GuiWorld]	
+isProgressBar	nickel/gui/ecs.html#isProgressBar	ecs: isProgressBar(e_3103785544: Entity[GuiWorld]): bool	
 LengthInfinite	nickel/gui/ecs.html#LengthInfinite	ecs: LengthInfinite	
 LengthUndefined	nickel/gui/ecs.html#LengthUndefined	ecs: LengthUndefined	
 initDirValues	nickel/gui/ecs.html#initDirValues,int	ecs: initDirValues(v: int): DirValues	

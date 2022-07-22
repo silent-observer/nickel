@@ -1,2 +1,0 @@
-addContinuousSliderBehaviour	nickel/gui/behaviours/sliderBehaviour.html#addContinuousSliderBehaviour,sinkGuiElement,proc(float)	sliderBehaviour: addContinuousSliderBehaviour(gui: sink GuiElement; onChange: proc (x: float)): GuiElement	
-addDiscreteSliderBehaviour	nickel/gui/behaviours/sliderBehaviour.html#addDiscreteSliderBehaviour,sinkGuiElement,proc(int)	sliderBehaviour: addDiscreteSliderBehaviour(gui: sink GuiElement; onChange: proc (x: int)): GuiElement	

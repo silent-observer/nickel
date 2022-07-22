@@ -24,6 +24,5 @@ delete	nickel/animator.html#delete,AnimatedEntityId	animator: delete(id: Animate
 setAnimationStep	nickel/animator.html#setAnimationStep,AnimatedEntityId,int	animator: setAnimationStep(id: AnimatedEntityId; step: int)	
 newArrayId	nickel/animator.html#newArrayId,AnimatedEntityId	animator: newArrayId(base: AnimatedEntityId): AnimatedEntityId	
 restartArrayId	nickel/animator.html#restartArrayId,AnimatedEntityId	animator: restartArrayId(base: AnimatedEntityId)	
-combineIds	nickel/animator.html#combineIds,varargs[string]	animator: combineIds(ids: varargs[string]): string	
 addAnimatedEntities	nickel/animator.html#addAnimatedEntities,AnimatedEntityId,int,AnimatorId,AnimationId	animator: addAnimatedEntities(base: AnimatedEntityId; count: int; animator: AnimatorId;\n                    startAnim: AnimationId): seq[AnimatedEntityId]	
 deleteAll	nickel/animator.html#deleteAll,AnimatedEntityId	animator: deleteAll(base: AnimatedEntityId)	

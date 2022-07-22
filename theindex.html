@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', main);
 <div class="document" id="documentId">
   <div class="container">
     <h1 class="title">Index</h1>
-    Modules: <a href="nickel.html">nickel</a>, <a href="nickel/animator.html">nickel/animator</a>, <a href="nickel/audio.html">nickel/audio</a>, <a href="nickel/collider.html">nickel/collider</a>, <a href="nickel/gui.html">nickel/gui</a>, <a href="nickel/gui/behaviours/buttons.html">nickel/gui/behaviours/buttons</a>, <a href="nickel/gui/behaviours/sliderBehaviour.html">nickel/gui/behaviours/sliderBehaviour</a>, <a href="nickel/gui/ecs.html">nickel/gui/ecs</a>, <a href="nickel/gui/helpers.html">nickel/gui/helpers</a>, <a href="nickel/gui/primitives.html">nickel/gui/primitives</a>, <a href="nickel/gui/text.html">nickel/gui/text</a>, <a href="nickel/gui/widgets/container.html">nickel/gui/widgets/container</a>, <a href="nickel/gui/widgets/label.html">nickel/gui/widgets/label</a>, <a href="nickel/gui/widgets/linearlayout.html">nickel/gui/widgets/linearlayout</a>, <a href="nickel/gui/widgets/progressbar.html">nickel/gui/widgets/progressbar</a>, <a href="nickel/gui/widgets/slider.html">nickel/gui/widgets/slider</a>, <a href="nickel/gui/widgets/spritecamera.html">nickel/gui/widgets/spritecamera</a>, <a href="nickel/gui/widgets/textbutton.html">nickel/gui/widgets/textbutton</a>, <a href="nickel/resources.html">nickel/resources</a>, <a href="nickel/sprite.html">nickel/sprite</a>, <a href="nickel/timer.html">nickel/timer</a>, <a href="nickel/tween.html">nickel/tween</a>, <a href="nickel/utils.html">nickel/utils</a>.<br/><p /><h2>API symbols</h2>
+    Modules: <a href="nickel.html">nickel</a>, <a href="nickel/animator.html">nickel/animator</a>, <a href="nickel/audio.html">nickel/audio</a>, <a href="nickel/collider.html">nickel/collider</a>, <a href="nickel/gui.html">nickel/gui</a>, <a href="nickel/gui/context.html">nickel/gui/context</a>, <a href="nickel/gui/ecs.html">nickel/gui/ecs</a>, <a href="nickel/gui/helpers.html">nickel/gui/helpers</a>, <a href="nickel/gui/primitives.html">nickel/gui/primitives</a>, <a href="nickel/gui/text.html">nickel/gui/text</a>, <a href="nickel/gui/widgets/buttonBehaviours.html">nickel/gui/widgets/buttonBehaviours</a>, <a href="nickel/gui/widgets/container.html">nickel/gui/widgets/container</a>, <a href="nickel/gui/widgets/label.html">nickel/gui/widgets/label</a>, <a href="nickel/gui/widgets/linearlayout.html">nickel/gui/widgets/linearlayout</a>, <a href="nickel/gui/widgets/progressbar.html">nickel/gui/widgets/progressbar</a>, <a href="nickel/gui/widgets/slider.html">nickel/gui/widgets/slider</a>, <a href="nickel/gui/widgets/spritecamera.html">nickel/gui/widgets/spritecamera</a>, <a href="nickel/gui/widgets/textbutton.html">nickel/gui/widgets/textbutton</a>, <a href="nickel/resources.html">nickel/resources</a>, <a href="nickel/sprite.html">nickel/sprite</a>, <a href="nickel/timer.html">nickel/timer</a>, <a href="nickel/tween.html">nickel/tween</a>, <a href="nickel/utils.html">nickel/utils</a>.<br/><p /><h2>API symbols</h2>
 <dl><dt><a name="%60%3Dcopy%60" href="#%60%3Dcopy%60"><span>`=copy`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="ecs: `=copy`(dest`gensym165: var OwnedEntityGuiWorld;
@@ -161,9 +161,9 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="addBasicButton" href="#addBasicButton"><span>addBasicButton:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="buttons: addBasicButton[T](gui: sink GuiElement; onClick: proc (x: T); data: T): GuiElement" href="nickel/gui/behaviours/buttons.html#addBasicButton%2CsinkGuiElement%2Cproc%28T%29%2CT">buttons: addBasicButton[T](gui: sink GuiElement; onClick: proc (x: T); data: T): GuiElement</a></li>
+          data-doc-search-tag="buttonBehaviours: addBasicButton[T](gui: sink GuiElement; onClick: proc (x: T); data: T): GuiElement" href="nickel/gui/widgets/buttonBehaviours.html#addBasicButton%2CsinkGuiElement%2Cproc%28T%29%2CT">buttonBehaviours: addBasicButton[T](gui: sink GuiElement; onClick: proc (x: T); data: T): GuiElement</a></li>
           <li><a class="reference external"
-          data-doc-search-tag="buttons: addBasicButton(gui: sink GuiElement; onClick: proc ()): GuiElement" href="nickel/gui/behaviours/buttons.html#addBasicButton%2CsinkGuiElement%2Cproc%29">buttons: addBasicButton(gui: sink GuiElement; onClick: proc ()): GuiElement</a></li>
+          data-doc-search-tag="buttonBehaviours: addBasicButton(gui: sink GuiElement; onClick: proc ()): GuiElement" href="nickel/gui/widgets/buttonBehaviours.html#addBasicButton%2CsinkGuiElement%2Cproc%29">buttonBehaviours: addBasicButton(gui: sink GuiElement; onClick: proc ()): GuiElement</a></li>
           </ul></dd>
 <dt><a name="addButtonPressed" href="#addButtonPressed"><span>addButtonPressed:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -179,11 +179,11 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="addContinuousSliderBehaviour" href="#addContinuousSliderBehaviour"><span>addContinuousSliderBehaviour:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="sliderBehaviour: addContinuousSliderBehaviour(gui: sink GuiElement; onChange: proc (x: float)): GuiElement" href="nickel/gui/behaviours/sliderBehaviour.html#addContinuousSliderBehaviour%2CsinkGuiElement%2Cproc%28float%29">sliderBehaviour: addContinuousSliderBehaviour(gui: sink GuiElement; onChange: proc (x: float)): GuiElement</a></li>
+          data-doc-search-tag="slider: addContinuousSliderBehaviour(gui: sink GuiElement; onChange: proc (x: float)): GuiElement" href="nickel/gui/widgets/slider.html#addContinuousSliderBehaviour%2CsinkGuiElement%2Cproc%28float%29">slider: addContinuousSliderBehaviour(gui: sink GuiElement; onChange: proc (x: float)): GuiElement</a></li>
           </ul></dd>
 <dt><a name="addDiscreteSliderBehaviour" href="#addDiscreteSliderBehaviour"><span>addDiscreteSliderBehaviour:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="sliderBehaviour: addDiscreteSliderBehaviour(gui: sink GuiElement; onChange: proc (x: int)): GuiElement" href="nickel/gui/behaviours/sliderBehaviour.html#addDiscreteSliderBehaviour%2CsinkGuiElement%2Cproc%28int%29">sliderBehaviour: addDiscreteSliderBehaviour(gui: sink GuiElement; onChange: proc (x: int)): GuiElement</a></li>
+          data-doc-search-tag="slider: addDiscreteSliderBehaviour(gui: sink GuiElement; onChange: proc (x: int)): GuiElement" href="nickel/gui/widgets/slider.html#addDiscreteSliderBehaviour%2CsinkGuiElement%2Cproc%28int%29">slider: addDiscreteSliderBehaviour(gui: sink GuiElement; onChange: proc (x: int)): GuiElement</a></li>
           </ul></dd>
 <dt><a name="addHovered" href="#addHovered"><span>addHovered:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -199,11 +199,11 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="addSimpleOnClick" href="#addSimpleOnClick"><span>addSimpleOnClick:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="buttons: addSimpleOnClick(gui: sink GuiElement; onClick: proc ()): GuiElement" href="nickel/gui/behaviours/buttons.html#addSimpleOnClick%2CsinkGuiElement%2Cproc%29">buttons: addSimpleOnClick(gui: sink GuiElement; onClick: proc ()): GuiElement</a></li>
+          data-doc-search-tag="buttonBehaviours: addSimpleOnClick(gui: sink GuiElement; onClick: proc ()): GuiElement" href="nickel/gui/widgets/buttonBehaviours.html#addSimpleOnClick%2CsinkGuiElement%2Cproc%29">buttonBehaviours: addSimpleOnClick(gui: sink GuiElement; onClick: proc ()): GuiElement</a></li>
           </ul></dd>
 <dt><a name="addToggleButton" href="#addToggleButton"><span>addToggleButton:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="buttons: addToggleButton(gui: sink GuiElement; onSwitch: proc (b: bool)): GuiElement" href="nickel/gui/behaviours/buttons.html#addToggleButton%2CsinkGuiElement%2Cproc%28bool%29">buttons: addToggleButton(gui: sink GuiElement; onSwitch: proc (b: bool)): GuiElement</a></li>
+          data-doc-search-tag="buttonBehaviours: addToggleButton(gui: sink GuiElement; onSwitch: proc (b: bool)): GuiElement" href="nickel/gui/widgets/buttonBehaviours.html#addToggleButton%2CsinkGuiElement%2Cproc%28bool%29">buttonBehaviours: addToggleButton(gui: sink GuiElement; onSwitch: proc (b: bool)): GuiElement</a></li>
           </ul></dd>
 <dt><a name="addTracksMouseReleaseEverywhere" href="#addTracksMouseReleaseEverywhere"><span>addTracksMouseReleaseEverywhere:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -377,7 +377,7 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="combineIds" href="#combineIds"><span>combineIds:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="animator: combineIds(ids: varargs[string]): string" href="nickel/animator.html#combineIds%2Cvarargs%5Bstring%5D">animator: combineIds(ids: varargs[string]): string</a></li>
+          data-doc-search-tag="utils: combineIds(ids: varargs[string]): string" href="nickel/utils.html#combineIds%2Cvarargs%5Bstring%5D">utils: combineIds(ids: varargs[string]): string</a></li>
           </ul></dd>
 <dt><a name="Constraint" href="#Constraint"><span>Constraint:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -415,7 +415,7 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="animator: delete(id: AnimatedEntityId)" href="nickel/animator.html#delete%2CAnimatedEntityId">animator: delete(id: AnimatedEntityId)</a></li>
           <li><a class="reference external"
-          data-doc-search-tag="ecs: delete(e_3087008209: sink Entity[GuiWorld])" href="nickel/gui/ecs.html#delete%2Csink">ecs: delete(e_3087008209: sink Entity[GuiWorld])</a></li>
+          data-doc-search-tag="ecs: delete(e_3103785425: sink Entity[GuiWorld])" href="nickel/gui/ecs.html#delete%2Csink">ecs: delete(e_3103785425: sink Entity[GuiWorld])</a></li>
           </ul></dd>
 <dt><a name="deleteAll" href="#deleteAll"><span>deleteAll:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -564,6 +564,10 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="getTweenVector3" href="#getTweenVector3"><span>getTweenVector3:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="tween: getTweenVector3(key: TweenId): Vec3" href="nickel/tween.html#getTweenVector3%2CTweenId">tween: getTweenVector3(key: TweenId): Vec3</a></li>
+          </ul></dd>
+<dt><a name="GuiContext" href="#GuiContext"><span>GuiContext:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="context: GuiContext" href="nickel/gui/context.html#GuiContext">context: GuiContext</a></li>
           </ul></dd>
 <dt><a name="GuiElement" href="#GuiElement"><span>GuiElement:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -737,35 +741,35 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="isHovered" href="#isHovered"><span>isHovered:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isHovered(e_3087008279: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isHovered">ecs: isHovered(e_3087008279: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isHovered(e_3103785495: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isHovered">ecs: isHovered(e_3103785495: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="isHoveredAndPress" href="#isHoveredAndPress"><span>isHoveredAndPress:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isHoveredAndPress(e_3087008286: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isHoveredAndPress">ecs: isHoveredAndPress(e_3087008286: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isHoveredAndPress(e_3103785502: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isHoveredAndPress">ecs: isHoveredAndPress(e_3103785502: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="isHoveredAndRelease" href="#isHoveredAndRelease"><span>isHoveredAndRelease:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isHoveredAndRelease(e_3087008293: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isHoveredAndRelease">ecs: isHoveredAndRelease(e_3087008293: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isHoveredAndRelease(e_3103785509: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isHoveredAndRelease">ecs: isHoveredAndRelease(e_3103785509: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="isImageButton" href="#isImageButton"><span>isImageButton:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isImageButton(e_3087008313: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isImageButton">ecs: isImageButton(e_3087008313: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isImageButton(e_3103785529: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isImageButton">ecs: isImageButton(e_3103785529: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="isLabel" href="#isLabel"><span>isLabel:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isLabel(e_3087008264: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isLabel">ecs: isLabel(e_3087008264: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isLabel(e_3103785480: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isLabel">ecs: isLabel(e_3103785480: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="isLinearLayout" href="#isLinearLayout"><span>isLinearLayout:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isLinearLayout(e_3087008249: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isLinearLayout">ecs: isLinearLayout(e_3087008249: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isLinearLayout(e_3103785465: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isLinearLayout">ecs: isLinearLayout(e_3103785465: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="isOnMouseMove" href="#isOnMouseMove"><span>isOnMouseMove:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isOnMouseMove(e_3087008303: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isOnMouseMove">ecs: isOnMouseMove(e_3087008303: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isOnMouseMove(e_3103785519: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isOnMouseMove">ecs: isOnMouseMove(e_3103785519: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="isPanel" href="#isPanel"><span>isPanel:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isPanel(e_3087008254: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isPanel">ecs: isPanel(e_3087008254: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isPanel(e_3103785470: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isPanel">ecs: isPanel(e_3103785470: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="isPressed" href="#isPressed"><span>isPressed:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -773,27 +777,27 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="isProgressBar" href="#isProgressBar"><span>isProgressBar:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isProgressBar(e_3087008328: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isProgressBar">ecs: isProgressBar(e_3087008328: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isProgressBar(e_3103785544: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isProgressBar">ecs: isProgressBar(e_3103785544: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="isReleaseEverywhere" href="#isReleaseEverywhere"><span>isReleaseEverywhere:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isReleaseEverywhere(e_3087008298: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isReleaseEverywhere">ecs: isReleaseEverywhere(e_3087008298: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isReleaseEverywhere(e_3103785514: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isReleaseEverywhere">ecs: isReleaseEverywhere(e_3103785514: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="isSimpleContainer" href="#isSimpleContainer"><span>isSimpleContainer:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isSimpleContainer(e_3087008259: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isSimpleContainer">ecs: isSimpleContainer(e_3087008259: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isSimpleContainer(e_3103785475: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isSimpleContainer">ecs: isSimpleContainer(e_3103785475: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="isSlider" href="#isSlider"><span>isSlider:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isSlider(e_3087008323: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isSlider">ecs: isSlider(e_3087008323: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isSlider(e_3103785539: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isSlider">ecs: isSlider(e_3103785539: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="isSpriteCamera" href="#isSpriteCamera"><span>isSpriteCamera:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isSpriteCamera(e_3087008318: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isSpriteCamera">ecs: isSpriteCamera(e_3087008318: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isSpriteCamera(e_3103785534: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isSpriteCamera">ecs: isSpriteCamera(e_3103785534: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="isTextButton" href="#isTextButton"><span>isTextButton:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: isTextButton(e_3087008308: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isTextButton">ecs: isTextButton(e_3087008308: Entity[GuiWorld]): bool</a></li>
+          data-doc-search-tag="ecs: isTextButton(e_3103785524: Entity[GuiWorld]): bool" href="nickel/gui/ecs.html#isTextButton">ecs: isTextButton(e_3103785524: Entity[GuiWorld]): bool</a></li>
           </ul></dd>
 <dt><a name="layout" href="#layout"><span>layout:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -905,6 +909,10 @@ window.addEventListener('DOMContentLoaded', main);
           <li><a class="reference external"
           data-doc-search-tag="spritecamera: newCollider(pos, size: Vec2): GuiElement" href="nickel/gui/widgets/spritecamera.html#newCollider%2CVec2%2CVec2">spritecamera: newCollider(pos, size: Vec2): GuiElement</a></li>
           </ul></dd>
+<dt><a name="newContext" href="#newContext"><span>newContext:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="context: newContext(): GuiContext" href="nickel/gui/context.html#newContext">context: newContext(): GuiContext</a></li>
+          </ul></dd>
 <dt><a name="newGuiContainer" href="#newGuiContainer"><span>newGuiContainer:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="container: newGuiContainer(child: sink GuiElement; padding: DirValues = ZeroDirValues;
@@ -917,17 +925,35 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="slider: newGuiContinuousSlider(track: Slice9Id; head: ImageId;
                        padding: DirValues = ZeroDirValues;
-                       width: int = LengthUndefined): GuiElement" href="nickel/gui/widgets/slider.html#newGuiContinuousSlider%2CSlice9Id%2CImageId%2CDirValues%2Cint">slider: newGuiContinuousSlider(track: Slice9Id; head: ImageId;
+                       width: int = LengthUndefined;
+                       onChange: proc (x: float) = nil): GuiElement" href="nickel/gui/widgets/slider.html#newGuiContinuousSlider%2CSlice9Id%2CImageId%2CDirValues%2Cint%2Cproc%28float%29">slider: newGuiContinuousSlider(track: Slice9Id; head: ImageId;
                        padding: DirValues = ZeroDirValues;
-                       width: int = LengthUndefined): GuiElement</a></li>
+                       width: int = LengthUndefined;
+                       onChange: proc (x: float) = nil): GuiElement</a></li>
+          </ul></dd>
+<dt><a name="newGuiContinuousSliderRaw" href="#newGuiContinuousSliderRaw"><span>newGuiContinuousSliderRaw:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="slider: newGuiContinuousSliderRaw(track: Slice9Id; head: ImageId;
+                          padding: DirValues = ZeroDirValues;
+                          width: int = LengthUndefined): GuiElement" href="nickel/gui/widgets/slider.html#newGuiContinuousSliderRaw%2CSlice9Id%2CImageId%2CDirValues%2Cint">slider: newGuiContinuousSliderRaw(track: Slice9Id; head: ImageId;
+                          padding: DirValues = ZeroDirValues;
+                          width: int = LengthUndefined): GuiElement</a></li>
           </ul></dd>
 <dt><a name="newGuiDiscreteSlider" href="#newGuiDiscreteSlider"><span>newGuiDiscreteSlider:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="slider: newGuiDiscreteSlider(track: Slice9Id; head: ImageId; count: int;
                      padding: DirValues = ZeroDirValues;
-                     width: int = LengthUndefined): GuiElement" href="nickel/gui/widgets/slider.html#newGuiDiscreteSlider%2CSlice9Id%2CImageId%2Cint%2CDirValues%2Cint">slider: newGuiDiscreteSlider(track: Slice9Id; head: ImageId; count: int;
+                     width: int = LengthUndefined; onChange: proc (x: int) = nil): GuiElement" href="nickel/gui/widgets/slider.html#newGuiDiscreteSlider%2CSlice9Id%2CImageId%2Cint%2CDirValues%2Cint%2Cproc%28int%29">slider: newGuiDiscreteSlider(track: Slice9Id; head: ImageId; count: int;
                      padding: DirValues = ZeroDirValues;
-                     width: int = LengthUndefined): GuiElement</a></li>
+                     width: int = LengthUndefined; onChange: proc (x: int) = nil): GuiElement</a></li>
+          </ul></dd>
+<dt><a name="newGuiDiscreteSliderRaw" href="#newGuiDiscreteSliderRaw"><span>newGuiDiscreteSliderRaw:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="slider: newGuiDiscreteSliderRaw(track: Slice9Id; head: ImageId; count: int;
+                        padding: DirValues = ZeroDirValues;
+                        width: int = LengthUndefined): GuiElement" href="nickel/gui/widgets/slider.html#newGuiDiscreteSliderRaw%2CSlice9Id%2CImageId%2Cint%2CDirValues%2Cint">slider: newGuiDiscreteSliderRaw(track: Slice9Id; head: ImageId; count: int;
+                        padding: DirValues = ZeroDirValues;
+                        width: int = LengthUndefined): GuiElement</a></li>
           </ul></dd>
 <dt><a name="newGuiLabel" href="#newGuiLabel"><span>newGuiLabel:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -975,7 +1001,7 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="newGuiWorld" href="#newGuiWorld"><span>newGuiWorld:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: newGuiWorld(entityMaxCount_3087007934: int = 10000): GuiWorld" href="nickel/gui/ecs.html#newGuiWorld%2Cint">ecs: newGuiWorld(entityMaxCount_3087007934: int = 10000): GuiWorld</a></li>
+          data-doc-search-tag="ecs: newGuiWorld(entityMaxCount_3103785150: int = 10000): GuiWorld" href="nickel/gui/ecs.html#newGuiWorld%2Cint">ecs: newGuiWorld(entityMaxCount_3103785150: int = 10000): GuiWorld</a></li>
           </ul></dd>
 <dt><a name="newNickel" href="#newNickel"><span>newNickel:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1227,59 +1253,59 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="queryHovered" href="#queryHovered"><span>queryHovered:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: queryHovered(world_3087008274: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryHovered.i%2CGuiWorld">ecs: queryHovered(world_3087008274: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: queryHovered(world_3103785490: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryHovered.i%2CGuiWorld">ecs: queryHovered(world_3103785490: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="queryHoveredAndPress" href="#queryHoveredAndPress"><span>queryHoveredAndPress:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: queryHoveredAndPress(world_3087008281: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryHoveredAndPress.i%2CGuiWorld">ecs: queryHoveredAndPress(world_3087008281: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: queryHoveredAndPress(world_3103785497: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryHoveredAndPress.i%2CGuiWorld">ecs: queryHoveredAndPress(world_3103785497: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="queryHoveredAndRelease" href="#queryHoveredAndRelease"><span>queryHoveredAndRelease:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: queryHoveredAndRelease(world_3087008288: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryHoveredAndRelease.i%2CGuiWorld">ecs: queryHoveredAndRelease(world_3087008288: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: queryHoveredAndRelease(world_3103785504: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryHoveredAndRelease.i%2CGuiWorld">ecs: queryHoveredAndRelease(world_3103785504: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="queryImageButton" href="#queryImageButton"><span>queryImageButton:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: queryImageButton(world_3087008310: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryImageButton.i%2CGuiWorld">ecs: queryImageButton(world_3087008310: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: queryImageButton(world_3103785526: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryImageButton.i%2CGuiWorld">ecs: queryImageButton(world_3103785526: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="queryLabel" href="#queryLabel"><span>queryLabel:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: queryLabel(world_3087008261: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryLabel.i%2CGuiWorld">ecs: queryLabel(world_3087008261: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: queryLabel(world_3103785477: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryLabel.i%2CGuiWorld">ecs: queryLabel(world_3103785477: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="queryLinearLayout" href="#queryLinearLayout"><span>queryLinearLayout:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: queryLinearLayout(world_3087008238: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryLinearLayout.i%2CGuiWorld">ecs: queryLinearLayout(world_3087008238: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: queryLinearLayout(world_3103785454: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryLinearLayout.i%2CGuiWorld">ecs: queryLinearLayout(world_3103785454: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="queryOnMouseMove" href="#queryOnMouseMove"><span>queryOnMouseMove:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: queryOnMouseMove(world_3087008300: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryOnMouseMove.i%2CGuiWorld">ecs: queryOnMouseMove(world_3087008300: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: queryOnMouseMove(world_3103785516: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryOnMouseMove.i%2CGuiWorld">ecs: queryOnMouseMove(world_3103785516: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="queryPanel" href="#queryPanel"><span>queryPanel:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: queryPanel(world_3087008251: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryPanel.i%2CGuiWorld">ecs: queryPanel(world_3087008251: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: queryPanel(world_3103785467: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryPanel.i%2CGuiWorld">ecs: queryPanel(world_3103785467: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="queryProgressBar" href="#queryProgressBar"><span>queryProgressBar:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: queryProgressBar(world_3087008325: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryProgressBar.i%2CGuiWorld">ecs: queryProgressBar(world_3087008325: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: queryProgressBar(world_3103785541: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryProgressBar.i%2CGuiWorld">ecs: queryProgressBar(world_3103785541: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="queryReleaseEverywhere" href="#queryReleaseEverywhere"><span>queryReleaseEverywhere:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: queryReleaseEverywhere(world_3087008295: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryReleaseEverywhere.i%2CGuiWorld">ecs: queryReleaseEverywhere(world_3087008295: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: queryReleaseEverywhere(world_3103785511: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryReleaseEverywhere.i%2CGuiWorld">ecs: queryReleaseEverywhere(world_3103785511: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="querySimpleContainer" href="#querySimpleContainer"><span>querySimpleContainer:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: querySimpleContainer(world_3087008256: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#querySimpleContainer.i%2CGuiWorld">ecs: querySimpleContainer(world_3087008256: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: querySimpleContainer(world_3103785472: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#querySimpleContainer.i%2CGuiWorld">ecs: querySimpleContainer(world_3103785472: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="querySlider" href="#querySlider"><span>querySlider:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: querySlider(world_3087008320: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#querySlider.i%2CGuiWorld">ecs: querySlider(world_3087008320: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: querySlider(world_3103785536: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#querySlider.i%2CGuiWorld">ecs: querySlider(world_3103785536: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="querySpriteCamera" href="#querySpriteCamera"><span>querySpriteCamera:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: querySpriteCamera(world_3087008315: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#querySpriteCamera.i%2CGuiWorld">ecs: querySpriteCamera(world_3087008315: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: querySpriteCamera(world_3103785531: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#querySpriteCamera.i%2CGuiWorld">ecs: querySpriteCamera(world_3103785531: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="queryTextButton" href="#queryTextButton"><span>queryTextButton:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="ecs: queryTextButton(world_3087008305: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryTextButton.i%2CGuiWorld">ecs: queryTextButton(world_3087008305: GuiWorld): Entity[GuiWorld]</a></li>
+          data-doc-search-tag="ecs: queryTextButton(world_3103785521: GuiWorld): Entity[GuiWorld]" href="nickel/gui/ecs.html#queryTextButton.i%2CGuiWorld">ecs: queryTextButton(world_3103785521: GuiWorld): Entity[GuiWorld]</a></li>
           </ul></dd>
 <dt><a name="Quint" href="#Quint"><span>Quint:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1669,6 +1695,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="nickel: View" href="nickel.html#View">nickel: View</a></li>
           </ul></dd>
+<dt><a name="withContext" href="#withContext"><span>withContext:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="context: withContext(context: GuiContext; body: untyped): untyped" href="nickel/gui/context.html#withContext.t%2CGuiContext%2Cuntyped">context: withContext(context: GuiContext; body: untyped): untyped</a></li>
+          </ul></dd>
 <dt><a name="ZeroDirValues" href="#ZeroDirValues"><span>ZeroDirValues:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="ecs: ZeroDirValues" href="nickel/gui/ecs.html#ZeroDirValues">ecs: ZeroDirValues</a></li>
@@ -1678,7 +1708,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-21 17:38:22 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-22 13:06:06 UTC</small>
       </div>
     </div>
   </div>
