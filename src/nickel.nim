@@ -31,55 +31,14 @@ type NickelConfig* = object
   windowSize*: IVec2 ## Starting size of the window.
   windowTitle*: string ## Title of the window.
 
-proc addSpriteSheet(boxy: Boxy, key: SpriteSheetId, ss: SpriteSheet) =
-  for i in 0..<ss.count:
-    let
-      x = i mod ss.countX
-      y = i div ss.countX
-      subImg = ss.image.subImage(x * ss.tileX, y * ss.tileY, ss.tileX, ss.tileY)
-    boxy.addImage(key & "_" & $i, subImg)
-
-proc addSubImage(boxy: Boxy, key: string, image: Image; x, y, w, h: int) {.inline.} =
-  if w > 0 and h > 0:
-    boxy.addImage(key, image.subImage(x, y, w, h))
-
-proc addSlice9(boxy: Boxy, key: Slice9Id, s9: Slice9) =
-  let
-    w = s9.image.width
-    h = s9.image.height
-    wc = w - s9.left - s9.right
-    hc = h - s9.top - s9.bottom
-  boxy.addSubImage(key & "_tl", s9.image, 0, 0, s9.left, s9.top)
-  boxy.addSubImage(key & "_t", s9.image, s9.left, 0, wc, s9.top)
-  boxy.addSubImage(key & "_tr", s9.image, w - s9.right, 0, s9.right, s9.top)
-  boxy.addSubImage(key & "_l", s9.image, 0, s9.top, s9.left, hc)
-  boxy.addSubImage(key & "_c", s9.image, s9.left, s9.top, wc, hc)
-  boxy.addSubImage(key & "_r", s9.image, w - s9.right, s9.top, s9.right, hc)
-  boxy.addSubImage(key & "_bl", s9.image, 0, h - s9.bottom, s9.left, s9.bottom)
-  boxy.addSubImage(key & "_b", s9.image, s9.left, h - s9.bottom, wc, s9.bottom)
-  boxy.addSubImage(key & "_br", s9.image, w - s9.right, h - s9.bottom, s9.right, s9.bottom)
-
-proc addAllImagesFromResources(boxy: Boxy) {.inline.} =
-  for key, val in getAllImageResources():
-    boxy.addImage(key, val)
-proc addAllSpriteSheetsFromResources(boxy: Boxy) {.inline.} =
-  for key, val in getAllSpriteSheetResources():
-    boxy.addSpriteSheet(key, val)
-proc addAllSlice9FromResources(boxy: Boxy) {.inline.} =
-  for key, val in getAllSlice9Resources():
-    boxy.addSlice9(key, val)
-
 proc newNickel*(c: NickelConfig): Nickel =
   ## Creates a new `Nickel` object with the given `NickelConfig`.
   new(result)
-  loadResources(c.resources)
   result.window = newWindow(c.windowTitle, c.windowSize)
   makeContextCurrent(result.window)
   loadExtensions()
   result.boxy = newBoxy()
-  result.boxy.addAllImagesFromResources()
-  result.boxy.addAllSpriteSheetsFromResources()
-  result.boxy.addAllSlice9FromResources()
+  loadResources(c.resources, result.boxy)
   result.audio = initAudioManager()
 
 proc drawView(n: Nickel, v: View) =
