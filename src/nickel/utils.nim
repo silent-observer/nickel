@@ -1,6 +1,7 @@
 ## Internal utility module with miscellaneous definitions.
 
 import pixie
+from strutils import join
 
 proc integerScaleUp*(img: Image, scale: int): Image =
   ## A function to scale up pixel-art images by integer factors.
@@ -57,3 +58,7 @@ proc pixelPerfect*(f: Vec3, pixelSize: int): IVec3 =
   ## * [pixelPerfect proc](#pixelPerfect,float,int)
   ## * [pixelPerfect proc](#pixelPerfect,Vec3,int)
   ivec3(f.x.pixelPerfect(pixelSize).int32, f.y.pixelPerfect(pixelSize).int32, f.z.pixelPerfect(pixelSize).int32)
+
+proc combineIds*(ids: varargs[string]): string {.inline.} =
+  ## Helper function to combine multiple ids.
+  ids.join("_")

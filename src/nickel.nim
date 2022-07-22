@@ -13,6 +13,7 @@ import nickel/gui/[ecs, primitives]
 import boxy, windy, opengl
 import std/monotimes, times, critbits
 export resources, sprite, animator, utils, windy, tween, primitives, gui, chroma, audio, timer
+export critbits.contains
 
 type View* = seq[GuiPrimitive] ## \
   ## This is the result of the rendering that the game has to output at each frame.

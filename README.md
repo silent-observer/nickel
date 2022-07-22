@@ -44,7 +44,7 @@ and its use is also recommended for the game logic itself.
 Note: for running the app you have to have [libsoloud.dll](https://sol.gfxile.net/soloud/downloads.html)
 
 TODO:
-- [ ] GUI contexts
+- [X] GUI contexts
 - [ ] Resource packages
 - [ ] Scrollbar
 - [ ] Drag and drop

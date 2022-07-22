@@ -206,10 +206,6 @@ proc restartArrayId*(base: AnimatedEntityId) {.inline.} =
   ## **See also:**
   ## * [newArrayId proc](#newArrayId,AnimatedEntityId)
   animatedEntityCounter[base] = 1
-proc combineIds*(ids: varargs[string]): string {.inline.} =
-  ## Helper function to combine multiple ids.
-  ## Useful in conjunction with [deleteAll proc](#deleteAll,AnimatedEntityId).
-  ids.join("_")
 
 proc addAnimatedEntities*(base: AnimatedEntityId, count: int, animator: AnimatorId, startAnim: AnimationId): seq[AnimatedEntityId] {.inline.} =
   ## Creates multiple animated entities at once, assigning their ids using [newArrayId](#newArrayId,AnimatedEntityId).
@@ -224,7 +220,6 @@ proc deleteAll*(base: AnimatedEntityId) {.inline.} =
   ## **See also:**
   ## * [newArrayId proc](#newArrayId,AnimatedEntityId)
   ## * [restartArrayId proc](#restartArrayId,AnimatedEntityId)
-  ## * [combineIds proc](#combineIds,varargs[string])
   ## * [addAnimatedEntities proc](#addAnimatedEntities,AnimatedEntityId,int,AnimatorId,AnimationId)
   let allKeys = toSeq(animatedEntityCounter.keysWithPrefix(base & "_"))
   for key in allKeys:

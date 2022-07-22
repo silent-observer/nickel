@@ -9,6 +9,7 @@ import gui/widgets/[linearlayout, container, label, textbutton, spritecamera, sl
 import gui/behaviours/[buttons, sliderBehaviour]
 import utils
 from gui/helpers import e, disowned, isPressed
+import gui/context
 
 
 export linearlayout, container, label, textbutton, spritecamera, slider, progressbar
@@ -17,7 +18,7 @@ export HAlign, VAlign, Direction, Orientation, ClickCallback, MouseAreaCallback
 export DirValues, Constraint, TextSpec, LengthInfinite, LengthUndefined
 export GuiElementKind, GuiElement, ZeroDirValues, initDirValues
 export add, looseConstraint, strictConstraint, NoConstraint
-export disowned, isPressed, initText
+export disowned, isPressed, initText, newContext, withContext
 
 proc layout*(gui: GuiElement, c: Constraint): GuiPrimitive =
   ## Run a Flutter-like layout algorithm on the `GuiElement` tree, given a constraint `c`,
