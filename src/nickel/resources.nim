@@ -104,7 +104,7 @@ type
   AudioStream = object
     wav: ptr WavStream
 
-  ResourceKind {.pure.} = enum
+  ResourceKind* {.pure.} = enum
     Image,
     SpriteSheet,
     Slice9,
@@ -368,3 +368,6 @@ proc getAudioSampleResource*(key: AudioSampleId): ptr Wav {.inline.} =
 proc getAudioStreamResource*(key: AudioStreamId): ptr WavStream {.inline.} =
   ## Get an audio stream resource
   resourceStorage[key].audioStream.wav
+proc getResourceKind*(key: ResourceId): ResourceKind {.inline.} =
+  ## Get resource kind
+  resourceStorage[key].kind

@@ -12,7 +12,7 @@ import ".."/[ecs, helpers, primitives]
 import ".."/".."/[utils, resources]
 import math, windy
 
-proc newGuiDiscreteSliderRaw*(track: Slice9Id, head: ImageId, count: int, 
+proc newGuiDiscreteSliderRaw*(track: Slice9Id, head: ResourceId, count: int, 
     orientation: Orientation = Horizontal, 
     padding: DirValues = ZeroDirValues; height, width: int = LengthUndefined): GuiElement =
   ## Creates a discrete slider, which is raw and doesn't have any behaviour.
@@ -21,21 +21,32 @@ proc newGuiDiscreteSliderRaw*(track: Slice9Id, head: ImageId, count: int,
   let e = gw.newOwnedEntity()
   e.get.add orientation
   var headLength : int
+  var headSize: Size
+
+  case head.getResourceKind:
+  of ResourceKind.Image: 
+    e.get.add ImageComp(head)
+    headSize = Size(w: head.getImageResource.width, h: head.getImageResource.height)
+  of ResourceKind.Slice9:
+    e.get.add AltPanelComp(head)
+    headSize = Size(w: head.getSlice9Resource.left + head.getSlice9Resource.right, 
+                    h: head.getSlice9Resource.top + head.getSlice9Resource.bottom)
+  else: raise newException(NickelDefect, "Slider head has to be either an image or a slice-9")
+
   case orientation:
   of Horizontal:
     e.get.add Size(w: width, h: LengthUndefined).PreferredSize
-    headLength = head.getImageResource.width
+    headLength = headSize.w
   of Vertical:
     e.get.add Size(w: LengthUndefined, h: height).PreferredSize
-    headLength = head.getImageResource.height
+    headLength = headSize.h
   e.get.add Padding(padding)
-  e.get.add ImageComp(head)
   e.get.add PanelComp(track)
   e.get.add SliderComp(isDiscrete: true, count: count, discreteVal: 0, headLength: headLength)
   e.get.add SavesRect(irect(0, 0, 0, 0))
   GuiElement(isOwned: true, eOwned: e, kind: Leaf)
 
-proc newGuiContinuousSliderRaw*(track: Slice9Id, head: ImageId, 
+proc newGuiContinuousSliderRaw*(track: Slice9Id, head: ResourceId, 
     orientation: Orientation = Horizontal, padding: DirValues = ZeroDirValues;
     height, width: int = LengthUndefined): GuiElement =
   ## Creates a continuous slider, which is raw and doesn't have any behaviour.
@@ -44,15 +55,26 @@ proc newGuiContinuousSliderRaw*(track: Slice9Id, head: ImageId,
   let e = gw.newOwnedEntity()
   e.get.add orientation
   var headLength : int
+  var headSize : Size
+
+  case head.getResourceKind:
+  of ResourceKind.Image: 
+    e.get.add ImageComp(head)
+    headSize = Size(w: head.getImageResource.width, h: head.getImageResource.height)
+  of ResourceKind.Slice9:
+    e.get.add AltPanelComp(head)
+    headSize = Size(w: head.getSlice9Resource.left + head.getSlice9Resource.right, 
+                    h: head.getSlice9Resource.top + head.getSlice9Resource.bottom)
+  else: raise newException(NickelDefect, "Slider head has to be either an image or a slice-9")
+
   case orientation:
   of Horizontal:
     e.get.add Size(w: width, h: LengthUndefined).PreferredSize
-    headLength = head.getImageResource.width
+    headLength = headSize.w
   of Vertical:
     e.get.add Size(w: LengthUndefined, h: height).PreferredSize
-    headLength = head.getImageResource.height
+    headLength = headSize.h
   e.get.add Padding(padding)
-  e.get.add ImageComp(head)
   e.get.add PanelComp(track)
   e.get.add SliderComp(isDiscrete: false, continuousVal: 0, headLength: headLength)
   e.get.add SavesRect(irect(0, 0, 0, 0))
@@ -92,20 +114,34 @@ proc `continuousSliderVal=`*(gui: GuiElement, val: float) =
       return
   raise newException(NickelDefect, "This GuiElement is not a continuous slider")
 
+proc `sliderHeadLength=`*(gui: GuiElement, val: int) =
+  ## Sets the length of the slider. Should only work if the slider has slice-9 as its head
+  if (gui.e.has SliderComp) and (gui.e.has AltPanelComp):
+    gui.e.slider.headLength = val
+  else:
+    raise newException(NickelDefect, "This GuiElement is not a slider with a slice 9!")
+
 proc layoutSlider*(gui: GuiElement, c: Constraint): GuiPrimitive =
   ## Layout a slider
   load orientation
   load preferredSize
   load padding
   load track, panel
-  load head, img
+  var head: ResourceId
+  var isHeadSlice9 : bool
+  if gui.e.has AltPanelComp:
+    head = gui.e.altPanel
+    isHeadSlice9 = true
+  else:
+    head = gui.e.img
+    isHeadSlice9 = false
   load slider
   
   case orientation:
   of Horizontal:
     let w = if preferredSize.w == LengthUndefined: c.max.w else: preferredSize.w
     let headHeight = head.getImageResource.height
-    let headWidth = head.getImageResource.width
+    let headWidth = slider.headLength
     let trackHeight = track.getSlice9Resource.bottom + track.getSlice9Resource.top
     if c.max.h < max(headHeight, trackHeight): return initGuiEmpty()
     let h = max(c.min.h, max(headHeight, trackHeight))
@@ -114,9 +150,15 @@ proc layoutSlider*(gui: GuiElement, c: Constraint): GuiPrimitive =
     let portion = if slider.isDiscrete: slider.discreteVal.float / float(slider.count - 1) else: slider.continuousVal
     let x = padding.left + (slidableWidth.float * portion).pixelPerfect(1)
     
+    let headPrimitive =
+      if isHeadSlice9:
+        initGuiPanel(irect(x, 0, headWidth, headHeight), head, guiId=gui.e.id.int)
+      else:
+        initGuiImage(irect(x, 0, headWidth, headHeight), head, guiId=gui.e.id.int)
+
     result = initGuiGroup(irect(0, 0, w, h), @[
       initGuiPanel(irect(0, 0, w, trackHeight), track, guiId=gui.e.id.int),
-      initGuiImage(irect(x, 0, headWidth, headHeight), head, guiId=gui.e.id.int)
+      headPrimitive
     ])
     result.clickTransparent = true
     result.children[0].rect.alignVertical(Size(w: w, h: h), VCenter)
@@ -125,7 +167,7 @@ proc layoutSlider*(gui: GuiElement, c: Constraint): GuiPrimitive =
   of Vertical:
     let h = if preferredSize.h == LengthUndefined: c.max.h else: preferredSize.h
     let headWidth = head.getImageResource.width
-    let headHeight = head.getImageResource.height
+    let headHeight = slider.headLength
     let trackWidth = track.getSlice9Resource.left + track.getSlice9Resource.right
     if c.max.w < max(headWidth, trackWidth): return initGuiEmpty()
     let w = max(c.min.w, max(headWidth, trackWidth))
@@ -134,9 +176,15 @@ proc layoutSlider*(gui: GuiElement, c: Constraint): GuiPrimitive =
     let portion = if slider.isDiscrete: slider.discreteVal.float / float(slider.count - 1) else: slider.continuousVal
     let y = padding.top + (slidableHeight.float * portion).pixelPerfect(1)
     
+    let headPrimitive =
+      if isHeadSlice9:
+        initGuiPanel(irect(0, y, headWidth, headHeight), head, guiId=gui.e.id.int)
+      else:
+        initGuiImage(irect(0, y, headWidth, headHeight), head, guiId=gui.e.id.int)
+
     result = initGuiGroup(irect(0, 0, w, h), @[
       initGuiPanel(irect(0, 0, trackWidth, h), track, guiId=gui.e.id.int),
-      initGuiImage(irect(0, y, headWidth, headHeight), head, guiId=gui.e.id.int)
+      headPrimitive
     ])
     result.clickTransparent = true
     result.children[0].rect.alignHorizontal(Size(w: w, h: h), HCenter)
@@ -213,14 +261,14 @@ proc addDiscreteSliderBehaviour*(gui: sink GuiElement, onChange: proc(x: int)): 
         onChange(entity.slider.discreteVal)
   )
 
-proc newGuiDiscreteSlider*(track: Slice9Id, head: ImageId, count: int, 
+proc newGuiDiscreteSlider*(track: Slice9Id, head: ResourceId, count: int, 
     orientation: Orientation = Horizontal, padding: DirValues = ZeroDirValues,
     height, width: int = LengthUndefined, onChange: proc(x: int) = nil): GuiElement =
   ## Creates a discrete slider
   newGuiDiscreteSliderRaw(track, head, count, orientation, padding, height, width)
     .addDiscreteSliderBehaviour(onChange)
 
-proc newGuiContinuousSlider*(track: Slice9Id, head: ImageId, 
+proc newGuiContinuousSlider*(track: Slice9Id, head: ResourceId, 
     orientation: Orientation = Horizontal, padding: DirValues = ZeroDirValues,
     height, width: int = LengthUndefined, onChange: proc(x: float) = nil): GuiElement =
   ## Creates a continous slider

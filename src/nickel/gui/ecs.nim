@@ -125,7 +125,7 @@ genWorldGlobal GuiWorld:
     (PreferredSize, Padding, TextSpec, PanelComp, AltPanelComp) as TextButton
     (PreferredSize, ImageComp, PressedImageComp) as ImageButton
     (PreferredSize, SpriteCanvas, Layout, Alignable) as SpriteCamera
-    (PreferredSize, Orientation, Padding, ImageComp, PanelComp, SliderComp, SavesRect) as Slider
+    (PreferredSize, Orientation, Padding, PanelComp, SliderComp, SavesRect) as Slider
     (PreferredSize, Direction, PanelComp, AltPanelComp, ProgressBarComp) as ProgressBar
 
 const
