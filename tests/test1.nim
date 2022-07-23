@@ -7,6 +7,7 @@ let n = newNickel(NickelConfig(
   windowSize: ivec2(1280, 800),
   windowTitle: "Slime"
 ))
+n.loadPackage("slimeWorld")
 
 addAnimator("slime")
 "slime".addAnimation "idle", 0..3, 5, AnimationEnd.Loop

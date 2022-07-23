@@ -34,11 +34,11 @@ type NickelConfig* = object
 proc newNickel*(c: NickelConfig): Nickel =
   ## Creates a new `Nickel` object with the given `NickelConfig`.
   new(result)
+  registerResources(c.resources)
   result.window = newWindow(c.windowTitle, c.windowSize)
   makeContextCurrent(result.window)
   loadExtensions()
   result.boxy = newBoxy()
-  loadResources(c.resources, result.boxy)
   result.audio = initAudioManager()
 
 proc drawView(n: Nickel, v: View) =
@@ -114,3 +114,6 @@ proc mainLoop*(n: Nickel) =
     pollEvents()
 
 template audio*(n: Nickel): AudioManager = n.audio ## Accessor for the Nickel's `AudioManager`.
+
+proc loadPackage*(n: Nickel, key: ResourceId, removeOthers = true) {.inline.} =
+  n.boxy.loadPackage(key, removeOthers)

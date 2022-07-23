@@ -65,3 +65,7 @@ audioSamples:
   beep: sound.wav
 audioStreams: 
   bgm: bgm.mp3
+packages:
+  common: [font, blue, blue_pressed, green, green_pressed, track, progress, head]
+  music: [bgm]
+  slimeWorld: [common, music, beep, slime]
