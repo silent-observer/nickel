@@ -174,9 +174,6 @@ proc addSpriteSheet(boxy: Boxy, key: SpriteSheetId, ss: SpriteSheet) =
 proc removeSpriteSheet(boxy: Boxy, key: SpriteSheetId) =
   let ss = resourceStorage[key].spritesheet
   for i in 0..<ss.count:
-    let
-      x = i mod ss.countX
-      y = i div ss.countX
     boxy.removeImage(key & "_" & $i)
 
 proc addSubImage(boxy: Boxy, key: string, image: Image; x, y, w, h: int) {.inline.} =

@@ -12,31 +12,49 @@ import ".."/[ecs, helpers, primitives]
 import ".."/".."/[utils, resources]
 import math, windy
 
-proc newGuiDiscreteSliderRaw*(track: Slice9Id, head: ImageId, count: int, padding: DirValues = ZeroDirValues,
-    width: int = LengthUndefined): GuiElement =
+proc newGuiDiscreteSliderRaw*(track: Slice9Id, head: ImageId, count: int, 
+    orientation: Orientation = Horizontal, 
+    padding: DirValues = ZeroDirValues; height, width: int = LengthUndefined): GuiElement =
   ## Creates a discrete slider, which is raw and doesn't have any behaviour.
   ## Normally you should use
   ## [newGuiDiscreteSlider proc](#newGuiDiscreteSlider,Slice9Id,ImageId,int,DirValues,int,proc(int))
   let e = gw.newOwnedEntity()
-  e.get.add Size(w: width, h: LengthUndefined).PreferredSize
+  e.get.add orientation
+  var headLength : int
+  case orientation:
+  of Horizontal:
+    e.get.add Size(w: width, h: LengthUndefined).PreferredSize
+    headLength = head.getImageResource.width
+  of Vertical:
+    e.get.add Size(w: LengthUndefined, h: height).PreferredSize
+    headLength = head.getImageResource.height
   e.get.add Padding(padding)
   e.get.add ImageComp(head)
   e.get.add PanelComp(track)
-  e.get.add SliderComp(isDiscrete: true, count: count, discreteVal: 0)
+  e.get.add SliderComp(isDiscrete: true, count: count, discreteVal: 0, headLength: headLength)
   e.get.add SavesRect(irect(0, 0, 0, 0))
   GuiElement(isOwned: true, eOwned: e, kind: Leaf)
 
-proc newGuiContinuousSliderRaw*(track: Slice9Id, head: ImageId, padding: DirValues = ZeroDirValues,
-    width: int = LengthUndefined): GuiElement =
+proc newGuiContinuousSliderRaw*(track: Slice9Id, head: ImageId, 
+    orientation: Orientation = Horizontal, padding: DirValues = ZeroDirValues;
+    height, width: int = LengthUndefined): GuiElement =
   ## Creates a continuous slider, which is raw and doesn't have any behaviour.
   ## Normally you should use
   ## [newGuiContinuousSlider proc](#newGuiDiscreteSlider,Slice9Id,ImageId,DirValues,int,proc(float))
   let e = gw.newOwnedEntity()
-  e.get.add Size(w: width, h: LengthUndefined).PreferredSize
+  e.get.add orientation
+  var headLength : int
+  case orientation:
+  of Horizontal:
+    e.get.add Size(w: width, h: LengthUndefined).PreferredSize
+    headLength = head.getImageResource.width
+  of Vertical:
+    e.get.add Size(w: LengthUndefined, h: height).PreferredSize
+    headLength = head.getImageResource.height
   e.get.add Padding(padding)
   e.get.add ImageComp(head)
   e.get.add PanelComp(track)
-  e.get.add SliderComp(isDiscrete: false, continuousVal: 0, headWidth: head.getImageResource.width)
+  e.get.add SliderComp(isDiscrete: false, continuousVal: 0, headLength: headLength)
   e.get.add SavesRect(irect(0, 0, 0, 0))
   GuiElement(isOwned: true, eOwned: e, kind: Leaf)
 
@@ -76,43 +94,67 @@ proc `continuousSliderVal=`*(gui: GuiElement, val: float) =
 
 proc layoutSlider*(gui: GuiElement, c: Constraint): GuiPrimitive =
   ## Layout a slider
+  load orientation
   load preferredSize
   load padding
   load track, panel
   load head, img
   load slider
-
-  let w = if preferredSize.w == LengthUndefined: c.max.w else: preferredSize.w
-  let headHeight = head.getImageResource.height
-  let headWidth = head.getImageResource.width
-  let trackHeight = track.getSlice9Resource.bottom + track.getSlice9Resource.top
-  if c.max.h < max(headHeight, trackHeight): return initGuiEmpty()
-  let h = max(c.min.h, max(headHeight, trackHeight))
-
-  let slidableWidth = w - padding.left - padding.right - headWidth
-  let portion = if slider.isDiscrete: slider.discreteVal.float / float(slider.count - 1) else: slider.continuousVal
-  let x = padding.left + (slidableWidth.float * portion).pixelPerfect(1)
   
-  result = initGuiGroup(irect(0, 0, w, h), @[
-    initGuiPanel(irect(0, 0, w, trackHeight), track, guiId=gui.e.id.int),
-    initGuiImage(irect(x, 0, headWidth, headHeight), head, guiId=gui.e.id.int)
-  ])
-  result.clickTransparent = true
-  result.children[0].rect.alignVertical(Size(w: w, h: h), VCenter)
-  result.children[1].rect.alignVertical(Size(w: w, h: h), VCenter)
-  result.children[0].savesRect = true
+  case orientation:
+  of Horizontal:
+    let w = if preferredSize.w == LengthUndefined: c.max.w else: preferredSize.w
+    let headHeight = head.getImageResource.height
+    let headWidth = head.getImageResource.width
+    let trackHeight = track.getSlice9Resource.bottom + track.getSlice9Resource.top
+    if c.max.h < max(headHeight, trackHeight): return initGuiEmpty()
+    let h = max(c.min.h, max(headHeight, trackHeight))
+
+    let slidableWidth = w - padding.left - padding.right - headWidth
+    let portion = if slider.isDiscrete: slider.discreteVal.float / float(slider.count - 1) else: slider.continuousVal
+    let x = padding.left + (slidableWidth.float * portion).pixelPerfect(1)
+    
+    result = initGuiGroup(irect(0, 0, w, h), @[
+      initGuiPanel(irect(0, 0, w, trackHeight), track, guiId=gui.e.id.int),
+      initGuiImage(irect(x, 0, headWidth, headHeight), head, guiId=gui.e.id.int)
+    ])
+    result.clickTransparent = true
+    result.children[0].rect.alignVertical(Size(w: w, h: h), VCenter)
+    result.children[1].rect.alignVertical(Size(w: w, h: h), VCenter)
+    result.children[0].savesRect = true
+  of Vertical:
+    let h = if preferredSize.h == LengthUndefined: c.max.h else: preferredSize.h
+    let headWidth = head.getImageResource.width
+    let headHeight = head.getImageResource.height
+    let trackWidth = track.getSlice9Resource.left + track.getSlice9Resource.right
+    if c.max.w < max(headWidth, trackWidth): return initGuiEmpty()
+    let w = max(c.min.w, max(headWidth, trackWidth))
+
+    let slidableHeight = h - padding.top - padding.bottom - headHeight
+    let portion = if slider.isDiscrete: slider.discreteVal.float / float(slider.count - 1) else: slider.continuousVal
+    let y = padding.top + (slidableHeight.float * portion).pixelPerfect(1)
+    
+    result = initGuiGroup(irect(0, 0, w, h), @[
+      initGuiPanel(irect(0, 0, trackWidth, h), track, guiId=gui.e.id.int),
+      initGuiImage(irect(0, y, headWidth, headHeight), head, guiId=gui.e.id.int)
+    ])
+    result.clickTransparent = true
+    result.children[0].rect.alignHorizontal(Size(w: w, h: h), HCenter)
+    result.children[1].rect.alignHorizontal(Size(w: w, h: h), HCenter)
+    result.children[0].savesRect = true
 
 
-proc calculateClosest(trackX: int, trackLength: int, headWidth: int, padding: DirValues, mouseX: int): float =
-  let offset = mouseX.float - (trackX.float + padding.left.float + headWidth.float / 2)
-  let normalized = offset / float(trackLength - padding.left - padding.right - headWidth)
+proc calculateClosest(trackStart, trackLength, headLength, paddingStart, paddingEnd, mousePos: int): float =
+  let offset = mousePos.float - (trackStart.float + paddingStart.float + headLength.float / 2)
+  let normalized = offset / float(trackLength - paddingStart - paddingEnd - headLength)
   clamp(normalized, 0, 1)
 
-proc calculateDiscrete(x: float, count: int): int =
-  round(x * float(count - 1)).int
+proc calculateDiscrete(pos: float, count: int): int =
+  round(pos * float(count - 1)).int
 
 proc addContinuousSliderBehaviour*(gui: sink GuiElement, onChange: proc(x: float)): GuiElement =
   load padding
+  load orientation
   result = gui
   let entity = result.e
   
@@ -123,7 +165,11 @@ proc addContinuousSliderBehaviour*(gui: sink GuiElement, onChange: proc(x: float
     entity.addButtonPressed()
     entity.add OnMouseMove(proc(pos: IVec2) =
       let savedRect = entity.savedRect
-      let v = calculateClosest(savedRect.x, savedRect.w, entity.slider.headWidth, padding, pos.x)
+      let v = case orientation:
+        of Horizontal: calculateClosest(savedRect.x, savedRect.w, 
+          entity.slider.headLength, padding.left, padding.right, pos.x)
+        of Vertical: calculateClosest(savedRect.y, savedRect.h, 
+          entity.slider.headLength, padding.top, padding.bottom, pos.y)
       entity.slider.continuousVal = v
     )
   )
@@ -137,6 +183,7 @@ proc addContinuousSliderBehaviour*(gui: sink GuiElement, onChange: proc(x: float
 
 proc addDiscreteSliderBehaviour*(gui: sink GuiElement, onChange: proc(x: int)): GuiElement =
   load padding
+  load orientation
   result = gui
   let entity = result.e
   
@@ -149,9 +196,13 @@ proc addDiscreteSliderBehaviour*(gui: sink GuiElement, onChange: proc(x: int)): 
     entity.add OnMouseMove(proc(pos: IVec2) =
     #  echo "Slider move"
       let savedRect = entity.savedRect
-      let v = calculateClosest(savedRect.x, savedRect.w, entity.slider.headWidth, padding, pos.x)
-        .calculateDiscrete(entity.slider.count)
-      entity.slider.discreteVal = v
+      let v = case orientation:
+        of Horizontal: calculateClosest(savedRect.x, savedRect.w, 
+          entity.slider.headLength, padding.left, padding.right, pos.x)
+        of Vertical: calculateClosest(savedRect.y, savedRect.h, 
+          entity.slider.headLength, padding.top, padding.bottom, pos.y)
+      let realV = v.calculateDiscrete(entity.slider.count)
+      entity.slider.discreteVal = realV
     )
   )
   entity.add OnMouseRelease(proc(b: Button) =
@@ -162,14 +213,16 @@ proc addDiscreteSliderBehaviour*(gui: sink GuiElement, onChange: proc(x: int)): 
         onChange(entity.slider.discreteVal)
   )
 
-proc newGuiDiscreteSlider*(track: Slice9Id, head: ImageId, count: int, padding: DirValues = ZeroDirValues,
-    width: int = LengthUndefined, onChange: proc(x: int) = nil): GuiElement =
+proc newGuiDiscreteSlider*(track: Slice9Id, head: ImageId, count: int, 
+    orientation: Orientation = Horizontal, padding: DirValues = ZeroDirValues,
+    height, width: int = LengthUndefined, onChange: proc(x: int) = nil): GuiElement =
   ## Creates a discrete slider
-  newGuiDiscreteSliderRaw(track, head, count, padding, width)
+  newGuiDiscreteSliderRaw(track, head, count, orientation, padding, height, width)
     .addDiscreteSliderBehaviour(onChange)
 
-proc newGuiContinuousSlider*(track: Slice9Id, head: ImageId, padding: DirValues = ZeroDirValues,
-    width: int = LengthUndefined, onChange: proc(x: float) = nil): GuiElement =
+proc newGuiContinuousSlider*(track: Slice9Id, head: ImageId, 
+    orientation: Orientation = Horizontal, padding: DirValues = ZeroDirValues,
+    height, width: int = LengthUndefined, onChange: proc(x: float) = nil): GuiElement =
   ## Creates a continous slider
-  newGuiContinuousSliderRaw(track, head, padding, width)
+  newGuiContinuousSliderRaw(track, head, orientation, padding, height, width)
     .addContinuousSliderBehaviour(onChange)

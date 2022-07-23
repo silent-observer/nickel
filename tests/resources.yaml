@@ -52,6 +52,13 @@ slice9s:
     top: 4
     bottom: 4
     scaleUp: 2
+  trackVertical:
+    imagePath: track-vertical.png
+    left: 4
+    right: 4
+    top: 8
+    bottom: 8
+    scaleUp: 2
   progress:
     imagePath: progress.png
     left: 8
@@ -61,11 +68,13 @@ slice9s:
     scaleUp: 2
 images:
   head: head.png
+  headVertical: head-vertical.png
 audioSamples: 
   beep: sound.wav
 audioStreams: 
   bgm: bgm.mp3
 packages:
-  common: [font, blue, blue_pressed, green, green_pressed, track, progress, head]
+  common: [font, blue, blue_pressed, green, green_pressed, track, progress, head,
+      trackVertical, headVertical]
   music: [bgm]
   slimeWorld: [common, music, beep, slime]
