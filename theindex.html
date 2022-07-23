@@ -501,18 +501,6 @@ window.addEventListener('DOMContentLoaded', main);
           <li><a class="reference external"
           data-doc-search-tag="sprite: get(id: SpriteId): Sprite" href="nickel/sprite.html#get%2CSpriteId">sprite: get(id: SpriteId): Sprite</a></li>
           </ul></dd>
-<dt><a name="getAllImageResources" href="#getAllImageResources"><span>getAllImageResources:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="resources: getAllImageResources(): CritBitTree[Image]" href="nickel/resources.html#getAllImageResources">resources: getAllImageResources(): CritBitTree[Image]</a></li>
-          </ul></dd>
-<dt><a name="getAllSlice9Resources" href="#getAllSlice9Resources"><span>getAllSlice9Resources:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="resources: getAllSlice9Resources(): CritBitTree[Slice9]" href="nickel/resources.html#getAllSlice9Resources">resources: getAllSlice9Resources(): CritBitTree[Slice9]</a></li>
-          </ul></dd>
-<dt><a name="getAllSpriteSheetResources" href="#getAllSpriteSheetResources"><span>getAllSpriteSheetResources:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="resources: getAllSpriteSheetResources(): CritBitTree[SpriteSheet]" href="nickel/resources.html#getAllSpriteSheetResources">resources: getAllSpriteSheetResources(): CritBitTree[SpriteSheet]</a></li>
-          </ul></dd>
 <dt><a name="getAudioSampleResource" href="#getAudioSampleResource"><span>getAudioSampleResource:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="resources: getAudioSampleResource(key: AudioSampleId): ptr Wav" href="nickel/resources.html#getAudioSampleResource%2CAudioSampleId">resources: getAudioSampleResource(key: AudioSampleId): ptr Wav</a></li>
@@ -861,15 +849,15 @@ window.addEventListener('DOMContentLoaded', main);
           <li><a class="reference external"
           data-doc-search-tag="helpers: load(name: untyped; field: untyped)" href="nickel/gui/helpers.html#load.t%2Cuntyped%2Cuntyped">helpers: load(name: untyped; field: untyped)</a></li>
           </ul></dd>
-<dt><a name="loadAudioStream" href="#loadAudioStream"><span>loadAudioStream:</span></a></dt><dd><ul class="simple">
+<dt><a name="loadPackage" href="#loadPackage"><span>loadPackage:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="resources: loadAudioStream(key: AudioStreamId; path: string)" href="nickel/resources.html#loadAudioStream%2CAudioStreamId%2Cstring">resources: loadAudioStream(key: AudioStreamId; path: string)</a></li>
-          </ul></dd>
-<dt><a name="loadResources" href="#loadResources"><span>loadResources:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="resources: loadResources(cfg: ResourceConfig)" href="nickel/resources.html#loadResources%2CResourceConfig">resources: loadResources(cfg: ResourceConfig)</a></li>
+          data-doc-search-tag="nickel: loadPackage(n: Nickel; key: ResourceId; removeOthers = true)" href="nickel.html#loadPackage%2CNickel%2CResourceId">nickel: loadPackage(n: Nickel; key: ResourceId; removeOthers = true)</a></li>
           <li><a class="reference external"
-          data-doc-search-tag="resources: loadResources(cfgPath: string)" href="nickel/resources.html#loadResources%2Cstring">resources: loadResources(cfgPath: string)</a></li>
+          data-doc-search-tag="resources: loadPackage(boxy: Boxy; key: ResourceId; removeOthers = true)" href="nickel/resources.html#loadPackage%2CBoxy%2CResourceId">resources: loadPackage(boxy: Boxy; key: ResourceId; removeOthers = true)</a></li>
+          </ul></dd>
+<dt><a name="loadResource" href="#loadResource"><span>loadResource:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="resources: loadResource(boxy: Boxy; key: ResourceId)" href="nickel/resources.html#loadResource%2CBoxy%2CResourceId">resources: loadResource(boxy: Boxy; key: ResourceId)</a></li>
           </ul></dd>
 <dt><a name="looseConstraint" href="#looseConstraint"><span>looseConstraint:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1321,6 +1309,12 @@ window.addEventListener('DOMContentLoaded', main);
               handleButton: proc (b: Button) = nil; printFps: bool = false)" href="nickel.html#registerProcs%2CNickel%2Cproc%28IVec2%29%2Cproc%28Button%29%2Cbool">nickel: registerProcs(n: Nickel; generateView: proc (size: IVec2): View;
               handleButton: proc (b: Button) = nil; printFps: bool = false)</a></li>
           </ul></dd>
+<dt><a name="registerResources" href="#registerResources"><span>registerResources:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="resources: registerResources(cfg: ResourceConfig)" href="nickel/resources.html#registerResources%2CResourceConfig">resources: registerResources(cfg: ResourceConfig)</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="resources: registerResources(cfgPath: string)" href="nickel/resources.html#registerResources%2Cstring">resources: registerResources(cfgPath: string)</a></li>
+          </ul></dd>
 <dt><a name="removeAlignable" href="#removeAlignable"><span>removeAlignable:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="ecs: removeAlignable(e`gensym11: Entity[GuiWorld])" href="nickel/gui/ecs.html#removeAlignable">ecs: removeAlignable(e`gensym11: Entity[GuiWorld])</a></li>
@@ -1464,6 +1458,10 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="ResourceConfig" href="#ResourceConfig"><span>ResourceConfig:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="resources: ResourceConfig" href="nickel/resources.html#ResourceConfig">resources: ResourceConfig</a></li>
+          </ul></dd>
+<dt><a name="ResourceId" href="#ResourceId"><span>ResourceId:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="resources: ResourceId" href="nickel/resources.html#ResourceId">resources: ResourceId</a></li>
           </ul></dd>
 <dt><a name="restartArrayId" href="#restartArrayId"><span>restartArrayId:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1659,6 +1657,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="tween: TweenRequest" href="nickel/tween.html#TweenRequest">tween: TweenRequest</a></li>
           </ul></dd>
+<dt><a name="unloadResource" href="#unloadResource"><span>unloadResource:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="resources: unloadResource(boxy: Boxy; key: ResourceId)" href="nickel/resources.html#unloadResource%2CBoxy%2CResourceId">resources: unloadResource(boxy: Boxy; key: ResourceId)</a></li>
+          </ul></dd>
 <dt><a name="updateAnimations" href="#updateAnimations"><span>updateAnimations:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="animator: updateAnimations()" href="nickel/animator.html#updateAnimations">animator: updateAnimations()</a></li>
@@ -1708,7 +1710,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-22 13:06:06 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-23 12:53:32 UTC</small>
       </div>
     </div>
   </div>
