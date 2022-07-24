@@ -46,7 +46,7 @@ Note: for running the app you have to have [libsoloud.dll](https://sol.gfxile.ne
 TODO:
 - [X] GUI contexts
 - [X] Resource packages
-- [ ] Scrollbar
+- [X] Scrollbar
 - [ ] Drag and drop
 - [ ] Text input field
 - [ ] Tabs layout

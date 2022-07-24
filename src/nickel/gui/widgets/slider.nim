@@ -129,18 +129,23 @@ proc layoutSlider*(gui: GuiElement, c: Constraint): GuiPrimitive =
   load track, panel
   var head: ResourceId
   var isHeadSlice9 : bool
+  var headSize : Size
   if gui.e.has AltPanelComp:
     head = gui.e.altPanel
     isHeadSlice9 = true
+    let headResource = head.getSlice9Resource
+    headSize = Size(w: headResource.left + headResource.right, h: headResource.top + headResource.bottom)
   else:
     head = gui.e.img
     isHeadSlice9 = false
+    let headResource = head.getImageResource
+    headSize = Size(w: headResource.width, h: headResource.height)
   load slider
   
   case orientation:
   of Horizontal:
     let w = if preferredSize.w == LengthUndefined: c.max.w else: preferredSize.w
-    let headHeight = head.getImageResource.height
+    let headHeight = headSize.h
     let headWidth = slider.headLength
     let trackHeight = track.getSlice9Resource.bottom + track.getSlice9Resource.top
     if c.max.h < max(headHeight, trackHeight): return initGuiEmpty()
@@ -166,7 +171,7 @@ proc layoutSlider*(gui: GuiElement, c: Constraint): GuiPrimitive =
     result.children[0].savesRect = true
   of Vertical:
     let h = if preferredSize.h == LengthUndefined: c.max.h else: preferredSize.h
-    let headWidth = head.getImageResource.width
+    let headWidth = headSize.w
     let headHeight = slider.headLength
     let trackWidth = track.getSlice9Resource.left + track.getSlice9Resource.right
     if c.max.w < max(headWidth, trackWidth): return initGuiEmpty()

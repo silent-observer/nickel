@@ -77,7 +77,7 @@ type
   SavesRect* = distinct IRect
 
 genTagTypesGlobal ButtonPressed, ButtonPressedTemporary, ContainerTag, Layout, 
-  Hovered, TracksMouseReleaseEverywhere
+  Hovered, TracksMouseReleaseEverywhere, Scrollable
 
 genWorldGlobal GuiWorld:
   components:
@@ -112,6 +112,7 @@ genWorldGlobal GuiWorld:
     ButtonPressedTemporary (rare)
     Hovered (rare)
     TracksMouseReleaseEverywhere
+    Scrollable
   filters:
     (PreferredSize, Alignable, Padding, LinearLayoutGap, Layout, Orientation) as LinearLayout
     (PreferredSize, Alignable, Padding, ContainerTag, PanelComp) as Panel
@@ -127,6 +128,7 @@ genWorldGlobal GuiWorld:
     (PreferredSize, SpriteCanvas, Layout, Alignable) as SpriteCamera
     (PreferredSize, Orientation, Padding, PanelComp, SliderComp, SavesRect) as Slider
     (PreferredSize, Direction, PanelComp, AltPanelComp, ProgressBarComp) as ProgressBar
+    Scrollable as Scrollable
 
 const
   LengthInfinite* = int.high
@@ -173,6 +175,15 @@ proc `=destroy`(gui: var GuiElement) =
   if gui.kind == Container:
     for i in 0..<gui.children.len:
       `=destroy`(gui.children[i])
+
+proc initEmptyGuiElement*(): GuiElement {.inline.} =
+  GuiElement(
+    isOwned: false,
+    eUnowned: initEmptyEntity[GuiWorld](),
+    kind: Leaf
+  )
+proc isEmpty*(gui: GuiElement): bool {.inline.} =
+  not gui.isOwned and gui.eUnowned.world == nil
 
 let gw* = newGuiWorld(entityMaxCount=1000) ## GUI ECS object.
 

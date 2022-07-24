@@ -1,5 +1,5 @@
 switch("path", "$projectDir/../src")
---define:release
+#--define:release
 #--profiler:on
 --stacktrace:on
 --gc:orc

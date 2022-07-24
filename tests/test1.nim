@@ -45,7 +45,7 @@ proc progressBarMove() =
   "progressBar".requestTween 1.0, tweenDuration, Quad, callback=proc() =
     "progressBar".requestTween 0.0, tweenDuration, Quad, callback=progressBarMove
 
-const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce viverra porttitor arcu eget auctor. Cras aliquet dictum dolor mollis pulvinar. Pellentesque rhoncus id sem ac vulputate. Nunc nisl nibh, cursus id blandit nec, rutrum in nisl. Nunc mattis tempus dolor, nec porta libero ullamcorper sed. Donec convallis non turpis eu gravida. Aenean interdum justo faucibus, laoreet augue ut, fringilla orci. Vivamus quis nisi dui."
+const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce viverra porttitor arcu eget auctor. Cras aliquet dictum dolor mollis pulvinar. Pellentesque rhoncus id sem ac vulputate. Nunc nisl nibh, cursus id blandit nec, rutrum in nisl. Nunc mattis tempus dolor, nec porta libero ullamcorper sed. Donec convallis non turpis eu gravida. Aenean interdum justo faucibus, laoreet augue ut, fringilla orci. Vivamus quis nisi dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce viverra porttitor arcu eget auctor. Cras aliquet dictum dolor mollis pulvinar. Pellentesque rhoncus id sem ac vulputate. Nunc nisl nibh, cursus id blandit nec, rutrum in nisl. Nunc mattis tempus dolor, nec porta libero ullamcorper sed. Donec convallis non turpis eu gravida. Aenean interdum justo faucibus, laoreet augue ut, fringilla orci. Vivamus quis nisi dui."
 
 let panelPadding = initDirValues(10, 10, 14, 10)
 
@@ -62,9 +62,20 @@ proc generateView(size: IVec2): View =
     linearHor.add newGuiPanel(slice9 = "blue", padding=panelPadding, child=newGuiLabel(
         initText("Hello world!", "font")
       ))
-    linearHor.add newGuiPanel(slice9 = "blue", padding=panelPadding, child=newGuiLabel(
-        initText(lorem, "font", color=color(1, 0, 0, 1))
-      ), width=panelW)
+    linearHor.add newGuiPanel(slice9 = "blue", padding=panelPadding, width=panelW, child=
+      newGuiLabel(
+        initText(lorem, "font", color=color(1, 0, 0, 1)),
+        width=400,
+      ).newGuiScrollable(
+        verticalTrack="trackVertical", 
+        verticalHead="headVerticalSlice9", 
+        horizontalTrack="track",
+        horizontalHead="headSlice9",
+        width=200,
+        height=200,
+        padding=initDirValues(10)
+      ).stored("scrollable")
+    )
     linearHor.add newGuiTextButton(
         initText("Hello world!", "font", 20, color=color(1, 0, 0, 1)),
         slice9= "blue",

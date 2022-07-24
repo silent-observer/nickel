@@ -6,13 +6,13 @@ import gui/[ecs, primitives, text]
 proc layout*(gui: GuiElement, c: Constraint): GuiPrimitive
 
 import gui/widgets/[linearlayout, container, label, textbutton, spritecamera, 
-  slider, progressbar, buttonBehaviours]
+  slider, progressbar, buttonBehaviours, scrollable]
 import utils
 from gui/helpers import e, disowned, isPressed
 import gui/context
 
 
-export linearlayout, container, label, textbutton, spritecamera, slider, progressbar
+export linearlayout, container, label, textbutton, spritecamera, slider, progressbar, scrollable
 export buttonBehaviours
 export HAlign, VAlign, Direction, Orientation, ClickCallback, MouseAreaCallback
 export DirValues, Constraint, TextSpec, LengthInfinite, LengthUndefined
@@ -30,4 +30,5 @@ proc layout*(gui: GuiElement, c: Constraint): GuiPrimitive =
   elif gui.e.isSpriteCamera: layoutSpriteCamera(gui, c)
   elif gui.e.isSlider: layoutSlider(gui, c)
   elif gui.e.isProgressBar: layoutProgressBar(gui, c)
+  elif gui.e.isScrollable: layoutScrollable(gui, c)
   else: raise newException(NickelDefect, "Undefined type of GUI element")
