@@ -9,6 +9,7 @@ SpriteSheet	nickel/resources.html#SpriteSheet	resources: SpriteSheet
 SpriteSheetSpec	nickel/resources.html#SpriteSheetSpec	resources: SpriteSheetSpec	
 Slice9	nickel/resources.html#Slice9	resources: Slice9	
 Slice9Spec	nickel/resources.html#Slice9Spec	resources: Slice9Spec	
+ResourceKind	nickel/resources.html#ResourceKind	resources: ResourceKind	
 ResourceConfig	nickel/resources.html#ResourceConfig	resources: ResourceConfig	
 loadResource	nickel/resources.html#loadResource,Boxy,ResourceId	resources: loadResource(boxy: Boxy; key: ResourceId)	
 unloadResource	nickel/resources.html#unloadResource,Boxy,ResourceId	resources: unloadResource(boxy: Boxy; key: ResourceId)	
@@ -21,4 +22,5 @@ getSpriteSheetResource	nickel/resources.html#getSpriteSheetResource,SpriteSheetI
 getSlice9Resource	nickel/resources.html#getSlice9Resource,Slice9Id	resources: getSlice9Resource(key: Slice9Id): Slice9	
 getAudioSampleResource	nickel/resources.html#getAudioSampleResource,AudioSampleId	resources: getAudioSampleResource(key: AudioSampleId): ptr Wav	
 getAudioStreamResource	nickel/resources.html#getAudioStreamResource,AudioStreamId	resources: getAudioStreamResource(key: AudioStreamId): ptr WavStream	
+getResourceKind	nickel/resources.html#getResourceKind,ResourceId	resources: getResourceKind(key: ResourceId): ResourceKind	
 Resource file	nickel/resources.html#resource-file	 Resource file	

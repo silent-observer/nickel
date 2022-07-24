@@ -143,41 +143,56 @@ window.addEventListener('DOMContentLoaded', main);
 
   </ul>
   <ul class="simple nested-toc-section">newGuiContinuousSlider
-      <li><a class="reference" href="#newGuiContinuousSlider%2CSlice9Id%2CImageId%2CDirValues%2Cint%2Cproc%28float%29"
-    title="newGuiContinuousSlider(track: Slice9Id; head: ImageId;
+      <li><a class="reference" href="#newGuiContinuousSlider%2CSlice9Id%2CResourceId%2COrientation%2CDirValues%2Cint%2Cint%2Cproc%28float%29"
+    title="newGuiContinuousSlider(track: Slice9Id; head: ResourceId;
+                       orientation: Orientation = Horizontal;
                        padding: DirValues = ZeroDirValues;
-                       width: int = LengthUndefined;
-                       onChange: proc (x: float) = nil): GuiElement">newGuiContinuousSlider(track: Slice9Id; head: ImageId;
+                       height, width: int = LengthUndefined;
+                       onChange: proc (x: float) = nil): GuiElement">newGuiContinuousSlider(track: Slice9Id; head: ResourceId;
+                       orientation: Orientation = Horizontal;
                        padding: DirValues = ZeroDirValues;
-                       width: int = LengthUndefined;
+                       height, width: int = LengthUndefined;
                        onChange: proc (x: float) = nil): GuiElement</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">newGuiContinuousSliderRaw
-      <li><a class="reference" href="#newGuiContinuousSliderRaw%2CSlice9Id%2CImageId%2CDirValues%2Cint"
-    title="newGuiContinuousSliderRaw(track: Slice9Id; head: ImageId;
+      <li><a class="reference" href="#newGuiContinuousSliderRaw%2CSlice9Id%2CResourceId%2COrientation%2CDirValues%2Cint%2Cint"
+    title="newGuiContinuousSliderRaw(track: Slice9Id; head: ResourceId;
+                          orientation: Orientation = Horizontal;
                           padding: DirValues = ZeroDirValues;
-                          width: int = LengthUndefined): GuiElement">newGuiContinuousSliderRaw(track: Slice9Id; head: ImageId;
+                          height, width: int = LengthUndefined): GuiElement">newGuiContinuousSliderRaw(track: Slice9Id; head: ResourceId;
+                          orientation: Orientation = Horizontal;
                           padding: DirValues = ZeroDirValues;
-                          width: int = LengthUndefined): GuiElement</a></li>
+                          height, width: int = LengthUndefined): GuiElement</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">newGuiDiscreteSlider
-      <li><a class="reference" href="#newGuiDiscreteSlider%2CSlice9Id%2CImageId%2Cint%2CDirValues%2Cint%2Cproc%28int%29"
-    title="newGuiDiscreteSlider(track: Slice9Id; head: ImageId; count: int;
+      <li><a class="reference" href="#newGuiDiscreteSlider%2CSlice9Id%2CResourceId%2Cint%2COrientation%2CDirValues%2Cint%2Cint%2Cproc%28int%29"
+    title="newGuiDiscreteSlider(track: Slice9Id; head: ResourceId; count: int;
+                     orientation: Orientation = Horizontal;
                      padding: DirValues = ZeroDirValues;
-                     width: int = LengthUndefined; onChange: proc (x: int) = nil): GuiElement">newGuiDiscreteSlider(track: Slice9Id; head: ImageId; count: int;
+                     height, width: int = LengthUndefined;
+                     onChange: proc (x: int) = nil): GuiElement">newGuiDiscreteSlider(track: Slice9Id; head: ResourceId; count: int;
+                     orientation: Orientation = Horizontal;
                      padding: DirValues = ZeroDirValues;
-                     width: int = LengthUndefined; onChange: proc (x: int) = nil): GuiElement</a></li>
+                     height, width: int = LengthUndefined;
+                     onChange: proc (x: int) = nil): GuiElement</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">newGuiDiscreteSliderRaw
-      <li><a class="reference" href="#newGuiDiscreteSliderRaw%2CSlice9Id%2CImageId%2Cint%2CDirValues%2Cint"
-    title="newGuiDiscreteSliderRaw(track: Slice9Id; head: ImageId; count: int;
+      <li><a class="reference" href="#newGuiDiscreteSliderRaw%2CSlice9Id%2CResourceId%2Cint%2COrientation%2CDirValues%2Cint%2Cint"
+    title="newGuiDiscreteSliderRaw(track: Slice9Id; head: ResourceId; count: int;
+                        orientation: Orientation = Horizontal;
                         padding: DirValues = ZeroDirValues;
-                        width: int = LengthUndefined): GuiElement">newGuiDiscreteSliderRaw(track: Slice9Id; head: ImageId; count: int;
+                        height, width: int = LengthUndefined): GuiElement">newGuiDiscreteSliderRaw(track: Slice9Id; head: ResourceId; count: int;
+                        orientation: Orientation = Horizontal;
                         padding: DirValues = ZeroDirValues;
-                        width: int = LengthUndefined): GuiElement</a></li>
+                        height, width: int = LengthUndefined): GuiElement</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">sliderHeadLength=
+      <li><a class="reference" href="#sliderHeadLength%3D%2CGuiElement%2Cint"
+    title="sliderHeadLength=(gui: GuiElement; val: int)">sliderHeadLength=(gui: GuiElement; val: int)</a></li>
 
   </ul>
 
@@ -215,9 +230,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L114"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L208"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L114" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L208" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -228,9 +243,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L138"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L237"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L138" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L237" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -240,9 +255,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Gets the value of a continuous slider
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L51"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L91"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L51" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L91" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -252,9 +267,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Gets the value of a continuous slider
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L68"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L108"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L68" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L108" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -264,9 +279,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Gets the value of a discrete slider
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L43"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L83"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L43" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L83" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -276,9 +291,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Gets the value of a discrete slider
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L59"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L99"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L59" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L99" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -289,64 +304,68 @@ class="link-seesrc" target="_blank">Source</a>
 
 Layout a slider
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L77"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L124"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L77" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L124" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
-<div id="newGuiContinuousSlider,Slice9Id,ImageId,DirValues,int,proc(float)">
-<dt><pre><span class="Keyword">proc</span> <a href="#newGuiContinuousSlider%2CSlice9Id%2CImageId%2CDirValues%2Cint%2Cproc%28float%29"><span class="Identifier">newGuiContinuousSlider</span></a><span class="Other">(</span><span class="Identifier">track</span><span class="Other">:</span> <a href="../../resources.html#Slice9Id"><span class="Identifier">Slice9Id</span></a><span class="Other">;</span> <span class="Identifier">head</span><span class="Other">:</span> <a href="../../resources.html#ImageId"><span class="Identifier">ImageId</span></a><span class="Other">;</span>
+<div id="newGuiContinuousSlider,Slice9Id,ResourceId,Orientation,DirValues,int,int,proc(float)">
+<dt><pre><span class="Keyword">proc</span> <a href="#newGuiContinuousSlider%2CSlice9Id%2CResourceId%2COrientation%2CDirValues%2Cint%2Cint%2Cproc%28float%29"><span class="Identifier">newGuiContinuousSlider</span></a><span class="Other">(</span><span class="Identifier">track</span><span class="Other">:</span> <a href="../../resources.html#Slice9Id"><span class="Identifier">Slice9Id</span></a><span class="Other">;</span> <span class="Identifier">head</span><span class="Other">:</span> <a href="../../resources.html#ResourceId"><span class="Identifier">ResourceId</span></a><span class="Other">;</span>
+                            <span class="Identifier">orientation</span><span class="Other">:</span> <a href="../ecs.html#Orientation"><span class="Identifier">Orientation</span></a> <span class="Other">=</span> <span class="Identifier">Horizontal</span><span class="Other">;</span>
                             <span class="Identifier">padding</span><span class="Other">:</span> <a href="../ecs.html#DirValues"><span class="Identifier">DirValues</span></a> <span class="Other">=</span> <span class="Identifier">ZeroDirValues</span><span class="Other">;</span>
-                            <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">;</span>
+                            <span class="Identifier">height</span><span class="Other">,</span> <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">;</span>
                             <span class="Identifier">onChange</span><span class="Other">:</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">)</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">)</span><span class="Other">:</span> <a href="../ecs.html#GuiElement"><span class="Identifier">GuiElement</span></a> {.
     <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">,</span> <span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 Creates a continous slider
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L171"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L276"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L171" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L276" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
-<div id="newGuiContinuousSliderRaw,Slice9Id,ImageId,DirValues,int">
-<dt><pre><span class="Keyword">proc</span> <a href="#newGuiContinuousSliderRaw%2CSlice9Id%2CImageId%2CDirValues%2Cint"><span class="Identifier">newGuiContinuousSliderRaw</span></a><span class="Other">(</span><span class="Identifier">track</span><span class="Other">:</span> <a href="../../resources.html#Slice9Id"><span class="Identifier">Slice9Id</span></a><span class="Other">;</span> <span class="Identifier">head</span><span class="Other">:</span> <a href="../../resources.html#ImageId"><span class="Identifier">ImageId</span></a><span class="Other">;</span>
+<div id="newGuiContinuousSliderRaw,Slice9Id,ResourceId,Orientation,DirValues,int,int">
+<dt><pre><span class="Keyword">proc</span> <a href="#newGuiContinuousSliderRaw%2CSlice9Id%2CResourceId%2COrientation%2CDirValues%2Cint%2Cint"><span class="Identifier">newGuiContinuousSliderRaw</span></a><span class="Other">(</span><span class="Identifier">track</span><span class="Other">:</span> <a href="../../resources.html#Slice9Id"><span class="Identifier">Slice9Id</span></a><span class="Other">;</span> <span class="Identifier">head</span><span class="Other">:</span> <a href="../../resources.html#ResourceId"><span class="Identifier">ResourceId</span></a><span class="Other">;</span>
+                               <span class="Identifier">orientation</span><span class="Other">:</span> <a href="../ecs.html#Orientation"><span class="Identifier">Orientation</span></a> <span class="Other">=</span> <span class="Identifier">Horizontal</span><span class="Other">;</span>
                                <span class="Identifier">padding</span><span class="Other">:</span> <a href="../ecs.html#DirValues"><span class="Identifier">DirValues</span></a> <span class="Other">=</span> <span class="Identifier">ZeroDirValues</span><span class="Other">;</span>
-                               <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">)</span><span class="Other">:</span> <a href="../ecs.html#GuiElement"><span class="Identifier">GuiElement</span></a> {.
+                               <span class="Identifier">height</span><span class="Other">,</span> <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">)</span><span class="Other">:</span> <a href="../ecs.html#GuiElement"><span class="Identifier">GuiElement</span></a> {.
     <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 Creates a continuous slider, which is raw and doesn't have any behaviour. Normally you should use <a class="reference external" href="#newGuiDiscreteSlider,Slice9Id,ImageId,DirValues,int,proc(float)">newGuiContinuousSlider proc</a>
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L29"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L49"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L29" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L49" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
-<div id="newGuiDiscreteSlider,Slice9Id,ImageId,int,DirValues,int,proc(int)">
-<dt><pre><span class="Keyword">proc</span> <a href="#newGuiDiscreteSlider%2CSlice9Id%2CImageId%2Cint%2CDirValues%2Cint%2Cproc%28int%29"><span class="Identifier">newGuiDiscreteSlider</span></a><span class="Other">(</span><span class="Identifier">track</span><span class="Other">:</span> <a href="../../resources.html#Slice9Id"><span class="Identifier">Slice9Id</span></a><span class="Other">;</span> <span class="Identifier">head</span><span class="Other">:</span> <a href="../../resources.html#ImageId"><span class="Identifier">ImageId</span></a><span class="Other">;</span> <span class="Identifier">count</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span>
+<div id="newGuiDiscreteSlider,Slice9Id,ResourceId,int,Orientation,DirValues,int,int,proc(int)">
+<dt><pre><span class="Keyword">proc</span> <a href="#newGuiDiscreteSlider%2CSlice9Id%2CResourceId%2Cint%2COrientation%2CDirValues%2Cint%2Cint%2Cproc%28int%29"><span class="Identifier">newGuiDiscreteSlider</span></a><span class="Other">(</span><span class="Identifier">track</span><span class="Other">:</span> <a href="../../resources.html#Slice9Id"><span class="Identifier">Slice9Id</span></a><span class="Other">;</span> <span class="Identifier">head</span><span class="Other">:</span> <a href="../../resources.html#ResourceId"><span class="Identifier">ResourceId</span></a><span class="Other">;</span> <span class="Identifier">count</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span>
+                          <span class="Identifier">orientation</span><span class="Other">:</span> <a href="../ecs.html#Orientation"><span class="Identifier">Orientation</span></a> <span class="Other">=</span> <span class="Identifier">Horizontal</span><span class="Other">;</span>
                           <span class="Identifier">padding</span><span class="Other">:</span> <a href="../ecs.html#DirValues"><span class="Identifier">DirValues</span></a> <span class="Other">=</span> <span class="Identifier">ZeroDirValues</span><span class="Other">;</span>
-                          <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">;</span>
+                          <span class="Identifier">height</span><span class="Other">,</span> <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">;</span>
                           <span class="Identifier">onChange</span><span class="Other">:</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">)</span><span class="Other">:</span> <a href="../ecs.html#GuiElement"><span class="Identifier">GuiElement</span></a> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span></span>.}</pre></dt>
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">,</span> <span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 Creates a discrete slider
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L165"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L269"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L165" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L269" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
-<div id="newGuiDiscreteSliderRaw,Slice9Id,ImageId,int,DirValues,int">
-<dt><pre><span class="Keyword">proc</span> <a href="#newGuiDiscreteSliderRaw%2CSlice9Id%2CImageId%2Cint%2CDirValues%2Cint"><span class="Identifier">newGuiDiscreteSliderRaw</span></a><span class="Other">(</span><span class="Identifier">track</span><span class="Other">:</span> <a href="../../resources.html#Slice9Id"><span class="Identifier">Slice9Id</span></a><span class="Other">;</span> <span class="Identifier">head</span><span class="Other">:</span> <a href="../../resources.html#ImageId"><span class="Identifier">ImageId</span></a><span class="Other">;</span> <span class="Identifier">count</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span>
+<div id="newGuiDiscreteSliderRaw,Slice9Id,ResourceId,int,Orientation,DirValues,int,int">
+<dt><pre><span class="Keyword">proc</span> <a href="#newGuiDiscreteSliderRaw%2CSlice9Id%2CResourceId%2Cint%2COrientation%2CDirValues%2Cint%2Cint"><span class="Identifier">newGuiDiscreteSliderRaw</span></a><span class="Other">(</span><span class="Identifier">track</span><span class="Other">:</span> <a href="../../resources.html#Slice9Id"><span class="Identifier">Slice9Id</span></a><span class="Other">;</span> <span class="Identifier">head</span><span class="Other">:</span> <a href="../../resources.html#ResourceId"><span class="Identifier">ResourceId</span></a><span class="Other">;</span> <span class="Identifier">count</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span>
+                             <span class="Identifier">orientation</span><span class="Other">:</span> <a href="../ecs.html#Orientation"><span class="Identifier">Orientation</span></a> <span class="Other">=</span> <span class="Identifier">Horizontal</span><span class="Other">;</span>
                              <span class="Identifier">padding</span><span class="Other">:</span> <a href="../ecs.html#DirValues"><span class="Identifier">DirValues</span></a> <span class="Other">=</span> <span class="Identifier">ZeroDirValues</span><span class="Other">;</span>
-                             <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">)</span><span class="Other">:</span> <a href="../ecs.html#GuiElement"><span class="Identifier">GuiElement</span></a> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+                             <span class="Identifier">height</span><span class="Other">,</span> <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">)</span><span class="Other">:</span> <a href="../ecs.html#GuiElement"><span class="Identifier">GuiElement</span></a> {.
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 Creates a discrete slider, which is raw and doesn't have any behaviour. Normally you should use <a class="reference external" href="#newGuiDiscreteSlider,Slice9Id,ImageId,int,DirValues,int,proc(int)">newGuiDiscreteSlider proc</a>
@@ -354,6 +373,18 @@ Creates a discrete slider, which is raw and doesn't have any behaviour. Normally
 href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L15"
 class="link-seesrc" target="_blank">Source</a>
 &nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L15" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="sliderHeadLength=,GuiElement,int">
+<dt><pre><span class="Keyword">proc</span> <a href="#sliderHeadLength%3D%2CGuiElement%2Cint"><span class="Identifier">sliderHeadLength=</span></a><span class="Other">(</span><span class="Identifier">gui</span><span class="Other">:</span> <a href="../ecs.html#GuiElement"><span class="Identifier">GuiElement</span></a><span class="Other">;</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Sets the length of the slider. Should only work if the slider has slice-9 as its head
+&nbsp;&nbsp;<a
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/slider.nim#L117"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/slider.nim#L117" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -367,7 +398,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-23 12:53:32 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-24 09:17:30 UTC</small>
       </div>
     </div>
   </div>
