@@ -7,6 +7,7 @@
 import yaecs, pixie, windy
 import primitives
 import ".."/[resources, utils, sprite, collider]
+import options
 
 type
   HAlign* {.pure.} = enum
@@ -54,6 +55,11 @@ type
     headLength*: int
   ProgressBarComp* = object
     progress*: float
+  DragAndDropPlace* = object
+    placeId*: string
+    onMove*: proc(start, finish: string)
+    hasDraggable*: bool
+    draggablePos*: Option[IVec2]
 
 type
   PreferredSize* = distinct Size
@@ -70,6 +76,9 @@ type
   PanelComp* = distinct Slice9Id
   AltPanelComp* = distinct Slice9Id
   ImageComp* = distinct ImageId
+  SpriteComp* = object
+    ss*: SpriteSheetId
+    i*: int
   PressedImageComp* = distinct ImageId
   SpriteCanvas* = object
     sprites*: seq[SpriteId]
@@ -77,7 +86,7 @@ type
   SavesRect* = distinct IRect
 
 genTagTypesGlobal ButtonPressed, ButtonPressedTemporary, ContainerTag, Layout, 
-  Hovered, TracksMouseReleaseEverywhere, Scrollable
+  Hovered, TracksMouseReleaseEverywhere, Scrollable, TotallyClickTransparent
 
 genWorldGlobal GuiWorld:
   components:
@@ -96,6 +105,7 @@ genWorldGlobal GuiWorld:
     TextSpec as text
     ImageComp(ImageId) as img
     PressedImageComp(ImageId) as pressedImg
+    SpriteComp as sprite
     Orientation as orientation
     Direction as direction
 
@@ -105,6 +115,9 @@ genWorldGlobal GuiWorld:
     SliderComp as slider
     ProgressBarComp as progressBar
     SavesRect(IRect) as savedRect
+
+    DragAndDropPlace as dnd
+
   tags:
     Layout
     ContainerTag
@@ -113,6 +126,7 @@ genWorldGlobal GuiWorld:
     Hovered (rare)
     TracksMouseReleaseEverywhere
     Scrollable
+    TotallyClickTransparent
   filters:
     (PreferredSize, Alignable, Padding, LinearLayoutGap, Layout, Orientation) as LinearLayout
     (PreferredSize, Alignable, Padding, ContainerTag, PanelComp) as Panel
@@ -129,6 +143,11 @@ genWorldGlobal GuiWorld:
     (PreferredSize, Orientation, Padding, PanelComp, SliderComp, SavesRect) as Slider
     (PreferredSize, Direction, PanelComp, AltPanelComp, ProgressBarComp) as ProgressBar
     Scrollable as Scrollable
+    DragAndDropPlace as DragAndDropPlace
+    (Hovered, DragAndDropPlace) as HoveredDnD
+    (PreferredSize, ImageComp, not PressedImageComp) as Image
+    (PreferredSize, PanelComp, not AltPanelComp, not Padding) as Slice9
+    (PreferredSize, SpriteComp) as Sprite
 
 const
   LengthInfinite* = int.high
@@ -190,6 +209,9 @@ let gw* = newGuiWorld(entityMaxCount=1000) ## GUI ECS object.
 proc add*(c: var GuiElement, gui: sink GuiElement) {.inline.} = 
   ## Adds a child to a `GuiElement`.
   c.children.add gui
+proc clearChildren*(c: var GuiElement) {.inline.} = 
+  ## Adds a child to a `GuiElement`.
+  c.children.setLen(0)
 
 proc strictConstraint*(w: int, h: int): Constraint {.inline.} =
   ## A strict constraint that says that the `GuiElement` must be *exactly* the specified size.

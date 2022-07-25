@@ -1,5 +1,5 @@
 #import nimprof
-import nickel, vmath, times, random, sugar
+import nickel, vmath, times, random, sugar, options
 #from nickel/resources import SpriteSheetSpec
 
 let n = newNickel(NickelConfig(
@@ -18,11 +18,12 @@ addAnimator("slime")
 "slime".addTransition "idle", "hurt", "hurt", Immediate
 "slime".addTransition "idle", "die", "die", Immediate
 
-let slimeAnims = addAnimatedEntities("slime", 4, "slime", "idle")
+let slimeAnims = addAnimatedEntities("slime", 5, "slime", "idle")
 slimeAnims[0].setAnimationStep 0
 slimeAnims[1].setAnimationStep 1
 slimeAnims[2].setAnimationStep 2
 slimeAnims[3].setAnimationStep 3
+slimeAnims[4].setAnimationStep 0
 
 var pos = 300
 var height = 200
@@ -53,6 +54,15 @@ let slimeSpriteSheet = getSpriteSheetResource("slime")
 let slimeSize = vec2(slimeSpriteSheet.tileX.float, slimeSpriteSheet.tileY.float)
 
 let context = newContext()
+
+var movableSlimePosition = 0
+
+proc handleDragAndDrop(start, finish: string) =
+  echo start, " -> ", finish
+  if finish == "2":
+    movableSlimePosition = 1
+  elif finish == "1":
+    movableSlimePosition = 0
 
 proc generateView(size: IVec2): View =
   withContext context:
@@ -125,10 +135,36 @@ proc generateView(size: IVec2): View =
     for c in slimeColliders:
       camera.add c.disowned
 
+    let movableSlime = newGuiImage("slime", slimeAnims[4].getIndex())
+      .addTotallyClickTransparent()
+    var slimeContainer1 = newGuiPanel("green_pressed", 
+      hAlign=HCenter, vAlign=VCenter, width=100, height=100)
+      .addDragAndDropPlace("1", handleDragAndDrop)
+      .stored("slimeContainer1")
+    var slimeContainer2 = newGuiPanel("green_pressed", 
+      hAlign=HCenter, vAlign=VCenter, width=100, height=100)
+      .addDragAndDropPlace("2", handleDragAndDrop)
+      .stored("slimeContainer2")
+
+    slimeContainer1.hasDraggable = false
+    slimeContainer2.hasDraggable = false
+    
+    var additional: seq[GuiPrimitive] = @[]
+
+    let screenConstraint = looseConstraint(1280, 800)
+
+    if movableSlimePosition == 0:
+      movableSlime.placeInDragAndDrop(slimeContainer1, additional)
+    else:
+      movableSlime.placeInDragAndDrop(slimeContainer2, additional)
+
     result = @[
-      camera.layout(looseConstraint(1280, 800)),
-      gui.layout(looseConstraint(1000, 800)).adjust(300, 200)
-    ]
+      camera.layout(screenConstraint),
+      gui.layout(screenConstraint).adjust(300, 200),
+      slimeContainer1.layout(screenConstraint).adjust(1000, 200),
+      slimeContainer2.layout(screenConstraint).adjust(1000, 400),
+    ] & additional
+
   # echo result.gui
   # quit "end"
 

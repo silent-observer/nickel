@@ -43,13 +43,14 @@ proc newNickel*(c: NickelConfig): Nickel =
 
 proc drawView(n: Nickel, v: View) =
   ## Draws the given `View` on the screen, starting a new frame.
-  n.boxy.beginFrame(n.window.size)
-  for g in v:
-    n.boxy.drawGui(g)
-    g.saveAllRects()
+  if n.window.size != ivec2(0, 0):
+    n.boxy.beginFrame(n.window.size)
+    for g in v:
+      n.boxy.drawGui(g)
+      g.saveAllRects()
 
-  n.boxy.endFrame()
-  n.window.swapBuffers()
+    n.boxy.endFrame()
+    n.window.swapBuffers()
 
 var lastFrame: MonoTime ## Timestamp of the last frame.
 var prevMeasurement: MonoTime ## Timestamp of the last FPS measurement.

@@ -353,12 +353,18 @@ proc registerResources*(cfgPath: string) =
 proc getImageResource*(key: ImageId): Image {.inline.} = 
   ## Get an image resource
   resourceStorage[key].image
+proc getImageSize*(key: ImageId): Size {.inline.} = 
+  ## Get an image resource's size
+  Size(w: resourceStorage[key].image.width, h: resourceStorage[key].image.height)
 proc getFontResource*(key: FontId): Typeface {.inline.} =
   ## Get a font resource
   resourceStorage[key].font
 proc getSpriteSheetResource*(key: SpriteSheetId): SpriteSheet {.inline.} =
   ## Get a spritesheet resource
   resourceStorage[key].spriteSheet
+proc getSpriteSize*(key: SpriteSheetId): Size {.inline.} = 
+  ## Get an image resource's size
+  Size(w: resourceStorage[key].spriteSheet.tileX, h: resourceStorage[key].spriteSheet.tileY)
 proc getSlice9Resource*(key: Slice9Id): Slice9 {.inline.} =
   ## Get a slice-9 resource
   resourceStorage[key].slice9

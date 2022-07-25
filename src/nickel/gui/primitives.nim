@@ -121,6 +121,16 @@ proc adjust*(g: GuiPrimitive, x: int, y: int): GuiPrimitive =
   result = g
   result.rect.x += x
   result.rect.y += y
+proc adjust*(g: GuiPrimitive, v: IVec2): GuiPrimitive =
+  ## Adjusts the `GuiPrimitive`'s origin position.
+  g.adjust(v.x, v.y)
+
+proc centerAt*(g: GuiPrimitive, x: int, y: int): GuiPrimitive =
+  ## Adjusts the `GuiPrimitive`'s origin position.
+  g.adjust(x - g.rect.w div 2, y - g.rect.h div 2)
+proc centerAt*(g: GuiPrimitive, v: IVec2): GuiPrimitive =
+  ## Adjusts the `GuiPrimitive`'s origin position.
+  g.centerAt(v.x, v.y)
 
 proc initGuiEmpty*(): GuiPrimitive {.inline.} =
   ## Creates an empty `GuiPrimitive` (empty group).
@@ -284,5 +294,13 @@ proc resolveMouse*(gui: seq[GuiPrimitive], p: IVec2): MouseResolution =
   ## * [resolveMouse proc](#resolveMouse,GuiPrimitive,IVec2)
   for i in countdown(high(gui), 0):
     result = gui[i].resolveMouse(p)
-    if result.kind != None: 
+    if result.kind != None:
       return
+
+proc makeTotallyClickTransparent*(e: GuiPrimitive) =
+  e.clickTransparent = true
+  if e.kind == Group:
+    for child in e.children:
+      child.makeTotallyClickTransparent()
+  elif e.kind == Masked:
+    e.masked.makeTotallyClickTransparent()
