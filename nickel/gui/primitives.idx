@@ -10,9 +10,13 @@ initGuiFlatColorRectangle	nickel/gui/primitives.html#initGuiFlatColorRectangle,I
 initGuiText	nickel/gui/primitives.html#initGuiText,IRect,Arrangement,Hash,int	primitives: initGuiText(rect: IRect; arrangement: Arrangement; uniqueHash: Hash;\n            guiId: int = -1): GuiPrimitive	
 initGuiSprites	nickel/gui/primitives.html#initGuiSprites,IRect,seq[SpriteId],seq[],int	primitives: initGuiSprites(rect: IRect; sprites: seq[SpriteId];\n               colliders: seq[(Collider, int)]; guiId: int = -1): GuiPrimitive	
 adjust	nickel/gui/primitives.html#adjust,GuiPrimitive,int,int	primitives: adjust(g: GuiPrimitive; x: int; y: int): GuiPrimitive	
+adjust	nickel/gui/primitives.html#adjust,GuiPrimitive,IVec2	primitives: adjust(g: GuiPrimitive; v: IVec2): GuiPrimitive	
+centerAt	nickel/gui/primitives.html#centerAt,GuiPrimitive,int,int	primitives: centerAt(g: GuiPrimitive; x: int; y: int): GuiPrimitive	
+centerAt	nickel/gui/primitives.html#centerAt,GuiPrimitive,IVec2	primitives: centerAt(g: GuiPrimitive; v: IVec2): GuiPrimitive	
 initGuiEmpty	nickel/gui/primitives.html#initGuiEmpty	primitives: initGuiEmpty(): GuiPrimitive	
 drawGui	nickel/gui/primitives.html#drawGui,Boxy,GuiPrimitive	primitives: drawGui(boxy: Boxy; e: GuiPrimitive)	
 MouseResolutionKind	nickel/gui/primitives.html#MouseResolutionKind	primitives: MouseResolutionKind	
 MouseResolution	nickel/gui/primitives.html#MouseResolution	primitives: MouseResolution	
 resolveMouse	nickel/gui/primitives.html#resolveMouse,GuiPrimitive,IVec2	primitives: resolveMouse(e: GuiPrimitive; p: IVec2): MouseResolution	
 resolveMouse	nickel/gui/primitives.html#resolveMouse,seq[GuiPrimitive],IVec2	primitives: resolveMouse(gui: seq[GuiPrimitive]; p: IVec2): MouseResolution	
+makeTotallyClickTransparent	nickel/gui/primitives.html#makeTotallyClickTransparent,GuiPrimitive	primitives: makeTotallyClickTransparent(e: GuiPrimitive)	

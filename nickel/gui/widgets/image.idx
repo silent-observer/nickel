@@ -1,0 +1,2 @@
+newGuiImage	nickel/gui/widgets/image.html#newGuiImage,ResourceId,int,int,int	image: newGuiImage(image: ResourceId; index: int = 0;\n            width, height: int = LengthUndefined): GuiElement	
+layoutImage	nickel/gui/widgets/image.html#layoutImage,GuiElement,Constraint	image: layoutImage(gui: GuiElement; c: Constraint): GuiPrimitive	

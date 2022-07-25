@@ -17,8 +17,10 @@ loadPackage	nickel/resources.html#loadPackage,Boxy,ResourceId	resources: loadPac
 registerResources	nickel/resources.html#registerResources,ResourceConfig	resources: registerResources(cfg: ResourceConfig)	
 registerResources	nickel/resources.html#registerResources,string	resources: registerResources(cfgPath: string)	
 getImageResource	nickel/resources.html#getImageResource,ImageId	resources: getImageResource(key: ImageId): Image	
+getImageSize	nickel/resources.html#getImageSize,ImageId	resources: getImageSize(key: ImageId): Size	
 getFontResource	nickel/resources.html#getFontResource,FontId	resources: getFontResource(key: FontId): Typeface	
 getSpriteSheetResource	nickel/resources.html#getSpriteSheetResource,SpriteSheetId	resources: getSpriteSheetResource(key: SpriteSheetId): SpriteSheet	
+getSpriteSize	nickel/resources.html#getSpriteSize,SpriteSheetId	resources: getSpriteSize(key: SpriteSheetId): Size	
 getSlice9Resource	nickel/resources.html#getSlice9Resource,Slice9Id	resources: getSlice9Resource(key: Slice9Id): Slice9	
 getAudioSampleResource	nickel/resources.html#getAudioSampleResource,AudioSampleId	resources: getAudioSampleResource(key: AudioSampleId): ptr Wav	
 getAudioStreamResource	nickel/resources.html#getAudioStreamResource,AudioStreamId	resources: getAudioStreamResource(key: AudioStreamId): ptr WavStream	

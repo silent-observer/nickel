@@ -17,10 +17,10 @@
 <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'/>
 
 <!-- CSS -->
-<title>src/nickel/gui/text</title>
-<link rel="stylesheet" type="text/css" href="../../nimdoc.out.css">
+<title>src/nickel/gui/widgets/image</title>
+<link rel="stylesheet" type="text/css" href="../../../nimdoc.out.css">
 
-<script type="text/javascript" src="../../dochack.js"></script>
+<script type="text/javascript" src="../../../dochack.js"></script>
 
 <script type="text/javascript">
 function main() {
@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', main);
 <body>
 <div class="document" id="documentId">
   <div class="container">
-    <h1 class="title">src/nickel/gui/text</h1>
+    <h1 class="title">src/nickel/gui/widgets/image</h1>
     <div class="row">
   <div class="three columns">
   <div class="theme-switch-wrapper">
@@ -82,7 +82,7 @@ window.addEventListener('DOMContentLoaded', main);
   <div id="global-links">
     <ul class="simple">
     <li>
-      <a href="../../theindex.html">Index</a>
+      <a href="../../../theindex.html">Index</a>
     </li>
     </ul>
   </div>
@@ -107,21 +107,16 @@ window.addEventListener('DOMContentLoaded', main);
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
-      <ul class="simple nested-toc-section">getText
-      <li><a class="reference" href="#getText%2CHash"
-    title="getText(h: Hash): (Arrangement, Vec2)">getText(h: Hash): (Arrangement, Vec2)</a></li>
+      <ul class="simple nested-toc-section">layoutImage
+      <li><a class="reference" href="#layoutImage%2CGuiElement%2CConstraint"
+    title="layoutImage(gui: GuiElement; c: Constraint): GuiPrimitive">layoutImage(gui: GuiElement; c: Constraint): GuiPrimitive</a></li>
 
   </ul>
-  <ul class="simple nested-toc-section">initText
-      <li><a class="reference" href="#initText%2Cstring%2CFontId%2Cfloat32%2CColor"
-    title="initText(text: string; font: FontId; size: float32 = 14;
-         color: Color = color(0, 0, 0, 1)): TextSpec">initText(text: string; font: FontId; size: float32 = 14;
-         color: Color = color(0, 0, 0, 1)): TextSpec</a></li>
-
-  </ul>
-  <ul class="simple nested-toc-section">layoutText
-      <li><a class="reference" href="#layoutText%2CSize%2CTextSpec%2CAlignable"
-    title="layoutText(size: Size; text: TextSpec; align: Alignable): Hash">layoutText(size: Size; text: TextSpec; align: Alignable): Hash</a></li>
+  <ul class="simple nested-toc-section">newGuiImage
+      <li><a class="reference" href="#newGuiImage%2CResourceId%2Cint%2Cint%2Cint"
+    title="newGuiImage(image: ResourceId; index: int = 0;
+            width, height: int = LengthUndefined): GuiElement">newGuiImage(image: ResourceId; index: int = 0;
+            width, height: int = LengthUndefined): GuiElement</a></li>
 
   </ul>
 
@@ -132,9 +127,9 @@ window.addEventListener('DOMContentLoaded', main);
 
   </div>
   &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/text.nim#L1"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/image.nim#L1"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/text.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/image.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
 
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
@@ -143,47 +138,35 @@ class="link-seesrc" target="_blank">Source</a>
   <div class="section" id="6">
 <h1><a class="toc-backref" href="#6">Imports</a></h1>
 <dl class="item">
-<a class="reference external" href="ecs.html">ecs</a>, <a class="reference external" href="helpers.html">helpers</a>, <a class="reference external" href="../utils.html">../utils</a>, <a class="reference external" href="../resources.html">../resources</a>
+<a class="reference external" href="../ecs.html">../ecs</a>, <a class="reference external" href="../helpers.html">../helpers</a>, <a class="reference external" href="../primitives.html">../primitives</a>, <a class="reference external" href="../../utils.html">../../utils</a>, <a class="reference external" href="../../resources.html">../../resources</a>
 </dl></div>
 <div class="section" id="12">
 <h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
-<div id="getText,Hash">
-<dt><pre><span class="Keyword">proc</span> <a href="#getText%2CHash"><span class="Identifier">getText</span></a><span class="Other">(</span><span class="Identifier">h</span><span class="Other">:</span> <span class="Identifier">Hash</span><span class="Other">)</span><span class="Other">:</span> <span class="Other">(</span><span class="Identifier">Arrangement</span><span class="Other">,</span> <span class="Identifier">Vec2</span><span class="Other">)</span> {.<span class="Identifier">inline</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-<dd>
-
-Gets the result of the layout after calling <a class="reference external" href="#layoutText,Size,TextSpec,Alignable">layoutText proc</a>.
-&nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/text.nim#L28"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/text.nim#L28" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="initText,string,FontId,float32,Color">
-<dt><pre><span class="Keyword">proc</span> <a href="#initText%2Cstring%2CFontId%2Cfloat32%2CColor"><span class="Identifier">initText</span></a><span class="Other">(</span><span class="Identifier">text</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">font</span><span class="Other">:</span> <a href="../resources.html#FontId"><span class="Identifier">FontId</span></a><span class="Other">;</span> <span class="Identifier">size</span><span class="Other">:</span> <span class="Identifier">float32</span> <span class="Other">=</span> <span class="DecNumber">14</span><span class="Other">;</span>
-              <span class="Identifier">color</span><span class="Other">:</span> <span class="Identifier">Color</span> <span class="Other">=</span> <span class="Identifier">color</span><span class="Other">(</span><span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">1</span><span class="Other">)</span><span class="Other">)</span><span class="Other">:</span> <a href="ecs.html#TextSpec"><span class="Identifier">TextSpec</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-<dd>
-
-Creates a <tt class="docutils literal"><span class="pre"><span class="Identifier">TextSpec</span></span></tt>.
-&nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/text.nim#L32"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/text.nim#L32" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="layoutText,Size,TextSpec,Alignable">
-<dt><pre><span class="Keyword">proc</span> <a href="#layoutText%2CSize%2CTextSpec%2CAlignable"><span class="Identifier">layoutText</span></a><span class="Other">(</span><span class="Identifier">size</span><span class="Other">:</span> <a href="../utils.html#Size"><span class="Identifier">Size</span></a><span class="Other">;</span> <span class="Identifier">text</span><span class="Other">:</span> <a href="ecs.html#TextSpec"><span class="Identifier">TextSpec</span></a><span class="Other">;</span> <span class="Identifier">align</span><span class="Other">:</span> <a href="ecs.html#Alignable"><span class="Identifier">Alignable</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Hash</span> {.
+<div id="layoutImage,GuiElement,Constraint">
+<dt><pre><span class="Keyword">proc</span> <a href="#layoutImage%2CGuiElement%2CConstraint"><span class="Identifier">layoutImage</span></a><span class="Other">(</span><span class="Identifier">gui</span><span class="Other">:</span> <a href="../ecs.html#GuiElement"><span class="Identifier">GuiElement</span></a><span class="Other">;</span> <span class="Identifier">c</span><span class="Other">:</span> <a href="../ecs.html#Constraint"><span class="Identifier">Constraint</span></a><span class="Other">)</span><span class="Other">:</span> <a href="../primitives.html#GuiPrimitive"><span class="Identifier">GuiPrimitive</span></a> {.
     <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-Helper proc for layouting text, caches the result of the layout.
+
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/text.nim#L8"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/image.nim#L16"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/text.nim#L8" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/image.nim#L16" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="newGuiImage,ResourceId,int,int,int">
+<dt><pre><span class="Keyword">proc</span> <a href="#newGuiImage%2CResourceId%2Cint%2Cint%2Cint"><span class="Identifier">newGuiImage</span></a><span class="Other">(</span><span class="Identifier">image</span><span class="Other">:</span> <a href="../../resources.html#ResourceId"><span class="Identifier">ResourceId</span></a><span class="Other">;</span> <span class="Identifier">index</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="DecNumber">0</span><span class="Other">;</span>
+                 <span class="Identifier">width</span><span class="Other">,</span> <span class="Identifier">height</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">)</span><span class="Other">:</span> <a href="../ecs.html#GuiElement"><span class="Identifier">GuiElement</span></a> {.
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Creates a new image element
+&nbsp;&nbsp;<a
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/image.nim#L4"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/image.nim#L4" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>

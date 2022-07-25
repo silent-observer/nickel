@@ -1,0 +1,5 @@
+addDragAndDropPlace	nickel/gui/widgets/draganddrop.html#addDragAndDropPlace,sinkGuiElement,string,proc(string,string),proc(string)	draganddrop: addDragAndDropPlace(gui: sink GuiElement; id: string;\n                    onMove: proc (start, finish: string) = nil;\n                    onDrag: proc (start: string) = nil): GuiElement	
+hasDraggable=	nickel/gui/widgets/draganddrop.html#hasDraggable=,GuiElement,bool	draganddrop: hasDraggable=(gui: GuiElement; val: bool)	
+getDragAndDropPos	nickel/gui/widgets/draganddrop.html#getDragAndDropPos,GuiElement	draganddrop: getDragAndDropPos(gui: GuiElement): Option[IVec2]	
+placeInDragAndDrop	nickel/gui/widgets/draganddrop.html#placeInDragAndDrop,sinkGuiElement,GuiElement,seq[GuiPrimitive]	draganddrop: placeInDragAndDrop(item: sink GuiElement; place: var GuiElement;\n                   dragLayer: var seq[GuiPrimitive])	
+getLastDragPos	nickel/gui/widgets/draganddrop.html#getLastDragPos	draganddrop: getLastDragPos(): IVec2	

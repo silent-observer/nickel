@@ -10,6 +10,7 @@ Constraint	nickel/gui/ecs.html#Constraint	ecs: Constraint
 TextSpec	nickel/gui/ecs.html#TextSpec	ecs: TextSpec	
 SliderComp	nickel/gui/ecs.html#SliderComp	ecs: SliderComp	
 ProgressBarComp	nickel/gui/ecs.html#ProgressBarComp	ecs: ProgressBarComp	
+DragAndDropPlace	nickel/gui/ecs.html#DragAndDropPlace	ecs: DragAndDropPlace	
 PreferredSize	nickel/gui/ecs.html#PreferredSize	ecs: PreferredSize	
 OnMousePress	nickel/gui/ecs.html#OnMousePress	ecs: OnMousePress	
 OnMouseRelease	nickel/gui/ecs.html#OnMouseRelease	ecs: OnMouseRelease	
@@ -22,6 +23,7 @@ LinearLayoutGap	nickel/gui/ecs.html#LinearLayoutGap	ecs: LinearLayoutGap
 PanelComp	nickel/gui/ecs.html#PanelComp	ecs: PanelComp	
 AltPanelComp	nickel/gui/ecs.html#AltPanelComp	ecs: AltPanelComp	
 ImageComp	nickel/gui/ecs.html#ImageComp	ecs: ImageComp	
+SpriteComp	nickel/gui/ecs.html#SpriteComp	ecs: SpriteComp	
 PressedImageComp	nickel/gui/ecs.html#PressedImageComp	ecs: PressedImageComp	
 SpriteCanvas	nickel/gui/ecs.html#SpriteCanvas	ecs: SpriteCanvas	
 SavesRect	nickel/gui/ecs.html#SavesRect	ecs: SavesRect	
@@ -32,144 +34,165 @@ Layout	nickel/gui/ecs.html#Layout	ecs: Layout
 Hovered	nickel/gui/ecs.html#Hovered	ecs: Hovered	
 TracksMouseReleaseEverywhere	nickel/gui/ecs.html#TracksMouseReleaseEverywhere	ecs: TracksMouseReleaseEverywhere	
 Scrollable	nickel/gui/ecs.html#Scrollable	ecs: Scrollable	
+TotallyClickTransparent	nickel/gui/ecs.html#TotallyClickTransparent	ecs: TotallyClickTransparent	
 GuiWorld	nickel/gui/ecs.html#GuiWorld	ecs: GuiWorld	
-newGuiWorld	nickel/gui/ecs.html#newGuiWorld,int	ecs: newGuiWorld(entityMaxCount_3103785151: int = 10000): GuiWorld	
-add	nickel/gui/ecs.html#add,,SpriteCanvas	ecs: add(e`gensym9: Entity[GuiWorld]; c`gensym9: SpriteCanvas)	
-removeSpriteCanvas	nickel/gui/ecs.html#removeSpriteCanvas	ecs: removeSpriteCanvas(e`gensym10: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,Alignable	ecs: add(e`gensym11: Entity[GuiWorld]; c`gensym11: Alignable)	
-removeAlignable	nickel/gui/ecs.html#removeAlignable	ecs: removeAlignable(e`gensym12: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,Padding	ecs: add(e`gensym13: Entity[GuiWorld]; c`gensym13: Padding)	
-removePadding	nickel/gui/ecs.html#removePadding	ecs: removePadding(e`gensym14: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,Collider	ecs: add(e`gensym15: Entity[GuiWorld]; c`gensym15: Collider)	
-removeCollider	nickel/gui/ecs.html#removeCollider	ecs: removeCollider(e`gensym16: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,AltPanelComp	ecs: add(e`gensym17: Entity[GuiWorld]; c`gensym17: AltPanelComp)	
-removeAltPanelComp	nickel/gui/ecs.html#removeAltPanelComp	ecs: removeAltPanelComp(e`gensym18: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,Direction	ecs: add(e`gensym19: Entity[GuiWorld]; c`gensym19: Direction)	
-removeDirection	nickel/gui/ecs.html#removeDirection	ecs: removeDirection(e`gensym20: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,LinearLayoutGap	ecs: add(e`gensym21: Entity[GuiWorld]; c`gensym21: LinearLayoutGap)	
-removeLinearLayoutGap	nickel/gui/ecs.html#removeLinearLayoutGap	ecs: removeLinearLayoutGap(e`gensym22: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,ProgressBarComp	ecs: add(e`gensym23: Entity[GuiWorld]; c`gensym23: ProgressBarComp)	
-removeProgressBarComp	nickel/gui/ecs.html#removeProgressBarComp	ecs: removeProgressBarComp(e`gensym24: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,PreferredSize	ecs: add(e`gensym25: Entity[GuiWorld]; c`gensym25: PreferredSize)	
-removePreferredSize	nickel/gui/ecs.html#removePreferredSize	ecs: removePreferredSize(e`gensym26: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,OnMouseLeave	ecs: add(e`gensym27: Entity[GuiWorld]; c`gensym27: OnMouseLeave)	
-removeOnMouseLeave	nickel/gui/ecs.html#removeOnMouseLeave	ecs: removeOnMouseLeave(e`gensym28: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,ImageComp	ecs: add(e`gensym29: Entity[GuiWorld]; c`gensym29: ImageComp)	
-removeImageComp	nickel/gui/ecs.html#removeImageComp	ecs: removeImageComp(e`gensym30: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,OnMouseRelease	ecs: add(e`gensym31: Entity[GuiWorld]; c`gensym31: OnMouseRelease)	
-removeOnMouseRelease	nickel/gui/ecs.html#removeOnMouseRelease	ecs: removeOnMouseRelease(e`gensym32: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,OnMousePress	ecs: add(e`gensym33: Entity[GuiWorld]; c`gensym33: OnMousePress)	
-removeOnMousePress	nickel/gui/ecs.html#removeOnMousePress	ecs: removeOnMousePress(e`gensym34: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,PanelComp	ecs: add(e`gensym35: Entity[GuiWorld]; c`gensym35: PanelComp)	
-removePanelComp	nickel/gui/ecs.html#removePanelComp	ecs: removePanelComp(e`gensym36: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,TextSpec	ecs: add(e`gensym37: Entity[GuiWorld]; c`gensym37: TextSpec)	
-removeTextSpec	nickel/gui/ecs.html#removeTextSpec	ecs: removeTextSpec(e`gensym38: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,OnMouseMove	ecs: add(e`gensym39: Entity[GuiWorld]; c`gensym39: OnMouseMove)	
-removeOnMouseMove	nickel/gui/ecs.html#removeOnMouseMove	ecs: removeOnMouseMove(e`gensym40: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,SavesRect	ecs: add(e`gensym41: Entity[GuiWorld]; c`gensym41: SavesRect)	
-removeSavesRect	nickel/gui/ecs.html#removeSavesRect	ecs: removeSavesRect(e`gensym42: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,PressedImageComp	ecs: add(e`gensym43: Entity[GuiWorld]; c`gensym43: PressedImageComp)	
-removePressedImageComp	nickel/gui/ecs.html#removePressedImageComp	ecs: removePressedImageComp(e`gensym44: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,OnMouseEnter	ecs: add(e`gensym45: Entity[GuiWorld]; c`gensym45: OnMouseEnter)	
-removeOnMouseEnter	nickel/gui/ecs.html#removeOnMouseEnter	ecs: removeOnMouseEnter(e`gensym46: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,SliderComp	ecs: add(e`gensym47: Entity[GuiWorld]; c`gensym47: SliderComp)	
-removeSliderComp	nickel/gui/ecs.html#removeSliderComp	ecs: removeSliderComp(e`gensym48: Entity[GuiWorld])	
-add	nickel/gui/ecs.html#add,,Orientation	ecs: add(e`gensym49: Entity[GuiWorld]; c`gensym49: Orientation)	
-removeOrientation	nickel/gui/ecs.html#removeOrientation	ecs: removeOrientation(e`gensym50: Entity[GuiWorld])	
-addHovered	nickel/gui/ecs.html#addHovered	ecs: addHovered(e`gensym51: Entity[GuiWorld])	
-removeHovered	nickel/gui/ecs.html#removeHovered	ecs: removeHovered(e`gensym52: Entity[GuiWorld])	
-addTracksMouseReleaseEverywhere	nickel/gui/ecs.html#addTracksMouseReleaseEverywhere	ecs: addTracksMouseReleaseEverywhere(e`gensym53: Entity[GuiWorld])	
-removeTracksMouseReleaseEverywhere	nickel/gui/ecs.html#removeTracksMouseReleaseEverywhere	ecs: removeTracksMouseReleaseEverywhere(e`gensym54: Entity[GuiWorld])	
-addContainerTag	nickel/gui/ecs.html#addContainerTag	ecs: addContainerTag(e`gensym55: Entity[GuiWorld])	
-removeContainerTag	nickel/gui/ecs.html#removeContainerTag	ecs: removeContainerTag(e`gensym56: Entity[GuiWorld])	
-addButtonPressed	nickel/gui/ecs.html#addButtonPressed	ecs: addButtonPressed(e`gensym57: Entity[GuiWorld])	
-removeButtonPressed	nickel/gui/ecs.html#removeButtonPressed	ecs: removeButtonPressed(e`gensym58: Entity[GuiWorld])	
-addLayout	nickel/gui/ecs.html#addLayout	ecs: addLayout(e`gensym59: Entity[GuiWorld])	
-removeLayout	nickel/gui/ecs.html#removeLayout	ecs: removeLayout(e`gensym60: Entity[GuiWorld])	
-addButtonPressedTemporary	nickel/gui/ecs.html#addButtonPressedTemporary	ecs: addButtonPressedTemporary(e`gensym61: Entity[GuiWorld])	
-removeButtonPressedTemporary	nickel/gui/ecs.html#removeButtonPressedTemporary	ecs: removeButtonPressedTemporary(e`gensym62: Entity[GuiWorld])	
-addScrollable	nickel/gui/ecs.html#addScrollable	ecs: addScrollable(e`gensym63: Entity[GuiWorld])	
-removeScrollable	nickel/gui/ecs.html#removeScrollable	ecs: removeScrollable(e`gensym64: Entity[GuiWorld])	
-canvas	nickel/gui/ecs.html#canvas.t	ecs: canvas(e`gensym65: Entity[GuiWorld]): var SpriteCanvas	
-canvas=	nickel/gui/ecs.html#canvas=.t,,SpriteCanvas	ecs: canvas=(e`gensym65: Entity[GuiWorld]; v`gensym65: SpriteCanvas)	
-align	nickel/gui/ecs.html#align.t	ecs: align(e`gensym66: Entity[GuiWorld]): var Alignable	
-align=	nickel/gui/ecs.html#align=.t,,Alignable	ecs: align=(e`gensym66: Entity[GuiWorld]; v`gensym66: Alignable)	
-padding	nickel/gui/ecs.html#padding.t	ecs: padding(e`gensym67: Entity[GuiWorld]): var DirValues	
-padding=	nickel/gui/ecs.html#padding=.t,,DirValues	ecs: padding=(e`gensym67: Entity[GuiWorld]; v`gensym67: DirValues)	
-collider	nickel/gui/ecs.html#collider.t	ecs: collider(e`gensym68: Entity[GuiWorld]): var Collider	
-collider=	nickel/gui/ecs.html#collider=.t,,Collider	ecs: collider=(e`gensym68: Entity[GuiWorld]; v`gensym68: Collider)	
-altPanel	nickel/gui/ecs.html#altPanel.t	ecs: altPanel(e`gensym69: Entity[GuiWorld]): var Slice9Id	
-altPanel=	nickel/gui/ecs.html#altPanel=.t,,Slice9Id	ecs: altPanel=(e`gensym69: Entity[GuiWorld]; v`gensym69: Slice9Id)	
-direction	nickel/gui/ecs.html#direction.t	ecs: direction(e`gensym70: Entity[GuiWorld]): var Direction	
-direction=	nickel/gui/ecs.html#direction=.t,,Direction	ecs: direction=(e`gensym70: Entity[GuiWorld]; v`gensym70: Direction)	
-gap	nickel/gui/ecs.html#gap.t	ecs: gap(e`gensym71: Entity[GuiWorld]): var int	
-gap=	nickel/gui/ecs.html#gap=.t,,int	ecs: gap=(e`gensym71: Entity[GuiWorld]; v`gensym71: int)	
-progressBar	nickel/gui/ecs.html#progressBar.t	ecs: progressBar(e`gensym72: Entity[GuiWorld]): var ProgressBarComp	
-progressBar=	nickel/gui/ecs.html#progressBar=.t,,ProgressBarComp	ecs: progressBar=(e`gensym72: Entity[GuiWorld]; v`gensym72: ProgressBarComp)	
-preferredSize	nickel/gui/ecs.html#preferredSize.t	ecs: preferredSize(e`gensym73: Entity[GuiWorld]): var Size	
-preferredSize=	nickel/gui/ecs.html#preferredSize=.t,,Size	ecs: preferredSize=(e`gensym73: Entity[GuiWorld]; v`gensym73: Size)	
-onLeave	nickel/gui/ecs.html#onLeave.t	ecs: onLeave(e`gensym74: Entity[GuiWorld]): var MouseAreaCallback	
-onLeave=	nickel/gui/ecs.html#onLeave=.t,,MouseAreaCallback	ecs: onLeave=(e`gensym74: Entity[GuiWorld]; v`gensym74: MouseAreaCallback)	
-img	nickel/gui/ecs.html#img.t	ecs: img(e`gensym75: Entity[GuiWorld]): var ImageId	
-img=	nickel/gui/ecs.html#img=.t,,ImageId	ecs: img=(e`gensym75: Entity[GuiWorld]; v`gensym75: ImageId)	
-onRelease	nickel/gui/ecs.html#onRelease.t	ecs: onRelease(e`gensym76: Entity[GuiWorld]): var ClickCallback	
-onRelease=	nickel/gui/ecs.html#onRelease=.t,,ClickCallback	ecs: onRelease=(e`gensym76: Entity[GuiWorld]; v`gensym76: ClickCallback)	
-onPress	nickel/gui/ecs.html#onPress.t	ecs: onPress(e`gensym77: Entity[GuiWorld]): var ClickCallback	
-onPress=	nickel/gui/ecs.html#onPress=.t,,ClickCallback	ecs: onPress=(e`gensym77: Entity[GuiWorld]; v`gensym77: ClickCallback)	
-panel	nickel/gui/ecs.html#panel.t	ecs: panel(e`gensym78: Entity[GuiWorld]): var Slice9Id	
-panel=	nickel/gui/ecs.html#panel=.t,,Slice9Id	ecs: panel=(e`gensym78: Entity[GuiWorld]; v`gensym78: Slice9Id)	
-text	nickel/gui/ecs.html#text.t	ecs: text(e`gensym79: Entity[GuiWorld]): var TextSpec	
-text=	nickel/gui/ecs.html#text=.t,,TextSpec	ecs: text=(e`gensym79: Entity[GuiWorld]; v`gensym79: TextSpec)	
-onMouseMove	nickel/gui/ecs.html#onMouseMove.t	ecs: onMouseMove(e`gensym80: Entity[GuiWorld]): var MouseMoveCallback	
-onMouseMove=	nickel/gui/ecs.html#onMouseMove=.t,,MouseMoveCallback	ecs: onMouseMove=(e`gensym80: Entity[GuiWorld]; v`gensym80: MouseMoveCallback)	
-savedRect	nickel/gui/ecs.html#savedRect.t	ecs: savedRect(e`gensym81: Entity[GuiWorld]): var IRect	
-savedRect=	nickel/gui/ecs.html#savedRect=.t,,IRect	ecs: savedRect=(e`gensym81: Entity[GuiWorld]; v`gensym81: IRect)	
-pressedImg	nickel/gui/ecs.html#pressedImg.t	ecs: pressedImg(e`gensym82: Entity[GuiWorld]): var ImageId	
-pressedImg=	nickel/gui/ecs.html#pressedImg=.t,,ImageId	ecs: pressedImg=(e`gensym82: Entity[GuiWorld]; v`gensym82: ImageId)	
-onEnter	nickel/gui/ecs.html#onEnter.t	ecs: onEnter(e`gensym83: Entity[GuiWorld]): var MouseAreaCallback	
-onEnter=	nickel/gui/ecs.html#onEnter=.t,,MouseAreaCallback	ecs: onEnter=(e`gensym83: Entity[GuiWorld]; v`gensym83: MouseAreaCallback)	
-slider	nickel/gui/ecs.html#slider.t	ecs: slider(e`gensym84: Entity[GuiWorld]): var SliderComp	
-slider=	nickel/gui/ecs.html#slider=.t,,SliderComp	ecs: slider=(e`gensym84: Entity[GuiWorld]; v`gensym84: SliderComp)	
-orientation	nickel/gui/ecs.html#orientation.t	ecs: orientation(e`gensym85: Entity[GuiWorld]): var Orientation	
-orientation=	nickel/gui/ecs.html#orientation=.t,,Orientation	ecs: orientation=(e`gensym85: Entity[GuiWorld]; v`gensym85: Orientation)	
+newGuiWorld	nickel/gui/ecs.html#newGuiWorld,int	ecs: newGuiWorld(entityMaxCount_3103785169: int = 10000): GuiWorld	
+add	nickel/gui/ecs.html#add,,SpriteCanvas	ecs: add(e`gensym10: Entity[GuiWorld]; c`gensym10: SpriteCanvas)	
+removeSpriteCanvas	nickel/gui/ecs.html#removeSpriteCanvas	ecs: removeSpriteCanvas(e`gensym11: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,Alignable	ecs: add(e`gensym12: Entity[GuiWorld]; c`gensym12: Alignable)	
+removeAlignable	nickel/gui/ecs.html#removeAlignable	ecs: removeAlignable(e`gensym13: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,Padding	ecs: add(e`gensym14: Entity[GuiWorld]; c`gensym14: Padding)	
+removePadding	nickel/gui/ecs.html#removePadding	ecs: removePadding(e`gensym15: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,Collider	ecs: add(e`gensym16: Entity[GuiWorld]; c`gensym16: Collider)	
+removeCollider	nickel/gui/ecs.html#removeCollider	ecs: removeCollider(e`gensym17: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,AltPanelComp	ecs: add(e`gensym18: Entity[GuiWorld]; c`gensym18: AltPanelComp)	
+removeAltPanelComp	nickel/gui/ecs.html#removeAltPanelComp	ecs: removeAltPanelComp(e`gensym19: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,SpriteComp	ecs: add(e`gensym20: Entity[GuiWorld]; c`gensym20: SpriteComp)	
+removeSpriteComp	nickel/gui/ecs.html#removeSpriteComp	ecs: removeSpriteComp(e`gensym21: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,Direction	ecs: add(e`gensym22: Entity[GuiWorld]; c`gensym22: Direction)	
+removeDirection	nickel/gui/ecs.html#removeDirection	ecs: removeDirection(e`gensym23: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,LinearLayoutGap	ecs: add(e`gensym24: Entity[GuiWorld]; c`gensym24: LinearLayoutGap)	
+removeLinearLayoutGap	nickel/gui/ecs.html#removeLinearLayoutGap	ecs: removeLinearLayoutGap(e`gensym25: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,ProgressBarComp	ecs: add(e`gensym26: Entity[GuiWorld]; c`gensym26: ProgressBarComp)	
+removeProgressBarComp	nickel/gui/ecs.html#removeProgressBarComp	ecs: removeProgressBarComp(e`gensym27: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,PreferredSize	ecs: add(e`gensym28: Entity[GuiWorld]; c`gensym28: PreferredSize)	
+removePreferredSize	nickel/gui/ecs.html#removePreferredSize	ecs: removePreferredSize(e`gensym29: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,OnMouseLeave	ecs: add(e`gensym30: Entity[GuiWorld]; c`gensym30: OnMouseLeave)	
+removeOnMouseLeave	nickel/gui/ecs.html#removeOnMouseLeave	ecs: removeOnMouseLeave(e`gensym31: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,ImageComp	ecs: add(e`gensym32: Entity[GuiWorld]; c`gensym32: ImageComp)	
+removeImageComp	nickel/gui/ecs.html#removeImageComp	ecs: removeImageComp(e`gensym33: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,OnMouseRelease	ecs: add(e`gensym34: Entity[GuiWorld]; c`gensym34: OnMouseRelease)	
+removeOnMouseRelease	nickel/gui/ecs.html#removeOnMouseRelease	ecs: removeOnMouseRelease(e`gensym35: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,OnMousePress	ecs: add(e`gensym36: Entity[GuiWorld]; c`gensym36: OnMousePress)	
+removeOnMousePress	nickel/gui/ecs.html#removeOnMousePress	ecs: removeOnMousePress(e`gensym37: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,PanelComp	ecs: add(e`gensym38: Entity[GuiWorld]; c`gensym38: PanelComp)	
+removePanelComp	nickel/gui/ecs.html#removePanelComp	ecs: removePanelComp(e`gensym39: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,TextSpec	ecs: add(e`gensym40: Entity[GuiWorld]; c`gensym40: TextSpec)	
+removeTextSpec	nickel/gui/ecs.html#removeTextSpec	ecs: removeTextSpec(e`gensym41: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,OnMouseMove	ecs: add(e`gensym42: Entity[GuiWorld]; c`gensym42: OnMouseMove)	
+removeOnMouseMove	nickel/gui/ecs.html#removeOnMouseMove	ecs: removeOnMouseMove(e`gensym43: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,SavesRect	ecs: add(e`gensym44: Entity[GuiWorld]; c`gensym44: SavesRect)	
+removeSavesRect	nickel/gui/ecs.html#removeSavesRect	ecs: removeSavesRect(e`gensym45: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,PressedImageComp	ecs: add(e`gensym46: Entity[GuiWorld]; c`gensym46: PressedImageComp)	
+removePressedImageComp	nickel/gui/ecs.html#removePressedImageComp	ecs: removePressedImageComp(e`gensym47: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,OnMouseEnter	ecs: add(e`gensym48: Entity[GuiWorld]; c`gensym48: OnMouseEnter)	
+removeOnMouseEnter	nickel/gui/ecs.html#removeOnMouseEnter	ecs: removeOnMouseEnter(e`gensym49: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,SliderComp	ecs: add(e`gensym50: Entity[GuiWorld]; c`gensym50: SliderComp)	
+removeSliderComp	nickel/gui/ecs.html#removeSliderComp	ecs: removeSliderComp(e`gensym51: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,DragAndDropPlace	ecs: add(e`gensym52: Entity[GuiWorld]; c`gensym52: DragAndDropPlace)	
+removeDragAndDropPlace	nickel/gui/ecs.html#removeDragAndDropPlace	ecs: removeDragAndDropPlace(e`gensym53: Entity[GuiWorld])	
+add	nickel/gui/ecs.html#add,,Orientation	ecs: add(e`gensym54: Entity[GuiWorld]; c`gensym54: Orientation)	
+removeOrientation	nickel/gui/ecs.html#removeOrientation	ecs: removeOrientation(e`gensym55: Entity[GuiWorld])	
+addTotallyClickTransparent	nickel/gui/ecs.html#addTotallyClickTransparent	ecs: addTotallyClickTransparent(e`gensym56: Entity[GuiWorld])	
+removeTotallyClickTransparent	nickel/gui/ecs.html#removeTotallyClickTransparent	ecs: removeTotallyClickTransparent(e`gensym57: Entity[GuiWorld])	
+addHovered	nickel/gui/ecs.html#addHovered	ecs: addHovered(e`gensym58: Entity[GuiWorld])	
+removeHovered	nickel/gui/ecs.html#removeHovered	ecs: removeHovered(e`gensym59: Entity[GuiWorld])	
+addTracksMouseReleaseEverywhere	nickel/gui/ecs.html#addTracksMouseReleaseEverywhere	ecs: addTracksMouseReleaseEverywhere(e`gensym60: Entity[GuiWorld])	
+removeTracksMouseReleaseEverywhere	nickel/gui/ecs.html#removeTracksMouseReleaseEverywhere	ecs: removeTracksMouseReleaseEverywhere(e`gensym61: Entity[GuiWorld])	
+addContainerTag	nickel/gui/ecs.html#addContainerTag	ecs: addContainerTag(e`gensym62: Entity[GuiWorld])	
+removeContainerTag	nickel/gui/ecs.html#removeContainerTag	ecs: removeContainerTag(e`gensym63: Entity[GuiWorld])	
+addButtonPressed	nickel/gui/ecs.html#addButtonPressed	ecs: addButtonPressed(e`gensym64: Entity[GuiWorld])	
+removeButtonPressed	nickel/gui/ecs.html#removeButtonPressed	ecs: removeButtonPressed(e`gensym65: Entity[GuiWorld])	
+addLayout	nickel/gui/ecs.html#addLayout	ecs: addLayout(e`gensym66: Entity[GuiWorld])	
+removeLayout	nickel/gui/ecs.html#removeLayout	ecs: removeLayout(e`gensym67: Entity[GuiWorld])	
+addButtonPressedTemporary	nickel/gui/ecs.html#addButtonPressedTemporary	ecs: addButtonPressedTemporary(e`gensym68: Entity[GuiWorld])	
+removeButtonPressedTemporary	nickel/gui/ecs.html#removeButtonPressedTemporary	ecs: removeButtonPressedTemporary(e`gensym69: Entity[GuiWorld])	
+addScrollable	nickel/gui/ecs.html#addScrollable	ecs: addScrollable(e`gensym70: Entity[GuiWorld])	
+removeScrollable	nickel/gui/ecs.html#removeScrollable	ecs: removeScrollable(e`gensym71: Entity[GuiWorld])	
+canvas	nickel/gui/ecs.html#canvas.t	ecs: canvas(e`gensym72: Entity[GuiWorld]): var SpriteCanvas	
+canvas=	nickel/gui/ecs.html#canvas=.t,,SpriteCanvas	ecs: canvas=(e`gensym72: Entity[GuiWorld]; v`gensym72: SpriteCanvas)	
+align	nickel/gui/ecs.html#align.t	ecs: align(e`gensym73: Entity[GuiWorld]): var Alignable	
+align=	nickel/gui/ecs.html#align=.t,,Alignable	ecs: align=(e`gensym73: Entity[GuiWorld]; v`gensym73: Alignable)	
+padding	nickel/gui/ecs.html#padding.t	ecs: padding(e`gensym74: Entity[GuiWorld]): var DirValues	
+padding=	nickel/gui/ecs.html#padding=.t,,DirValues	ecs: padding=(e`gensym74: Entity[GuiWorld]; v`gensym74: DirValues)	
+collider	nickel/gui/ecs.html#collider.t	ecs: collider(e`gensym75: Entity[GuiWorld]): var Collider	
+collider=	nickel/gui/ecs.html#collider=.t,,Collider	ecs: collider=(e`gensym75: Entity[GuiWorld]; v`gensym75: Collider)	
+altPanel	nickel/gui/ecs.html#altPanel.t	ecs: altPanel(e`gensym76: Entity[GuiWorld]): var Slice9Id	
+altPanel=	nickel/gui/ecs.html#altPanel=.t,,Slice9Id	ecs: altPanel=(e`gensym76: Entity[GuiWorld]; v`gensym76: Slice9Id)	
+sprite	nickel/gui/ecs.html#sprite.t	ecs: sprite(e`gensym77: Entity[GuiWorld]): var SpriteComp	
+sprite=	nickel/gui/ecs.html#sprite=.t,,SpriteComp	ecs: sprite=(e`gensym77: Entity[GuiWorld]; v`gensym77: SpriteComp)	
+direction	nickel/gui/ecs.html#direction.t	ecs: direction(e`gensym78: Entity[GuiWorld]): var Direction	
+direction=	nickel/gui/ecs.html#direction=.t,,Direction	ecs: direction=(e`gensym78: Entity[GuiWorld]; v`gensym78: Direction)	
+gap	nickel/gui/ecs.html#gap.t	ecs: gap(e`gensym79: Entity[GuiWorld]): var int	
+gap=	nickel/gui/ecs.html#gap=.t,,int	ecs: gap=(e`gensym79: Entity[GuiWorld]; v`gensym79: int)	
+progressBar	nickel/gui/ecs.html#progressBar.t	ecs: progressBar(e`gensym80: Entity[GuiWorld]): var ProgressBarComp	
+progressBar=	nickel/gui/ecs.html#progressBar=.t,,ProgressBarComp	ecs: progressBar=(e`gensym80: Entity[GuiWorld]; v`gensym80: ProgressBarComp)	
+preferredSize	nickel/gui/ecs.html#preferredSize.t	ecs: preferredSize(e`gensym81: Entity[GuiWorld]): var Size	
+preferredSize=	nickel/gui/ecs.html#preferredSize=.t,,Size	ecs: preferredSize=(e`gensym81: Entity[GuiWorld]; v`gensym81: Size)	
+onLeave	nickel/gui/ecs.html#onLeave.t	ecs: onLeave(e`gensym82: Entity[GuiWorld]): var MouseAreaCallback	
+onLeave=	nickel/gui/ecs.html#onLeave=.t,,MouseAreaCallback	ecs: onLeave=(e`gensym82: Entity[GuiWorld]; v`gensym82: MouseAreaCallback)	
+img	nickel/gui/ecs.html#img.t	ecs: img(e`gensym83: Entity[GuiWorld]): var ImageId	
+img=	nickel/gui/ecs.html#img=.t,,ImageId	ecs: img=(e`gensym83: Entity[GuiWorld]; v`gensym83: ImageId)	
+onRelease	nickel/gui/ecs.html#onRelease.t	ecs: onRelease(e`gensym84: Entity[GuiWorld]): var ClickCallback	
+onRelease=	nickel/gui/ecs.html#onRelease=.t,,ClickCallback	ecs: onRelease=(e`gensym84: Entity[GuiWorld]; v`gensym84: ClickCallback)	
+onPress	nickel/gui/ecs.html#onPress.t	ecs: onPress(e`gensym85: Entity[GuiWorld]): var ClickCallback	
+onPress=	nickel/gui/ecs.html#onPress=.t,,ClickCallback	ecs: onPress=(e`gensym85: Entity[GuiWorld]; v`gensym85: ClickCallback)	
+panel	nickel/gui/ecs.html#panel.t	ecs: panel(e`gensym86: Entity[GuiWorld]): var Slice9Id	
+panel=	nickel/gui/ecs.html#panel=.t,,Slice9Id	ecs: panel=(e`gensym86: Entity[GuiWorld]; v`gensym86: Slice9Id)	
+text	nickel/gui/ecs.html#text.t	ecs: text(e`gensym87: Entity[GuiWorld]): var TextSpec	
+text=	nickel/gui/ecs.html#text=.t,,TextSpec	ecs: text=(e`gensym87: Entity[GuiWorld]; v`gensym87: TextSpec)	
+onMouseMove	nickel/gui/ecs.html#onMouseMove.t	ecs: onMouseMove(e`gensym88: Entity[GuiWorld]): var MouseMoveCallback	
+onMouseMove=	nickel/gui/ecs.html#onMouseMove=.t,,MouseMoveCallback	ecs: onMouseMove=(e`gensym88: Entity[GuiWorld]; v`gensym88: MouseMoveCallback)	
+savedRect	nickel/gui/ecs.html#savedRect.t	ecs: savedRect(e`gensym89: Entity[GuiWorld]): var IRect	
+savedRect=	nickel/gui/ecs.html#savedRect=.t,,IRect	ecs: savedRect=(e`gensym89: Entity[GuiWorld]; v`gensym89: IRect)	
+pressedImg	nickel/gui/ecs.html#pressedImg.t	ecs: pressedImg(e`gensym90: Entity[GuiWorld]): var ImageId	
+pressedImg=	nickel/gui/ecs.html#pressedImg=.t,,ImageId	ecs: pressedImg=(e`gensym90: Entity[GuiWorld]; v`gensym90: ImageId)	
+onEnter	nickel/gui/ecs.html#onEnter.t	ecs: onEnter(e`gensym91: Entity[GuiWorld]): var MouseAreaCallback	
+onEnter=	nickel/gui/ecs.html#onEnter=.t,,MouseAreaCallback	ecs: onEnter=(e`gensym91: Entity[GuiWorld]; v`gensym91: MouseAreaCallback)	
+slider	nickel/gui/ecs.html#slider.t	ecs: slider(e`gensym92: Entity[GuiWorld]): var SliderComp	
+slider=	nickel/gui/ecs.html#slider=.t,,SliderComp	ecs: slider=(e`gensym92: Entity[GuiWorld]; v`gensym92: SliderComp)	
+dnd	nickel/gui/ecs.html#dnd.t	ecs: dnd(e`gensym93: Entity[GuiWorld]): var DragAndDropPlace	
+dnd=	nickel/gui/ecs.html#dnd=.t,,DragAndDropPlace	ecs: dnd=(e`gensym93: Entity[GuiWorld]; v`gensym93: DragAndDropPlace)	
+orientation	nickel/gui/ecs.html#orientation.t	ecs: orientation(e`gensym94: Entity[GuiWorld]): var Orientation	
+orientation=	nickel/gui/ecs.html#orientation=.t,,Orientation	ecs: orientation=(e`gensym94: Entity[GuiWorld]; v`gensym94: Orientation)	
 has	nickel/gui/ecs.html#has.t,,untyped	ecs: has(e: Entity[GuiWorld]; c: untyped): bool	
-delete	nickel/gui/ecs.html#delete,sink	ecs: delete(e_3103785428: sink Entity[GuiWorld])	
+delete	nickel/gui/ecs.html#delete,sink	ecs: delete(e_3103785468: sink Entity[GuiWorld])	
 OwnedEntityGuiWorld	nickel/gui/ecs.html#OwnedEntityGuiWorld	ecs: OwnedEntityGuiWorld	
-`=destroy`	nickel/gui/ecs.html#=destroy,OwnedEntityGuiWorld	ecs: `=destroy`(e`gensym170: var OwnedEntityGuiWorld)	
-`=copy`	nickel/gui/ecs.html#=copy,OwnedEntityGuiWorld,OwnedEntityGuiWorld	ecs: `=copy`(dest`gensym170: var OwnedEntityGuiWorld;\n        source`gensym170: OwnedEntityGuiWorld)	
-get	nickel/gui/ecs.html#get,OwnedEntityGuiWorld	ecs: get(e`gensym170: OwnedEntityGuiWorld): Entity[GuiWorld]	
-newOwnedEntity	nickel/gui/ecs.html#newOwnedEntity,GuiWorld	ecs: newOwnedEntity(w`gensym170: GuiWorld): OwnedEntityGuiWorld	
-printEntityCount	nickel/gui/ecs.html#printEntityCount,GuiWorld	ecs: printEntityCount(w`gensym170: GuiWorld)	
-queryLinearLayout	nickel/gui/ecs.html#queryLinearLayout.i,GuiWorld	ecs: queryLinearLayout(world_3103785457: GuiWorld): Entity[GuiWorld]	
-isLinearLayout	nickel/gui/ecs.html#isLinearLayout	ecs: isLinearLayout(e_3103785468: Entity[GuiWorld]): bool	
-queryPanel	nickel/gui/ecs.html#queryPanel.i,GuiWorld	ecs: queryPanel(world_3103785470: GuiWorld): Entity[GuiWorld]	
-isPanel	nickel/gui/ecs.html#isPanel	ecs: isPanel(e_3103785473: Entity[GuiWorld]): bool	
-querySimpleContainer	nickel/gui/ecs.html#querySimpleContainer.i,GuiWorld	ecs: querySimpleContainer(world_3103785475: GuiWorld): Entity[GuiWorld]	
-isSimpleContainer	nickel/gui/ecs.html#isSimpleContainer	ecs: isSimpleContainer(e_3103785478: Entity[GuiWorld]): bool	
-queryLabel	nickel/gui/ecs.html#queryLabel.i,GuiWorld	ecs: queryLabel(world_3103785480: GuiWorld): Entity[GuiWorld]	
-isLabel	nickel/gui/ecs.html#isLabel	ecs: isLabel(e_3103785483: Entity[GuiWorld]): bool	
-queryHovered	nickel/gui/ecs.html#queryHovered.i,GuiWorld	ecs: queryHovered(world_3103785493: GuiWorld): Entity[GuiWorld]	
-isHovered	nickel/gui/ecs.html#isHovered	ecs: isHovered(e_3103785498: Entity[GuiWorld]): bool	
-queryHoveredAndPress	nickel/gui/ecs.html#queryHoveredAndPress.i,GuiWorld	ecs: queryHoveredAndPress(world_3103785500: GuiWorld): Entity[GuiWorld]	
-isHoveredAndPress	nickel/gui/ecs.html#isHoveredAndPress	ecs: isHoveredAndPress(e_3103785505: Entity[GuiWorld]): bool	
-queryHoveredAndRelease	nickel/gui/ecs.html#queryHoveredAndRelease.i,GuiWorld	ecs: queryHoveredAndRelease(world_3103785507: GuiWorld): Entity[GuiWorld]	
-isHoveredAndRelease	nickel/gui/ecs.html#isHoveredAndRelease	ecs: isHoveredAndRelease(e_3103785512: Entity[GuiWorld]): bool	
-queryReleaseEverywhere	nickel/gui/ecs.html#queryReleaseEverywhere.i,GuiWorld	ecs: queryReleaseEverywhere(world_3103785514: GuiWorld): Entity[GuiWorld]	
-isReleaseEverywhere	nickel/gui/ecs.html#isReleaseEverywhere	ecs: isReleaseEverywhere(e_3103785517: Entity[GuiWorld]): bool	
-queryOnMouseMove	nickel/gui/ecs.html#queryOnMouseMove.i,GuiWorld	ecs: queryOnMouseMove(world_3103785519: GuiWorld): Entity[GuiWorld]	
-isOnMouseMove	nickel/gui/ecs.html#isOnMouseMove	ecs: isOnMouseMove(e_3103785522: Entity[GuiWorld]): bool	
-queryTextButton	nickel/gui/ecs.html#queryTextButton.i,GuiWorld	ecs: queryTextButton(world_3103785524: GuiWorld): Entity[GuiWorld]	
-isTextButton	nickel/gui/ecs.html#isTextButton	ecs: isTextButton(e_3103785527: Entity[GuiWorld]): bool	
-queryImageButton	nickel/gui/ecs.html#queryImageButton.i,GuiWorld	ecs: queryImageButton(world_3103785529: GuiWorld): Entity[GuiWorld]	
-isImageButton	nickel/gui/ecs.html#isImageButton	ecs: isImageButton(e_3103785532: Entity[GuiWorld]): bool	
-querySpriteCamera	nickel/gui/ecs.html#querySpriteCamera.i,GuiWorld	ecs: querySpriteCamera(world_3103785534: GuiWorld): Entity[GuiWorld]	
-isSpriteCamera	nickel/gui/ecs.html#isSpriteCamera	ecs: isSpriteCamera(e_3103785537: Entity[GuiWorld]): bool	
-querySlider	nickel/gui/ecs.html#querySlider.i,GuiWorld	ecs: querySlider(world_3103785539: GuiWorld): Entity[GuiWorld]	
-isSlider	nickel/gui/ecs.html#isSlider	ecs: isSlider(e_3103785542: Entity[GuiWorld]): bool	
-queryProgressBar	nickel/gui/ecs.html#queryProgressBar.i,GuiWorld	ecs: queryProgressBar(world_3103785544: GuiWorld): Entity[GuiWorld]	
-isProgressBar	nickel/gui/ecs.html#isProgressBar	ecs: isProgressBar(e_3103785547: Entity[GuiWorld]): bool	
-queryScrollable	nickel/gui/ecs.html#queryScrollable.i,GuiWorld	ecs: queryScrollable(world_3103785549: GuiWorld): Entity[GuiWorld]	
-isScrollable	nickel/gui/ecs.html#isScrollable	ecs: isScrollable(e_3103785552: Entity[GuiWorld]): bool	
+`=destroy`	nickel/gui/ecs.html#=destroy,OwnedEntityGuiWorld	ecs: `=destroy`(e`gensym187: var OwnedEntityGuiWorld)	
+`=copy`	nickel/gui/ecs.html#=copy,OwnedEntityGuiWorld,OwnedEntityGuiWorld	ecs: `=copy`(dest`gensym187: var OwnedEntityGuiWorld;\n        source`gensym187: OwnedEntityGuiWorld)	
+get	nickel/gui/ecs.html#get,OwnedEntityGuiWorld	ecs: get(e`gensym187: OwnedEntityGuiWorld): Entity[GuiWorld]	
+newOwnedEntity	nickel/gui/ecs.html#newOwnedEntity,GuiWorld	ecs: newOwnedEntity(w`gensym187: GuiWorld): OwnedEntityGuiWorld	
+printEntityCount	nickel/gui/ecs.html#printEntityCount,GuiWorld	ecs: printEntityCount(w`gensym187: GuiWorld)	
+queryLinearLayout	nickel/gui/ecs.html#queryLinearLayout.i,GuiWorld	ecs: queryLinearLayout(world_3103785497: GuiWorld): Entity[GuiWorld]	
+isLinearLayout	nickel/gui/ecs.html#isLinearLayout	ecs: isLinearLayout(e_3103785508: Entity[GuiWorld]): bool	
+queryPanel	nickel/gui/ecs.html#queryPanel.i,GuiWorld	ecs: queryPanel(world_3103785510: GuiWorld): Entity[GuiWorld]	
+isPanel	nickel/gui/ecs.html#isPanel	ecs: isPanel(e_3103785513: Entity[GuiWorld]): bool	
+querySimpleContainer	nickel/gui/ecs.html#querySimpleContainer.i,GuiWorld	ecs: querySimpleContainer(world_3103785515: GuiWorld): Entity[GuiWorld]	
+isSimpleContainer	nickel/gui/ecs.html#isSimpleContainer	ecs: isSimpleContainer(e_3103785518: Entity[GuiWorld]): bool	
+queryLabel	nickel/gui/ecs.html#queryLabel.i,GuiWorld	ecs: queryLabel(world_3103785520: GuiWorld): Entity[GuiWorld]	
+isLabel	nickel/gui/ecs.html#isLabel	ecs: isLabel(e_3103785523: Entity[GuiWorld]): bool	
+queryHovered	nickel/gui/ecs.html#queryHovered.i,GuiWorld	ecs: queryHovered(world_3103785533: GuiWorld): Entity[GuiWorld]	
+isHovered	nickel/gui/ecs.html#isHovered	ecs: isHovered(e_3103785538: Entity[GuiWorld]): bool	
+queryHoveredAndPress	nickel/gui/ecs.html#queryHoveredAndPress.i,GuiWorld	ecs: queryHoveredAndPress(world_3103785540: GuiWorld): Entity[GuiWorld]	
+isHoveredAndPress	nickel/gui/ecs.html#isHoveredAndPress	ecs: isHoveredAndPress(e_3103785545: Entity[GuiWorld]): bool	
+queryHoveredAndRelease	nickel/gui/ecs.html#queryHoveredAndRelease.i,GuiWorld	ecs: queryHoveredAndRelease(world_3103785547: GuiWorld): Entity[GuiWorld]	
+isHoveredAndRelease	nickel/gui/ecs.html#isHoveredAndRelease	ecs: isHoveredAndRelease(e_3103785552: Entity[GuiWorld]): bool	
+queryReleaseEverywhere	nickel/gui/ecs.html#queryReleaseEverywhere.i,GuiWorld	ecs: queryReleaseEverywhere(world_3103785554: GuiWorld): Entity[GuiWorld]	
+isReleaseEverywhere	nickel/gui/ecs.html#isReleaseEverywhere	ecs: isReleaseEverywhere(e_3103785557: Entity[GuiWorld]): bool	
+queryOnMouseMove	nickel/gui/ecs.html#queryOnMouseMove.i,GuiWorld	ecs: queryOnMouseMove(world_3103785559: GuiWorld): Entity[GuiWorld]	
+isOnMouseMove	nickel/gui/ecs.html#isOnMouseMove	ecs: isOnMouseMove(e_3103785562: Entity[GuiWorld]): bool	
+queryTextButton	nickel/gui/ecs.html#queryTextButton.i,GuiWorld	ecs: queryTextButton(world_3103785564: GuiWorld): Entity[GuiWorld]	
+isTextButton	nickel/gui/ecs.html#isTextButton	ecs: isTextButton(e_3103785567: Entity[GuiWorld]): bool	
+queryImageButton	nickel/gui/ecs.html#queryImageButton.i,GuiWorld	ecs: queryImageButton(world_3103785569: GuiWorld): Entity[GuiWorld]	
+isImageButton	nickel/gui/ecs.html#isImageButton	ecs: isImageButton(e_3103785572: Entity[GuiWorld]): bool	
+querySpriteCamera	nickel/gui/ecs.html#querySpriteCamera.i,GuiWorld	ecs: querySpriteCamera(world_3103785574: GuiWorld): Entity[GuiWorld]	
+isSpriteCamera	nickel/gui/ecs.html#isSpriteCamera	ecs: isSpriteCamera(e_3103785577: Entity[GuiWorld]): bool	
+querySlider	nickel/gui/ecs.html#querySlider.i,GuiWorld	ecs: querySlider(world_3103785579: GuiWorld): Entity[GuiWorld]	
+isSlider	nickel/gui/ecs.html#isSlider	ecs: isSlider(e_3103785582: Entity[GuiWorld]): bool	
+queryProgressBar	nickel/gui/ecs.html#queryProgressBar.i,GuiWorld	ecs: queryProgressBar(world_3103785584: GuiWorld): Entity[GuiWorld]	
+isProgressBar	nickel/gui/ecs.html#isProgressBar	ecs: isProgressBar(e_3103785587: Entity[GuiWorld]): bool	
+queryScrollable	nickel/gui/ecs.html#queryScrollable.i,GuiWorld	ecs: queryScrollable(world_3103785589: GuiWorld): Entity[GuiWorld]	
+isScrollable	nickel/gui/ecs.html#isScrollable	ecs: isScrollable(e_3103785592: Entity[GuiWorld]): bool	
+queryDragAndDropPlace	nickel/gui/ecs.html#queryDragAndDropPlace.i,GuiWorld	ecs: queryDragAndDropPlace(world_3103785594: GuiWorld): Entity[GuiWorld]	
+isDragAndDropPlace	nickel/gui/ecs.html#isDragAndDropPlace	ecs: isDragAndDropPlace(e_3103785597: Entity[GuiWorld]): bool	
+queryHoveredDnD	nickel/gui/ecs.html#queryHoveredDnD.i,GuiWorld	ecs: queryHoveredDnD(world_3103785599: GuiWorld): Entity[GuiWorld]	
+isHoveredDnD	nickel/gui/ecs.html#isHoveredDnD	ecs: isHoveredDnD(e_3103785604: Entity[GuiWorld]): bool	
+queryImage	nickel/gui/ecs.html#queryImage.i,GuiWorld	ecs: queryImage(world_3103785606: GuiWorld): Entity[GuiWorld]	
+isImage	nickel/gui/ecs.html#isImage	ecs: isImage(e_3103785609: Entity[GuiWorld]): bool	
+querySlice9	nickel/gui/ecs.html#querySlice9.i,GuiWorld	ecs: querySlice9(world_3103785611: GuiWorld): Entity[GuiWorld]	
+isSlice9	nickel/gui/ecs.html#isSlice9	ecs: isSlice9(e_3103785614: Entity[GuiWorld]): bool	
+querySprite	nickel/gui/ecs.html#querySprite.i,GuiWorld	ecs: querySprite(world_3103785616: GuiWorld): Entity[GuiWorld]	
+isSprite	nickel/gui/ecs.html#isSprite	ecs: isSprite(e_3103785619: Entity[GuiWorld]): bool	
 LengthInfinite	nickel/gui/ecs.html#LengthInfinite	ecs: LengthInfinite	
 LengthUndefined	nickel/gui/ecs.html#LengthUndefined	ecs: LengthUndefined	
 initDirValues	nickel/gui/ecs.html#initDirValues,int	ecs: initDirValues(v: int): DirValues	
@@ -184,6 +207,7 @@ initEmptyGuiElement	nickel/gui/ecs.html#initEmptyGuiElement	ecs: initEmptyGuiEle
 isEmpty	nickel/gui/ecs.html#isEmpty,GuiElement	ecs: isEmpty(gui: GuiElement): bool	
 gw	nickel/gui/ecs.html#gw	ecs: gw	
 add	nickel/gui/ecs.html#add,GuiElement,sinkGuiElement	ecs: add(c: var GuiElement; gui: sink GuiElement)	
+clearChildren	nickel/gui/ecs.html#clearChildren,GuiElement	ecs: clearChildren(c: var GuiElement)	
 strictConstraint	nickel/gui/ecs.html#strictConstraint,int,int	ecs: strictConstraint(w: int; h: int): Constraint	
 looseConstraint	nickel/gui/ecs.html#looseConstraint,int,int	ecs: looseConstraint(w: int; h: int): Constraint	
 NoConstraint	nickel/gui/ecs.html#NoConstraint	ecs: NoConstraint	

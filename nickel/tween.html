@@ -158,6 +158,11 @@ window.addEventListener('DOMContentLoaded', main);
     title="addTweenableVector3D(key: TweenId; vector3: Vec3)">addTweenableVector3D(key: TweenId; vector3: Vec3)</a></li>
 
   </ul>
+  <ul class="simple nested-toc-section">endTween
+      <li><a class="reference" href="#endTween%2CTweenId"
+    title="endTween(key: TweenId)">endTween(key: TweenId)</a></li>
+
+  </ul>
   <ul class="simple nested-toc-section">getTweenNumber
       <li><a class="reference" href="#getTweenNumber%2CTweenId"
     title="getTweenNumber(key: TweenId): float">getTweenNumber(key: TweenId): float</a></li>
@@ -181,6 +186,11 @@ window.addEventListener('DOMContentLoaded', main);
   <ul class="simple nested-toc-section">isComplete
       <li><a class="reference" href="#isComplete%2CTweenId"
     title="isComplete(key: TweenId): bool">isComplete(key: TweenId): bool</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">requestInstantTween
+      <li><a class="reference" href="#requestInstantTween%2CTweenId%2CT"
+    title="requestInstantTween[T: float | Vec2 | Vec3](key: TweenId; to: T)">requestInstantTween[T: float | Vec2 | Vec3](key: TweenId; to: T)</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">requestTween
@@ -408,6 +418,20 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
+<div id="endTween,TweenId">
+<dt><pre><span class="Keyword">proc</span> <a href="#endTween%2CTweenId"><span class="Identifier">endTween</span></a><span class="Other">(</span><span class="Identifier">key</span><span class="Other">:</span> <a href="tween.html#TweenId"><span class="Identifier">TweenId</span></a><span class="Other">)</span> {.<span class="Identifier">inline</span><span class="Other">,</span>
+                              <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">NickelError</span><span class="Other">,</span> <span class="Identifier">KeyError</span><span class="Other">,</span> <span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span>
+                              <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Instantly finishes the tween
+&nbsp;&nbsp;<a
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/tween.nim#L272"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/tween.nim#L272" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
 <div id="getTweenNumber,TweenId">
 <dt><pre><span class="Keyword">proc</span> <a href="#getTweenNumber%2CTweenId"><span class="Identifier">getTweenNumber</span></a><span class="Other">(</span><span class="Identifier">key</span><span class="Other">:</span> <a href="tween.html#TweenId"><span class="Identifier">TweenId</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">float</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">NickelError</span><span class="Other">,</span> <span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span>
     <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
@@ -470,6 +494,18 @@ class="link-seesrc" target="_blank">Source</a>
 href="https://github.com/silent-observer/nickel/tree/master/src/nickel/tween.nim#L172"
 class="link-seesrc" target="_blank">Source</a>
 &nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/tween.nim#L172" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="requestInstantTween,TweenId,T">
+<dt><pre><span class="Keyword">proc</span> <a href="#requestInstantTween%2CTweenId%2CT"><span class="Identifier">requestInstantTween</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Operator">|</span> <span class="Identifier">Vec2</span> <span class="Operator">|</span> <span class="Identifier">Vec3</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">key</span><span class="Other">:</span> <a href="tween.html#TweenId"><span class="Identifier">TweenId</span></a><span class="Other">;</span> <span class="Identifier">to</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span> {.<span class="Identifier">inline</span>.}</pre></dt>
+<dd>
+
+Instantly sets the value of the tween
+&nbsp;&nbsp;<a
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/tween.nim#L250"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/tween.nim#L250" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -588,7 +624,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-24 09:17:29 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-25 16:26:33 UTC</small>
       </div>
     </div>
   </div>

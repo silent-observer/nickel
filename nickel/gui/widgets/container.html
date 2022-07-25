@@ -119,6 +119,12 @@ window.addEventListener('DOMContentLoaded', main);
                 width: int = LengthUndefined; height: int = LengthUndefined): GuiElement">newGuiContainer(child: sink GuiElement; padding: DirValues = ZeroDirValues;
                 vAlign: VAlign = VTop; hAlign: HAlign = HLeft;
                 width: int = LengthUndefined; height: int = LengthUndefined): GuiElement</a></li>
+  <li><a class="reference" href="#newGuiContainer%2CDirValues%2CVAlign%2CHAlign%2Cint%2Cint"
+    title="newGuiContainer(padding: DirValues = ZeroDirValues; vAlign: VAlign = VTop;
+                hAlign: HAlign = HLeft; width: int = LengthUndefined;
+                height: int = LengthUndefined): GuiElement">newGuiContainer(padding: DirValues = ZeroDirValues; vAlign: VAlign = VTop;
+                hAlign: HAlign = HLeft; width: int = LengthUndefined;
+                height: int = LengthUndefined): GuiElement</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">newGuiPanel
@@ -130,6 +136,12 @@ window.addEventListener('DOMContentLoaded', main);
             padding: DirValues = ZeroDirValues; vAlign: VAlign = VTop;
             hAlign: HAlign = HLeft; width: int = LengthUndefined;
             height: int = LengthUndefined): GuiElement</a></li>
+  <li><a class="reference" href="#newGuiPanel%2CSlice9Id%2CDirValues%2CVAlign%2CHAlign%2Cint%2Cint"
+    title="newGuiPanel(slice9: Slice9Id; padding: DirValues = ZeroDirValues;
+            vAlign: VAlign = VTop; hAlign: HAlign = HLeft;
+            width: int = LengthUndefined; height: int = LengthUndefined): GuiElement">newGuiPanel(slice9: Slice9Id; padding: DirValues = ZeroDirValues;
+            vAlign: VAlign = VTop; hAlign: HAlign = HLeft;
+            width: int = LengthUndefined; height: int = LengthUndefined): GuiElement</a></li>
 
   </ul>
 
@@ -163,9 +175,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Layouts a container or a panel
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/container.nim#L28"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/container.nim#L45"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/container.nim#L28" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/container.nim#L45" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -173,14 +185,29 @@ class="link-seesrc" target="_blank">Source</a>
 <dt><pre><span class="Keyword">proc</span> <a href="#newGuiContainer%2CsinkGuiElement%2CDirValues%2CVAlign%2CHAlign%2Cint%2Cint"><span class="Identifier">newGuiContainer</span></a><span class="Other">(</span><span class="Identifier">child</span><span class="Other">:</span> <span class="Identifier">sink</span> <a href="../ecs.html#GuiElement"><span class="Identifier">GuiElement</span></a><span class="Other">;</span> <span class="Identifier">padding</span><span class="Other">:</span> <a href="../ecs.html#DirValues"><span class="Identifier">DirValues</span></a> <span class="Other">=</span> <span class="Identifier">ZeroDirValues</span><span class="Other">;</span>
                      <span class="Identifier">vAlign</span><span class="Other">:</span> <a href="../ecs.html#VAlign"><span class="Identifier">VAlign</span></a> <span class="Other">=</span> <span class="Identifier">VTop</span><span class="Other">;</span> <span class="Identifier">hAlign</span><span class="Other">:</span> <a href="../ecs.html#HAlign"><span class="Identifier">HAlign</span></a> <span class="Other">=</span> <span class="Identifier">HLeft</span><span class="Other">;</span>
                      <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">;</span> <span class="Identifier">height</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">)</span><span class="Other">:</span> <a href="../ecs.html#GuiElement"><span class="Identifier">GuiElement</span></a> {.
+    <span class="Identifier">inline</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Creates a new container element
+&nbsp;&nbsp;<a
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/container.nim#L21"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/container.nim#L21" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="newGuiContainer,DirValues,VAlign,HAlign,int,int">
+<dt><pre><span class="Keyword">proc</span> <a href="#newGuiContainer%2CDirValues%2CVAlign%2CHAlign%2Cint%2Cint"><span class="Identifier">newGuiContainer</span></a><span class="Other">(</span><span class="Identifier">padding</span><span class="Other">:</span> <a href="../ecs.html#DirValues"><span class="Identifier">DirValues</span></a> <span class="Other">=</span> <span class="Identifier">ZeroDirValues</span><span class="Other">;</span> <span class="Identifier">vAlign</span><span class="Other">:</span> <a href="../ecs.html#VAlign"><span class="Identifier">VAlign</span></a> <span class="Other">=</span> <span class="Identifier">VTop</span><span class="Other">;</span>
+                     <span class="Identifier">hAlign</span><span class="Other">:</span> <a href="../ecs.html#HAlign"><span class="Identifier">HAlign</span></a> <span class="Other">=</span> <span class="Identifier">HLeft</span><span class="Other">;</span> <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">;</span>
+                     <span class="Identifier">height</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">)</span><span class="Other">:</span> <a href="../ecs.html#GuiElement"><span class="Identifier">GuiElement</span></a> {.<span class="Identifier">inline</span><span class="Other">,</span>
     <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 Creates a new container element
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/container.nim#L10"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/container.nim#L26"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/container.nim#L10" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/container.nim#L26" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -194,9 +221,24 @@ class="link-seesrc" target="_blank">Source</a>
 
 Creates a new panel element
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/container.nim#L21"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/container.nim#L32"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/container.nim#L21" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/container.nim#L32" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="newGuiPanel,Slice9Id,DirValues,VAlign,HAlign,int,int">
+<dt><pre><span class="Keyword">proc</span> <a href="#newGuiPanel%2CSlice9Id%2CDirValues%2CVAlign%2CHAlign%2Cint%2Cint"><span class="Identifier">newGuiPanel</span></a><span class="Other">(</span><span class="Identifier">slice9</span><span class="Other">:</span> <a href="../../resources.html#Slice9Id"><span class="Identifier">Slice9Id</span></a><span class="Other">;</span> <span class="Identifier">padding</span><span class="Other">:</span> <a href="../ecs.html#DirValues"><span class="Identifier">DirValues</span></a> <span class="Other">=</span> <span class="Identifier">ZeroDirValues</span><span class="Other">;</span>
+                 <span class="Identifier">vAlign</span><span class="Other">:</span> <a href="../ecs.html#VAlign"><span class="Identifier">VAlign</span></a> <span class="Other">=</span> <span class="Identifier">VTop</span><span class="Other">;</span> <span class="Identifier">hAlign</span><span class="Other">:</span> <a href="../ecs.html#HAlign"><span class="Identifier">HAlign</span></a> <span class="Other">=</span> <span class="Identifier">HLeft</span><span class="Other">;</span>
+                 <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">;</span> <span class="Identifier">height</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Identifier">LengthUndefined</span><span class="Other">)</span><span class="Other">:</span> <a href="../ecs.html#GuiElement"><span class="Identifier">GuiElement</span></a> {.
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Creates a new panel element
+&nbsp;&nbsp;<a
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/gui/widgets/container.nim#L38"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/gui/widgets/container.nim#L38" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -210,7 +252,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-24 09:17:30 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-25 16:26:34 UTC</small>
       </div>
     </div>
   </div>

@@ -184,6 +184,11 @@ window.addEventListener('DOMContentLoaded', main);
     title="getImageResource(key: ImageId): Image">getImageResource(key: ImageId): Image</a></li>
 
   </ul>
+  <ul class="simple nested-toc-section">getImageSize
+      <li><a class="reference" href="#getImageSize%2CImageId"
+    title="getImageSize(key: ImageId): Size">getImageSize(key: ImageId): Size</a></li>
+
+  </ul>
   <ul class="simple nested-toc-section">getResourceKind
       <li><a class="reference" href="#getResourceKind%2CResourceId"
     title="getResourceKind(key: ResourceId): ResourceKind">getResourceKind(key: ResourceId): ResourceKind</a></li>
@@ -197,6 +202,11 @@ window.addEventListener('DOMContentLoaded', main);
   <ul class="simple nested-toc-section">getSpriteSheetResource
       <li><a class="reference" href="#getSpriteSheetResource%2CSpriteSheetId"
     title="getSpriteSheetResource(key: SpriteSheetId): SpriteSheet">getSpriteSheetResource(key: SpriteSheetId): SpriteSheet</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">getSpriteSize
+      <li><a class="reference" href="#getSpriteSize%2CSpriteSheetId"
+    title="getSpriteSize(key: SpriteSheetId): Size">getSpriteSize(key: SpriteSheetId): Size</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">loadPackage
@@ -497,9 +507,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get an audio sample resource
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L365"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L371"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L365" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L371" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -510,9 +520,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get an audio stream resource
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L368"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L374"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L368" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L374" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -523,9 +533,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get a font resource
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L356"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L359"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L356" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L359" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -542,6 +552,18 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
+<div id="getImageSize,ImageId">
+<dt><pre><span class="Keyword">proc</span> <a href="#getImageSize%2CImageId"><span class="Identifier">getImageSize</span></a><span class="Other">(</span><span class="Identifier">key</span><span class="Other">:</span> <a href="resources.html#ImageId"><span class="Identifier">ImageId</span></a><span class="Other">)</span><span class="Other">:</span> <a href="utils.html#Size"><span class="Identifier">Size</span></a> {.<span class="Identifier">inline</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Get an image resource's size
+&nbsp;&nbsp;<a
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L356"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L356" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
 <div id="getResourceKind,ResourceId">
 <dt><pre><span class="Keyword">proc</span> <a href="#getResourceKind%2CResourceId"><span class="Identifier">getResourceKind</span></a><span class="Other">(</span><span class="Identifier">key</span><span class="Other">:</span> <a href="resources.html#ResourceId"><span class="Identifier">ResourceId</span></a><span class="Other">)</span><span class="Other">:</span> <a href="resources.html#ResourceKind"><span class="Identifier">ResourceKind</span></a> {.<span class="Identifier">inline</span><span class="Other">,</span>
     <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
@@ -549,9 +571,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get resource kind
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L371"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L377"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L371" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L377" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -562,9 +584,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get a slice-9 resource
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L362"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L368"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L362" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L368" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -575,9 +597,22 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get a spritesheet resource
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L359"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L362"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L359" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L362" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="getSpriteSize,SpriteSheetId">
+<dt><pre><span class="Keyword">proc</span> <a href="#getSpriteSize%2CSpriteSheetId"><span class="Identifier">getSpriteSize</span></a><span class="Other">(</span><span class="Identifier">key</span><span class="Other">:</span> <a href="resources.html#SpriteSheetId"><span class="Identifier">SpriteSheetId</span></a><span class="Other">)</span><span class="Other">:</span> <a href="utils.html#Size"><span class="Identifier">Size</span></a> {.<span class="Identifier">inline</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Get an image resource's size
+&nbsp;&nbsp;<a
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L365"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L365" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -658,7 +693,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-24 09:17:29 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-25 16:26:33 UTC</small>
       </div>
     </div>
   </div>

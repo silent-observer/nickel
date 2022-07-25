@@ -1,1 +1,2 @@
 layout	nickel/gui.html#layout,GuiElement,Constraint	gui: layout(gui: GuiElement; c: Constraint): GuiPrimitive	
+addTotallyClickTransparent	nickel/gui.html#addTotallyClickTransparent,sinkGuiElement	gui: addTotallyClickTransparent(gui: sink GuiElement): GuiElement	
