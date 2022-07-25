@@ -246,3 +246,36 @@ proc requestTweenWithSpeed*[T: float|Vec2|Vec3](key: TweenId, to: T, speed: floa
     let d = dist(current, to)
   let dur = initDuration(nanoseconds=int(d/speed * 1e9))
   requestTween(key, to, dur, easing, easingEnds, callback)
+
+proc requestInstantTween*[T: float|Vec2|Vec3](key: TweenId, to: T) {.inline.} =
+  ## Instantly sets the value of the tween
+  checkKey(key)
+  when T is float:
+    let kind = TweenableValueKind.Number
+    let v = TweenableValue(kind: Number, number: to)
+  elif T is Vec2:
+    let kind = TweenableValueKind.Vector2D
+    let v = TweenableValue(kind: Vector2D, vector2: to)
+  elif T is Vec3:
+    let kind = TweenableValueKind.Vector3D
+    let v = TweenableValue(kind: Vector3D, vector3: to)
+  if tweenRegistry[key].current.kind != kind:
+    raise newException(NickelError, "Tweenable type doesn't match!")
+  tweenRegistry[key].current = v
+  if tweenRegistry[key].tween.isSome:
+    let r = tweenRegistry[key].tween.unsafeGet
+    if r.callback != nil:
+      r.callback()
+  tweenRegistry[key].tween = none(TweenRequest)
+  tweenRegistry[key].duration = DurationZero
+
+proc endTween*(key: TweenId) {.inline.} =
+  ## Instantly finishes the tween
+  checkKey(key)
+  if tweenRegistry[key].tween.isNone: return
+  let r = tweenRegistry[key].tween.unsafeGet()
+  tweenRegistry[key].current = r.to
+  tweenRegistry[key].tween = none(TweenRequest)
+  tweenRegistry[key].duration = DurationZero
+  if r.callback != nil:
+    r.callback()
