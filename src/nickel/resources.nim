@@ -75,6 +75,8 @@ type
   Slice9Id* = ResourceId
   AudioSampleId* = ResourceId
   AudioStreamId* = ResourceId
+  TextFileId* = ResourceId
+  BinaryFileId* = ResourceId
 
   SpriteSheet* = object
     ## Sprite sheet data
@@ -110,7 +112,9 @@ type
     Slice9,
     Font,
     AudioSample,
-    AudioStream
+    AudioStream,
+    TextFile,
+    BinaryFile
   Resource = object
     case kind: ResourceKind:
     of ResourceKind.Image: image: Image
@@ -119,10 +123,13 @@ type
     of ResourceKind.Font: font: Typeface
     of ResourceKind.AudioSample: audiosample: AudioSample
     of ResourceKind.AudioStream: audiostream: AudioStream
+    of ResourceKind.TextFile: text: string
+    of ResourceKind.BinaryFile: binary: seq[byte]
   ResourceSpec = object
     case kind: ResourceKind:
     of ResourceKind.Image, ResourceKind.Font,
-       ResourceKind.AudioSample, ResourceKind.AudioStream: 
+       ResourceKind.AudioSample, ResourceKind.AudioStream,
+       ResourceKind.TextFile, ResourceKind.BinaryFile:
         path: string
     of ResourceKind.SpriteSheet: 
       spritesheet: SpriteSheetSpec
@@ -142,6 +149,8 @@ when defined(nimsuggest):
       slice9s*: Table[Slice9Id, Slice9Spec]
       audioSamples*: Table[AudioSampleId, string]
       audioStreams*: Table[AudioStreamId, string]
+      textFiles*: Table[TextFileId, string]
+      binaryFiles*: Table[BinaryFileId, string]
       packages*: Table[ResourceId, seq[string]]
 else:
   type
@@ -162,6 +171,10 @@ else:
       audioSamples* {.defaultVal: initTable[AudioSampleId, string]().}: Table[AudioSampleId, string]
       ## Names and paths to the audio samples (from the resource directory)
       audioStreams* {.defaultVal: initTable[AudioStreamId, string]().}: Table[AudioStreamId, string]
+      ## Names and paths to the text resource files (from the resource directory)
+      textFiles* {.defaultVal: initTable[TextFileId, string]().}: Table[TextFileId, string]
+      ## Names and paths to the binary resource files (from the resource directory)
+      binaryFiles* {.defaultVal: initTable[BinaryFileId, string]().}: Table[BinaryFileId, string]
       ## Names and contents of resource packages (to be loaded at once)
       packages* {.defaultVal: initTable[ResourceId, seq[string]]().}: Table[ResourceId, seq[string]]
 
@@ -279,6 +292,20 @@ proc loadAudioStream(key: AudioStreamId, path: string) {.inline.} =
     audioStream: AudioStream(wav: wav)
   )
 
+proc loadTextFile(key: TextFileId, path: string) {.inline.} =
+  let text = readFile(path)
+  resourceStorage[key] = Resource(
+    kind: ResourceKind.TextFile,
+    text: text
+  )
+proc loadBinaryFile(key: TextFileId, path: string) {.inline.} =
+  let text = readFile(path)
+  let data = @(text.toOpenArrayByte(0, text.high))
+  resourceStorage[key] = Resource(
+    kind: ResourceKind.BinaryFile,
+    binary: data
+  )
+
 proc loadResource*(boxy: Boxy, key: ResourceId) =
   ## Loads the resource
   if key notin currentlyLoadedResources:
@@ -296,6 +323,10 @@ proc loadResource*(boxy: Boxy, key: ResourceId) =
       loadAudioSample(key, resourceCfg.resourceDir / spec.path)
     of ResourceKind.AudioStream:
       loadAudioStream(key, resourceCfg.resourceDir / spec.path)
+    of ResourceKind.TextFile:
+      loadTextFile(key, resourceCfg.resourceDir / spec.path)
+    of ResourceKind.BinaryFile:
+      loadBinaryFile(key, resourceCfg.resourceDir / spec.path)
     currentlyLoadedResources.incl key
 
 proc unloadResource*(boxy: Boxy, key: ResourceId) =
@@ -336,23 +367,22 @@ proc registerResources*(cfg: ResourceConfig) =
   resourceCfg = cfg
   resourcePackages["all"] = initHashSet[ResourceId]()
 
-  for key, path in cfg.images:
-    resourceRegistry[key] = ResourceSpec(kind: ResourceKind.Image, path: path)
-    resourcePackages["all"].incl key
-  for key, path in cfg.fonts:
-    resourceRegistry[key] = ResourceSpec(kind: ResourceKind.Font, path: path)
-    resourcePackages["all"].incl key
+  template registerWithPath(field, kindData: untyped): untyped =
+    for key, path in cfg.field:
+      resourceRegistry[key] = ResourceSpec(kind: ResourceKind.kindData, path: path)
+      resourcePackages["all"].incl key
+
+  registerWithPath(images, Image)
+  registerWithPath(fonts, Font)
+  registerWithPath(audioSamples, AudioSample)
+  registerWithPath(audioStreams, AudioStream)
+  registerWithPath(textFiles, TextFile)
+  registerWithPath(binaryFiles, BinaryFile)
   for key, spec in cfg.spriteSheets:
     resourceRegistry[key] = ResourceSpec(kind: ResourceKind.SpriteSheet, spriteSheet: spec)
     resourcePackages["all"].incl key
   for key, spec in cfg.slice9s:
     resourceRegistry[key] = ResourceSpec(kind: ResourceKind.Slice9, slice9: spec)
-    resourcePackages["all"].incl key
-  for key, path in cfg.audioSamples:
-    resourceRegistry[key] = ResourceSpec(kind: ResourceKind.AudioSample, path: path)
-    resourcePackages["all"].incl key
-  for key, path in cfg.audioStreams:
-    resourceRegistry[key] = ResourceSpec(kind: ResourceKind.AudioStream, path: path)
     resourcePackages["all"].incl key
   for key in cfg.packages.keys:
     cfg.registerPackage(key)
@@ -389,6 +419,15 @@ proc getAudioSampleResource*(key: AudioSampleId): ptr Wav {.inline.} =
 proc getAudioStreamResource*(key: AudioStreamId): ptr WavStream {.inline.} =
   ## Get an audio stream resource
   resourceStorage[key].audioStream.wav
+proc getTextResource*(key: TextFileId): string {.inline.} =
+  ## Get a text resource
+  resourceStorage[key].text
+proc getTextResourceAsYaml*[T](key: TextFileId): T {.inline.} =
+  ## Get a text resource and parse it as YAML to load an arbitrary type
+  load(resourceStorage[key].text, result)
+proc getBinaryResource*(key: BinaryFileId): seq[byte] {.inline.} =
+  ## Get a binary resource
+  resourceStorage[key].binary
 proc getResourceKind*(key: ResourceId): ResourceKind {.inline.} =
   ## Get resource kind
   resourceStorage[key].kind
