@@ -4,7 +4,8 @@
 ## the gap size between consecutive elements.
 
 import ".."/[ecs, helpers, primitives]
-import ".."/".."/gui
+when not defined(nimsuggest):
+  import ".."/".."/gui
 import ".."/".."/utils
 
 proc newGuiLinearLayout*(orientation: Orientation = Vertical, gap: int = LengthUndefined,

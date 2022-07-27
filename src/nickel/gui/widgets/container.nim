@@ -4,7 +4,8 @@
 ## Panel also has a visible slice-9 undernearth the child.
 
 import ".."/[ecs, helpers, primitives]
-import ".."/".."/gui
+when not defined(nimsuggest):
+  import ".."/".."/gui
 import ".."/".."/[utils, resources]
 
 proc newGuiContainer(children: sink seq[GuiElement], padding: DirValues = ZeroDirValues, 

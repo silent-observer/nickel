@@ -1,5 +1,6 @@
 import ".."/[ecs, helpers, primitives]
-import ".."/".."/gui
+when not defined(nimsuggest):
+  import ".."/".."/gui
 import options
 import vmath
 from windy import Button

@@ -130,25 +130,40 @@ type
       slice9: Slice9Spec
   ResourcePackage = HashSet[ResourceId]
 
-  ResourceConfig* = object
-    ## Resource config, which is read from YAML resource file.
-    resourceDir*: string ## Path to the resource directory
-    defaultScaleUp* {.defaultVal: 1.}: int ## Default scale up factor
-    
-    images* {.defaultVal: initTable[ImageId, string]().}: Table[ImageId, string]
-    ## Names and paths to the images (from the resource directory)
-    fonts* {.defaultVal: initTable[FontId, string]().}: Table[FontId, string]
-    ## Names and paths to the fonts (from the resource directory)
-    spriteSheets* {.defaultVal: initTable[SpriteSheetId, SpriteSheetSpec]().}: 
-      Table[SpriteSheetId, SpriteSheetSpec]
-    ## Names and specifications for the spritesheets
-    slice9s* {.defaultVal: initTable[Slice9Id, Slice9Spec]().}: Table[Slice9Id, Slice9Spec]
-    ## Names and specifications for the slice-9s
-    audioSamples* {.defaultVal: initTable[AudioSampleId, string]().}: Table[AudioSampleId, string]
-    ## Names and paths to the audio samples (from the resource directory)
-    audioStreams* {.defaultVal: initTable[AudioStreamId, string]().}: Table[AudioStreamId, string]
-    ## Names and contents of resource packages (to be loaded at once)
-    packages* {.defaultVal: initTable[ResourceId, seq[string]]().}: Table[ResourceId, seq[string]]
+when defined(nimsuggest):
+  type
+    ResourceConfig* = object
+      resourceDir*: string
+      defaultScaleUp*: int
+      
+      images*: Table[ImageId, string]
+      fonts*: Table[FontId, string]
+      spriteSheets*: Table[SpriteSheetId, SpriteSheetSpec]
+      slice9s*: Table[Slice9Id, Slice9Spec]
+      audioSamples*: Table[AudioSampleId, string]
+      audioStreams*: Table[AudioStreamId, string]
+      packages*: Table[ResourceId, seq[string]]
+else:
+  type
+    ResourceConfig* = object
+      ## Resource config, which is read from YAML resource file.
+      resourceDir*: string ## Path to the resource directory
+      defaultScaleUp* {.defaultVal: 1.}: int ## Default scale up factor
+      
+      images* {.defaultVal: initTable[ImageId, string]().}: Table[ImageId, string]
+      ## Names and paths to the images (from the resource directory)
+      fonts* {.defaultVal: initTable[FontId, string]().}: Table[FontId, string]
+      ## Names and paths to the fonts (from the resource directory)
+      spriteSheets* {.defaultVal: initTable[SpriteSheetId, SpriteSheetSpec]().}: 
+        Table[SpriteSheetId, SpriteSheetSpec]
+      ## Names and specifications for the spritesheets
+      slice9s* {.defaultVal: initTable[Slice9Id, Slice9Spec]().}: Table[Slice9Id, Slice9Spec]
+      ## Names and specifications for the slice-9s
+      audioSamples* {.defaultVal: initTable[AudioSampleId, string]().}: Table[AudioSampleId, string]
+      ## Names and paths to the audio samples (from the resource directory)
+      audioStreams* {.defaultVal: initTable[AudioStreamId, string]().}: Table[AudioStreamId, string]
+      ## Names and contents of resource packages (to be loaded at once)
+      packages* {.defaultVal: initTable[ResourceId, seq[string]]().}: Table[ResourceId, seq[string]]
 
 proc `=destroy`(s: var AudioSample) =
   Wav_destroy(s.wav)

@@ -1,5 +1,7 @@
 import ".."/[ecs, helpers, primitives]
-import ".."/".."/[utils, resources, gui]
+import ".."/".."/[utils, resources]
+when not defined(nimsuggest):
+  import ".."/".."/gui
 import slider
 from math import round
 
