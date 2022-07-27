@@ -5,6 +5,8 @@ SpriteSheetId	nickel/resources.html#SpriteSheetId	resources: SpriteSheetId
 Slice9Id	nickel/resources.html#Slice9Id	resources: Slice9Id	
 AudioSampleId	nickel/resources.html#AudioSampleId	resources: AudioSampleId	
 AudioStreamId	nickel/resources.html#AudioStreamId	resources: AudioStreamId	
+TextFileId	nickel/resources.html#TextFileId	resources: TextFileId	
+BinaryFileId	nickel/resources.html#BinaryFileId	resources: BinaryFileId	
 SpriteSheet	nickel/resources.html#SpriteSheet	resources: SpriteSheet	
 SpriteSheetSpec	nickel/resources.html#SpriteSheetSpec	resources: SpriteSheetSpec	
 Slice9	nickel/resources.html#Slice9	resources: Slice9	
@@ -24,5 +26,8 @@ getSpriteSize	nickel/resources.html#getSpriteSize,SpriteSheetId	resources: getSp
 getSlice9Resource	nickel/resources.html#getSlice9Resource,Slice9Id	resources: getSlice9Resource(key: Slice9Id): Slice9	
 getAudioSampleResource	nickel/resources.html#getAudioSampleResource,AudioSampleId	resources: getAudioSampleResource(key: AudioSampleId): ptr Wav	
 getAudioStreamResource	nickel/resources.html#getAudioStreamResource,AudioStreamId	resources: getAudioStreamResource(key: AudioStreamId): ptr WavStream	
+getTextResource	nickel/resources.html#getTextResource,TextFileId	resources: getTextResource(key: TextFileId): string	
+getTextResourceAsYaml	nickel/resources.html#getTextResourceAsYaml,TextFileId	resources: getTextResourceAsYaml[T](key: TextFileId): T	
+getBinaryResource	nickel/resources.html#getBinaryResource,BinaryFileId	resources: getBinaryResource(key: BinaryFileId): seq[byte]	
 getResourceKind	nickel/resources.html#getResourceKind,ResourceId	resources: getResourceKind(key: ResourceId): ResourceKind	
 Resource file	nickel/resources.html#resource-file	 Resource file	

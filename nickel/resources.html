@@ -112,6 +112,8 @@ window.addEventListener('DOMContentLoaded', main);
     title="AudioSampleId = ResourceId">AudioSampleId</a></li>
   <li><a class="reference" href="#AudioStreamId"
     title="AudioStreamId = ResourceId">AudioStreamId</a></li>
+  <li><a class="reference" href="#BinaryFileId"
+    title="BinaryFileId = ResourceId">BinaryFileId</a></li>
   <li><a class="reference" href="#FontId"
     title="FontId = ResourceId">FontId</a></li>
   <li><a class="reference" href="#ImageId"
@@ -126,13 +128,16 @@ window.addEventListener('DOMContentLoaded', main);
       SpriteSheetSpec]       ## Names and specifications for the spritesheets
   slice9s* {.defaultVal: initTable(32).}: Table[Slice9Id, Slice9Spec] ## Names and specifications for the slice-9s
   audioSamples* {.defaultVal: initTable(32).}: Table[AudioSampleId, string] ## Names and paths to the audio samples (from the resource directory)
-  audioStreams* {.defaultVal: initTable(32).}: Table[AudioStreamId, string] ## Names and contents of resource packages (to be loaded at once)
+  audioStreams* {.defaultVal: initTable(32).}: Table[AudioStreamId, string] ## Names and paths to the text resource files (from the resource directory)
+  textFiles* {.defaultVal: initTable(32).}: Table[TextFileId, string] ## Names and paths to the binary resource files (from the resource directory)
+  binaryFiles* {.defaultVal: initTable(32).}: Table[BinaryFileId, string] ## Names and contents of resource packages (to be loaded at once)
   packages* {.defaultVal: initTable(32).}: Table[ResourceId, seq[string]]">ResourceConfig</a></li>
   <li><a class="reference" href="#ResourceId"
     title="ResourceId = string">ResourceId</a></li>
   <li><a class="reference" href="#ResourceKind"
     title="ResourceKind {.pure.} = enum
-  Image, SpriteSheet, Slice9, Font, AudioSample, AudioStream">ResourceKind</a></li>
+  Image, SpriteSheet, Slice9, Font, AudioSample, AudioStream, TextFile,
+  BinaryFile">ResourceKind</a></li>
   <li><a class="reference" href="#Slice9"
     title="Slice9 = object
   image*: Image
@@ -158,6 +163,8 @@ window.addEventListener('DOMContentLoaded', main);
   tileX*, tileY*: int        ## Size of an individual sprite
   count*: int                ## Number of sprites in the spritesheet
   scaleUp* {.defaultVal: 0.}: int ## Optional scale up factor for the pixel art">SpriteSheetSpec</a></li>
+  <li><a class="reference" href="#TextFileId"
+    title="TextFileId = ResourceId">TextFileId</a></li>
 
   </ul>
 </li>
@@ -172,6 +179,11 @@ window.addEventListener('DOMContentLoaded', main);
   <ul class="simple nested-toc-section">getAudioStreamResource
       <li><a class="reference" href="#getAudioStreamResource%2CAudioStreamId"
     title="getAudioStreamResource(key: AudioStreamId): ptr WavStream">getAudioStreamResource(key: AudioStreamId): ptr WavStream</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">getBinaryResource
+      <li><a class="reference" href="#getBinaryResource%2CBinaryFileId"
+    title="getBinaryResource(key: BinaryFileId): seq[byte]">getBinaryResource(key: BinaryFileId): seq[byte]</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">getFontResource
@@ -207,6 +219,16 @@ window.addEventListener('DOMContentLoaded', main);
   <ul class="simple nested-toc-section">getSpriteSize
       <li><a class="reference" href="#getSpriteSize%2CSpriteSheetId"
     title="getSpriteSize(key: SpriteSheetId): Size">getSpriteSize(key: SpriteSheetId): Size</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">getTextResource
+      <li><a class="reference" href="#getTextResource%2CTextFileId"
+    title="getTextResource(key: TextFileId): string">getTextResource(key: TextFileId): string</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">getTextResourceAsYaml
+      <li><a class="reference" href="#getTextResourceAsYaml%2CTextFileId"
+    title="getTextResourceAsYaml[T](key: TextFileId): T">getTextResourceAsYaml[T](key: TextFileId): T</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">loadPackage
@@ -334,6 +356,18 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
+<div id="BinaryFileId">
+<dt><pre><a href="resources.html#BinaryFileId"><span class="Identifier">BinaryFileId</span></a> <span class="Other">=</span> <a href="resources.html#ResourceId"><span class="Identifier">ResourceId</span></a></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L79"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L79" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
 <div id="FontId">
 <dt><pre><a href="resources.html#FontId"><span class="Identifier">FontId</span></a> <span class="Other">=</span> <a href="resources.html#ResourceId"><span class="Identifier">ResourceId</span></a></pre></dt>
 <dd>
@@ -368,16 +402,18 @@ class="link-seesrc" target="_blank">Source</a>
       <a href="resources.html#SpriteSheetSpec"><span class="Identifier">SpriteSheetSpec</span></a><span class="Other">]</span>       <span class="Comment">## Names and specifications for the spritesheets</span>
   <span class="Identifier">slice9s</span><span class="Operator">*</span> {.<span class="Identifier">defaultVal</span><span class="Other">:</span> <span class="Identifier">initTable</span><span class="Other">(</span><span class="DecNumber">32</span><span class="Other">)</span>.}<span class="Other">:</span> <span class="Identifier">Table</span><span class="Other">[</span><a href="resources.html#Slice9Id"><span class="Identifier">Slice9Id</span></a><span class="Other">,</span> <a href="resources.html#Slice9Spec"><span class="Identifier">Slice9Spec</span></a><span class="Other">]</span> <span class="Comment">## Names and specifications for the slice-9s</span>
   <span class="Identifier">audioSamples</span><span class="Operator">*</span> {.<span class="Identifier">defaultVal</span><span class="Other">:</span> <span class="Identifier">initTable</span><span class="Other">(</span><span class="DecNumber">32</span><span class="Other">)</span>.}<span class="Other">:</span> <span class="Identifier">Table</span><span class="Other">[</span><a href="resources.html#AudioSampleId"><span class="Identifier">AudioSampleId</span></a><span class="Other">,</span> <span class="Identifier">string</span><span class="Other">]</span> <span class="Comment">## Names and paths to the audio samples (from the resource directory)</span>
-  <span class="Identifier">audioStreams</span><span class="Operator">*</span> {.<span class="Identifier">defaultVal</span><span class="Other">:</span> <span class="Identifier">initTable</span><span class="Other">(</span><span class="DecNumber">32</span><span class="Other">)</span>.}<span class="Other">:</span> <span class="Identifier">Table</span><span class="Other">[</span><a href="resources.html#AudioStreamId"><span class="Identifier">AudioStreamId</span></a><span class="Other">,</span> <span class="Identifier">string</span><span class="Other">]</span> <span class="Comment">## Names and contents of resource packages (to be loaded at once)</span>
+  <span class="Identifier">audioStreams</span><span class="Operator">*</span> {.<span class="Identifier">defaultVal</span><span class="Other">:</span> <span class="Identifier">initTable</span><span class="Other">(</span><span class="DecNumber">32</span><span class="Other">)</span>.}<span class="Other">:</span> <span class="Identifier">Table</span><span class="Other">[</span><a href="resources.html#AudioStreamId"><span class="Identifier">AudioStreamId</span></a><span class="Other">,</span> <span class="Identifier">string</span><span class="Other">]</span> <span class="Comment">## Names and paths to the text resource files (from the resource directory)</span>
+  <span class="Identifier">textFiles</span><span class="Operator">*</span> {.<span class="Identifier">defaultVal</span><span class="Other">:</span> <span class="Identifier">initTable</span><span class="Other">(</span><span class="DecNumber">32</span><span class="Other">)</span>.}<span class="Other">:</span> <span class="Identifier">Table</span><span class="Other">[</span><a href="resources.html#TextFileId"><span class="Identifier">TextFileId</span></a><span class="Other">,</span> <span class="Identifier">string</span><span class="Other">]</span> <span class="Comment">## Names and paths to the binary resource files (from the resource directory)</span>
+  <span class="Identifier">binaryFiles</span><span class="Operator">*</span> {.<span class="Identifier">defaultVal</span><span class="Other">:</span> <span class="Identifier">initTable</span><span class="Other">(</span><span class="DecNumber">32</span><span class="Other">)</span>.}<span class="Other">:</span> <span class="Identifier">Table</span><span class="Other">[</span><a href="resources.html#BinaryFileId"><span class="Identifier">BinaryFileId</span></a><span class="Other">,</span> <span class="Identifier">string</span><span class="Other">]</span> <span class="Comment">## Names and contents of resource packages (to be loaded at once)</span>
   <span class="Identifier">packages</span><span class="Operator">*</span> {.<span class="Identifier">defaultVal</span><span class="Other">:</span> <span class="Identifier">initTable</span><span class="Other">(</span><span class="DecNumber">32</span><span class="Other">)</span>.}<span class="Other">:</span> <span class="Identifier">Table</span><span class="Other">[</span><a href="resources.html#ResourceId"><span class="Identifier">ResourceId</span></a><span class="Other">,</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span><span class="Other">]</span>
 </pre></dt>
 <dd>
 
 Resource config, which is read from YAML resource file.
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L133"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L157"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L133" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L157" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -395,14 +431,15 @@ class="link-seesrc" target="_blank">Source</a>
 </div>
 <div id="ResourceKind">
 <dt><pre><a href="resources.html#ResourceKind"><span class="Identifier">ResourceKind</span></a> {.<span class="Identifier">pure</span>.} <span class="Other">=</span> <span class="Keyword">enum</span>
-  <span class="Identifier">Image</span><span class="Other">,</span> <span class="Identifier">SpriteSheet</span><span class="Other">,</span> <span class="Identifier">Slice9</span><span class="Other">,</span> <span class="Identifier">Font</span><span class="Other">,</span> <span class="Identifier">AudioSample</span><span class="Other">,</span> <span class="Identifier">AudioStream</span></pre></dt>
+  <span class="Identifier">Image</span><span class="Other">,</span> <span class="Identifier">SpriteSheet</span><span class="Other">,</span> <span class="Identifier">Slice9</span><span class="Other">,</span> <span class="Identifier">Font</span><span class="Other">,</span> <span class="Identifier">AudioSample</span><span class="Other">,</span> <span class="Identifier">AudioStream</span><span class="Other">,</span> <span class="Identifier">TextFile</span><span class="Other">,</span>
+  <span class="Identifier">BinaryFile</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L107"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L109"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L107" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L109" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -415,9 +452,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 <a class="reference external" href="https://en.wikipedia.org/wiki/9-slice_scaling">Slice-9</a> data
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L92"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L94"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L92" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L94" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -443,9 +480,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Specification for the slice-9
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L96"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L98"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L96" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L98" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -460,9 +497,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Sprite sheet data
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L79"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L81"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L79" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L81" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -489,9 +526,21 @@ class="link-seesrc" target="_blank">Source</a>
 
 Specification for the sprite sheet
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L85"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L87"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L85" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L87" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="TextFileId">
+<dt><pre><a href="resources.html#TextFileId"><span class="Identifier">TextFileId</span></a> <span class="Other">=</span> <a href="resources.html#ResourceId"><span class="Identifier">ResourceId</span></a></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L78"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L78" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -507,9 +556,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get an audio sample resource
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L371"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L416"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L371" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L416" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -520,9 +569,22 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get an audio stream resource
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L374"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L419"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L374" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L419" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="getBinaryResource,BinaryFileId">
+<dt><pre><span class="Keyword">proc</span> <a href="#getBinaryResource%2CBinaryFileId"><span class="Identifier">getBinaryResource</span></a><span class="Other">(</span><span class="Identifier">key</span><span class="Other">:</span> <a href="resources.html#BinaryFileId"><span class="Identifier">BinaryFileId</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">byte</span><span class="Other">]</span> {.<span class="Identifier">inline</span><span class="Other">,</span>
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Get a binary resource
+&nbsp;&nbsp;<a
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L428"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L428" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -533,9 +595,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get a font resource
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L359"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L404"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L359" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L404" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -546,9 +608,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get an image resource
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L353"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L398"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L353" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L398" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -558,9 +620,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get an image resource's size
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L356"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L401"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L356" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L401" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -571,9 +633,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get resource kind
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L377"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L431"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L377" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L431" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -584,9 +646,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get a slice-9 resource
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L368"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L413"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L368" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L413" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -597,9 +659,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get a spritesheet resource
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L362"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L407"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L362" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L407" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -610,37 +672,62 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get an image resource's size
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L365"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L410"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L365" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L410" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="getTextResource,TextFileId">
+<dt><pre><span class="Keyword">proc</span> <a href="#getTextResource%2CTextFileId"><span class="Identifier">getTextResource</span></a><span class="Other">(</span><span class="Identifier">key</span><span class="Other">:</span> <a href="resources.html#TextFileId"><span class="Identifier">TextFileId</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span class="Identifier">inline</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Get a text resource
+&nbsp;&nbsp;<a
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L422"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L422" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="getTextResourceAsYaml,TextFileId">
+<dt><pre><span class="Keyword">proc</span> <a href="#getTextResourceAsYaml%2CTextFileId"><span class="Identifier">getTextResourceAsYaml</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">key</span><span class="Other">:</span> <a href="resources.html#TextFileId"><span class="Identifier">TextFileId</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> {.<span class="Identifier">inline</span>.}</pre></dt>
+<dd>
+
+Get a text resource and parse it as YAML to load an arbitrary type
+&nbsp;&nbsp;<a
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L425"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L425" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
 <div id="loadPackage,Boxy,ResourceId">
-<dt><pre><span class="Keyword">proc</span> <a href="#loadPackage%2CBoxy%2CResourceId"><span class="Identifier">loadPackage</span></a><span class="Other">(</span><span class="Identifier">boxy</span><span class="Other">:</span> <span class="Identifier">Boxy</span><span class="Other">;</span> <span class="Identifier">key</span><span class="Other">:</span> <a href="resources.html#ResourceId"><span class="Identifier">ResourceId</span></a><span class="Other">;</span> <span class="Identifier">removeOthers</span> <span class="Other">=</span> <span class="Identifier">true</span><span class="Other">)</span> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">,</span> <span class="Identifier">BoxyError</span><span class="Other">,</span> <span class="Identifier">PixieError</span><span class="Other">,</span> <span class="Identifier">GLerror</span><span class="Other">,</span> <span class="Identifier">Exception</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span>
+<dt><pre><span class="Keyword">proc</span> <a href="#loadPackage%2CBoxy%2CResourceId"><span class="Identifier">loadPackage</span></a><span class="Other">(</span><span class="Identifier">boxy</span><span class="Other">:</span> <span class="Identifier">Boxy</span><span class="Other">;</span> <span class="Identifier">key</span><span class="Other">:</span> <a href="resources.html#ResourceId"><span class="Identifier">ResourceId</span></a><span class="Other">;</span> <span class="Identifier">removeOthers</span> <span class="Other">=</span> <span class="Identifier">true</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span>
+    <span class="Identifier">KeyError</span><span class="Other">,</span> <span class="Identifier">BoxyError</span><span class="Other">,</span> <span class="Identifier">PixieError</span><span class="Other">,</span> <span class="Identifier">GLerror</span><span class="Other">,</span> <span class="Identifier">Exception</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span>
     <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">,</span> <span class="Identifier">ReadIOEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L310"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L356"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L310" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L356" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
 <div id="loadResource,Boxy,ResourceId">
-<dt><pre><span class="Keyword">proc</span> <a href="#loadResource%2CBoxy%2CResourceId"><span class="Identifier">loadResource</span></a><span class="Other">(</span><span class="Identifier">boxy</span><span class="Other">:</span> <span class="Identifier">Boxy</span><span class="Other">;</span> <span class="Identifier">key</span><span class="Other">:</span> <a href="resources.html#ResourceId"><span class="Identifier">ResourceId</span></a><span class="Other">)</span> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">,</span> <span class="Identifier">PixieError</span><span class="Other">,</span> <span class="Identifier">BoxyError</span><span class="Other">,</span> <span class="Identifier">GLerror</span><span class="Other">,</span> <span class="Identifier">Exception</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span>
+<dt><pre><span class="Keyword">proc</span> <a href="#loadResource%2CBoxy%2CResourceId"><span class="Identifier">loadResource</span></a><span class="Other">(</span><span class="Identifier">boxy</span><span class="Other">:</span> <span class="Identifier">Boxy</span><span class="Other">;</span> <span class="Identifier">key</span><span class="Other">:</span> <a href="resources.html#ResourceId"><span class="Identifier">ResourceId</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">,</span> <span class="Identifier">PixieError</span><span class="Other">,</span>
+    <span class="Identifier">BoxyError</span><span class="Other">,</span> <span class="Identifier">GLerror</span><span class="Other">,</span> <span class="Identifier">Exception</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span>
     <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">,</span> <span class="Identifier">ReadIOEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 Loads the resource
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L267"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L309"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L267" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L309" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -650,9 +737,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Registers all the resources specified in the config
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L319"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L365"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L319" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L365" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -664,9 +751,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Registers all the resources specified in the config, which is read from the YAML file
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L345"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L390"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L345" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L390" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -677,9 +764,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L286"
+href="https://github.com/silent-observer/nickel/tree/master/src/nickel/resources.nim#L332"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L286" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/silent-observer/nickel/edit/devel/src/nickel/resources.nim#L332" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -693,7 +780,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-25 16:26:33 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-07-27 17:55:02 UTC</small>
       </div>
     </div>
   </div>
